@@ -19,15 +19,19 @@ text1 = Label(root,bg='#2E4053', fg='white',font=('times', 11, 'bold'))
 text1.place(relx=0.06,rely=0.21,
             relwidth=0.15, relheight=0.09)
 
-text1["text"] = f'DEVS:\n' \
-                f'Madmegsox1\n' \
+text1["text"] = f'DEVS:'
+
+
+text2 = Label(root,bg='#2E4053', fg='white',font=('times', 11, 'bold'))
+text2.place(relx=0.06,rely=0.365,relwidth=0.18, relheight=0.09)
+
+text2["text"] = f'Madmegsox1\n' \
                 f'FSNCryo\n' \
                 f'Basker 12\n' \
                 f'Hiddenmaask\n' \
                 f'PointlessQuack\n' \
                 f'DraconicDroid\n' \
                 f'Squidnugi\n'
-
 
 
 start_button = Button(frame1, bg='white',font=('times', 11, 'bold'), borderwidth=4,
