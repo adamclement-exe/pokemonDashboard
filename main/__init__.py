@@ -1,4 +1,3 @@
-import numpy as np
 """
 :author Madmegsox1
 :author FSNCryo
