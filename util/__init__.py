@@ -35,6 +35,10 @@ class csv_loader:
             line_count = 0
             for row in csv_reader:
                 if line_count != 0:
+                    leg = False
+                    if row[12] == "True":
+                        leg = True
+
                     data = {
                         "id": int(row[0]),
                         "type1": row[2],
@@ -47,7 +51,7 @@ class csv_loader:
                         "spDef": int(row[9]),
                         "speed": int(row[10]),
                         "gen": int(row[11]),
-                        "legendary": bool(row[12])
+                        "legendary": leg
                     }
                     r_val[row[1]] = data
                 line_count += 1
