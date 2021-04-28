@@ -36,13 +36,7 @@ text2 = Label(root,
 text2.place(relx=0.06, rely=0.3,
             relwidth=0.18, relheight=0.3)
 
-text2["text"] = f'Madmegsox1\n' \
-                f'FSNCryo\n' \
-                f'Basker 12\n' \
-                f'Hiddenmaask\n' \
-                f'PointlessQuack\n' \
-                f'DraconicDroid\n' \
-                f'Squidnugi\n'
+text2["text"] = 'Madmegsox1\n'+ 'FSNCryo\n'+ 'Basker 12\n' + 'Hiddenmaask\n' + 'PointlessQuack\n' + 'DraconicDroid\n' + 'Squidnugi\n'
 
 
 start_button = Button(frame1,
