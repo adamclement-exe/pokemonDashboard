@@ -52,7 +52,7 @@ start_button.place(relx=0.25, rely=0.765,
 start_button["text"] = f'START'
 
 def on_button_push(): # Run Main GUI
-    print('test')
+    
 
 
 root.mainloop()
