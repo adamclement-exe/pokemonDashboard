@@ -19,7 +19,7 @@ text1 = Label(root,bg='#2E4053', fg='white',font=('times', 11, 'bold'))
 text1.place(relx=0.06,rely=0.21,
             relwidth=0.15, relheight=0.09)
 
-text1["text"] = f'DEVS:'
+text1["text"] = 'DEVS:'
 
 
 text2 = Label(root,bg='#2E4053', fg='white',font=('times', 11, 'bold'))
