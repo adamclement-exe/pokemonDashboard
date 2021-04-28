@@ -23,6 +23,18 @@ class file_loader:
         f.close()
 
 
+def get_pokemon_by_category_opp(category, name, data):
+    r_val = []
+    for i in data:
+        if category not in data[i]:
+            return 0
+        if data[i][category] == name:
+            r_val.append(i)
+    if len(r_val) == 0:
+        return 0
+    return r_val
+
+
 class csv_loader:
 
     def __init__(self, file_dir):
@@ -75,3 +87,26 @@ class csv_loader:
         if len(r_val) == 0:
             return 0
         return r_val
+
+    def sort(self, category, high_to_low):
+        data = self.read_csv()
+        r_val = []
+        sort = []
+        pok = []
+        for i in data:
+            if category not in data[i]:
+                return 0
+            r_val.append(data[i])
+
+        for x in r_val:
+            sort.append(x[category])
+        sort.sort(reverse=high_to_low)
+
+        for y in sort:
+            v = get_pokemon_by_category_opp(category, y, data)
+            for a in v:
+                if a in pok:
+                    continue
+                pok.append(a)
+
+        return pok
