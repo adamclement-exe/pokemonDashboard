@@ -57,9 +57,21 @@ class csv_loader:
                 line_count += 1
         return r_val
 
-    def get_pokemon(self, name):
+    def get_pokemon_by_name(self, name):
         data = self.read_csv()
-        if(name in data):
+        if name in data:
             return data[name]
         else:
             return 0
+
+    def get_pokemon_by_category(self, category, name):
+        data = self.read_csv()
+        r_val = []
+        for i in data:
+            if category not in data[i]:
+                return 0
+            if data[i][category] == name:
+                r_val.append(i)
+        if len(r_val) == 0:
+            return 0
+        return r_val
