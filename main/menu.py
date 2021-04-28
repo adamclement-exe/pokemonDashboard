@@ -1,6 +1,10 @@
+"""
+:author Basker12
+:author FSNCryo
+"""
+
 try: from Tkinter import *
 except ImportError: from tkinter import *
-import tkinter as tk
 
 root = Tk()
 root.title('Pokemon Index Finder')
@@ -8,8 +12,11 @@ root.title('Pokemon Index Finder')
 HEIGHT = 500
 WIDTH = 600
 
-canvas = Canvas(root,height=HEIGHT, width=WIDTH)
+canvas = Canvas(root, height=HEIGHT, width=WIDTH)
 canvas.pack()
+
+iconFile = PhotoImage(file='formating/ball.png') #Icon image
+root.iconphoto(False, iconFile)
 
 frame1 = Frame(root,
                bg='#5778BB')
@@ -24,7 +31,7 @@ text1 = Label(root,
               fg='#DFE2EA',
               font=('times', 11, 'bold'))
 
-text1.place(relx=0.06, rely=0.21,
+text1.place(relx=0.300, rely=0.21,
             relwidth=0.15, relheight=0.09)
 
 text1["text"] = 'DEVS:'
@@ -34,7 +41,7 @@ text2 = Label(root,
               fg='white',
               font=('times', 11, 'bold'))
 
-text2.place(relx=0.06, rely=0.3,
+text2.place(relx=0.300, rely=0.3,
             relwidth=0.18, relheight=0.3)
 
 text2["text"] = ('Madmegsox1\n' + 'FSNCryo\n' + 'Basker 12\n' + 'Hiddenmaask\n' + 'PointlessQuack\n' + 'DraconicDroid\n' + 'Squidnugi\n')
