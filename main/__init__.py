@@ -13,7 +13,8 @@ import util
 class run():
     def __init__(self):
         print("Project by: Madmegsox1, FSNCryo, HiddenMask, Basker12, PointlessQuack, DraconicDroid, Squidnugi")
-        print(util.csv_loader("Pokemon.csv").get_pokemon_by_category("type1", "Rock"))
+        instance = util.csv_loader("Pokemon.csv")
+        print(instance.sort("id", True))
 
 
 run()
