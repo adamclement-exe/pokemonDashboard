@@ -21,18 +21,19 @@ root.iconphoto(False, iconFile)
 frame1 = Frame(root,
                bg='#5778BB')
 
-frame1.place(relx=0.5, rely=0.14,
-             relwidth=0.90, relheight=0.75,
+frame1.place(relx=0.5, rely=0.0,
+             relwidth=1, relheight=1,
              anchor='n')
 
 
 text1 = Label(root,
-              bg='#2E4053',
+              bg='#5778BB',
               fg='#DFE2EA',
-              font=('times', 11, 'bold'))
+              font=('times', 50, 'bold'))
 
-text1.place(relx=0.300, rely=0.21,
-            relwidth=0.15, relheight=0.09)
+text1.place(relx=0.5, rely=0.100,
+            relwidth=0.50, relheight=0.50,
+            anchor="center")
 
 text1["text"] = 'DEVS:'
 
