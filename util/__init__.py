@@ -36,19 +36,26 @@ class csv_loader:
             for row in csv_reader:
                 if line_count != 0:
                     data = {
-                        "id": row[0],
+                        "id": int(row[0]),
                         "type1": row[2],
                         "type2": row[3],
-                        "total": row[4],
-                        "hp": row[5],
-                        "attack": row[6],
-                        "defence": row[7],
-                        "spAtk": row[8],
-                        "spDef": row[9],
-                        "speed": row[10],
-                        "gen": row[11],
-                        "legendary": row[12]
+                        "total": int(row[4]),
+                        "hp": int(row[5]),
+                        "attack": int(row[6]),
+                        "defence": int(row[7]),
+                        "spAtk": int(row[8]),
+                        "spDef": int(row[9]),
+                        "speed": int(row[10]),
+                        "gen": int(row[11]),
+                        "legendary": bool(row[12])
                     }
                     r_val[row[1]] = data
                 line_count += 1
         return r_val
+
+    def get_pokemon(self, name):
+        data = self.read_csv()
+        if(name in data):
+            return data[name]
+        else:
+            return 0
