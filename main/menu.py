@@ -1,6 +1,10 @@
+"""
+:author Basker12
+:author FSNCryo
+"""
+
 try: from Tkinter import *
 except ImportError: from tkinter import *
-import tkinter as tk
 
 root = Tk()
 root.title('Pokemon Index Finder')
@@ -8,27 +12,28 @@ root.title('Pokemon Index Finder')
 HEIGHT = 500
 WIDTH = 600
 
-root.minsize(WIDTH,HEIGHT)
-root.maxsize(WIDTH,HEIGHT)
-
-canvas = Canvas(root,height=HEIGHT, width=WIDTH)
+canvas = Canvas(root, height=HEIGHT, width=WIDTH)
 canvas.pack()
+
+iconFile = PhotoImage(file='formating/ball.png') #Icon image
+root.iconphoto(False, iconFile)
 
 frame1 = Frame(root,
                bg='#5778BB')
 
-frame1.place(relx=0.5, rely=0.14,
-             relwidth=0.90, relheight=0.75,
+frame1.place(relx=0.5, rely=0.0,
+             relwidth=1, relheight=1,
              anchor='n')
 
 
 text1 = Label(root,
-              bg='#2E4053',
+              bg='#5778BB',
               fg='#DFE2EA',
-              font=('times', 11, 'bold'))
+              font=('times', 50, 'bold'))
 
-text1.place(relx=0.06, rely=0.21,
-            relwidth=0.15, relheight=0.09)
+text1.place(relx=0.5, rely=0.100,
+            relwidth=0.50, relheight=0.50,
+            anchor="center")
 
 text1["text"] = 'DEVS:'
 
@@ -37,7 +42,7 @@ text2 = Label(root,
               fg='white',
               font=('times', 11, 'bold'))
 
-text2.place(relx=0.06, rely=0.3,
+text2.place(relx=0.300, rely=0.3,
             relwidth=0.18, relheight=0.3)
 
 text2["text"] = ('Madmegsox1\n' + 'FSNCryo\n' + 'Basker 12\n' + 'Hiddenmaask\n' + 'PointlessQuack\n' + 'DraconicDroid\n' + 'Squidnugi\n')
