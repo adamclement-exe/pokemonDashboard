@@ -52,3 +52,10 @@ class csv_loader:
                     r_val[row[1]] = data
                 line_count += 1
         return r_val
+
+    def get_pokemon(self, name):
+        data = self.read_csv()
+        if(name in data):
+            return data[name]
+        else:
+            return 0
