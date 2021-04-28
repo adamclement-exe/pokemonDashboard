@@ -1,3 +1,6 @@
+"""
+:author Squidnugi
+"""
 import csv
 
 
@@ -10,15 +13,15 @@ def file_reader(file,choice):
             #makes sure the first line is not read
             if '#' not in row:
                 #changes the number valuse to int from string
+                row[0] = int(row[0])
                 loop = 4
                 while loop <= 11:
                     row[loop] = int(row[loop])
                     loop+=1
                 #changes legandary True and Flase to bool from string
+                row[12] = False
                 if row[12] == 'True':
                     row[12] = True
-                elif row[12] == 'False':
-                    row[12] = False
                 list_of_stuff.append(row)
                 #creates a list of the pokemon types
                 if row[2] not in types:
@@ -31,8 +34,8 @@ def file_reader(file,choice):
         return types
 
 
-def pokedex_filter(pokemon,types,choice):
-    #gen filter
+def pokedex_picker(pokemon,choice):
+    #gen picker
     if choice == 'Gen':
         List = []
         gen = 2
@@ -40,7 +43,7 @@ def pokedex_filter(pokemon,types,choice):
             if i[11] == gen:
                 List.append(i)
         return List
-    #type filter
+    #type picker
     elif choice == 'Type':
         List = []
         type = 'Fire'
@@ -48,7 +51,7 @@ def pokedex_filter(pokemon,types,choice):
             if i[3] == type or i[4] == type:
                 List.append(i)
                 return List
-    #Legendary filter
+    #Legendary picker
     elif choice == 'Legendary':
         List = []
         leg = True
@@ -56,7 +59,7 @@ def pokedex_filter(pokemon,types,choice):
             if i[12] == leg:
                 List.append(i)
         return List
-    #number filter
+    #number picker
     elif choice == 'Num':
         List = []
         num = 100
@@ -64,7 +67,7 @@ def pokedex_filter(pokemon,types,choice):
             if i[0] == num:
                 List.append(i)
         return List
-    #name filter
+    #name picker
     elif choice == 'Name':
         List = []
         name = 'Blastoise'
@@ -73,6 +76,12 @@ def pokedex_filter(pokemon,types,choice):
                 List.append(i)
         return List
 
+def name_filter(pokemon):
+    loops = 1
+    for i in pokemon:
+        if i[0] == loops:
+            print(i)
+            loops+=1
 
 def main():
     file = 'pokemon.csv'
@@ -80,8 +89,9 @@ def main():
     types = file_reader(file,True)
     print(pokemon)
     print(types)
-    gen = pokedex_filter(pokemon,types,'Name')
+    gen = pokedex_picker(pokemon,'Gen')
     print(gen)
+    name_filter(pokemon)
 
 
 if __name__ == "__main__":

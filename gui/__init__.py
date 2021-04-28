@@ -6,6 +6,9 @@ root = Tk()
 HEIGHT = 500
 WIDTH = 600
 
+root.minsize(WIDTH,HEIGHT)
+root.maxsize(WIDTH,HEIGHT)
+
 canvas = Canvas(root, height=HEIGHT, width=WIDTH)
 canvas.pack()
 
