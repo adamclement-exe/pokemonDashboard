@@ -2,70 +2,35 @@
 :author Basker12
 :author FSNCryo
 """
-
 try: from Tkinter import *
 except ImportError: from tkinter import *
 
 root = Tk()
 root.title('Pokemon Index Finder')
-
-HEIGHT = 500
-WIDTH = 600
-
-canvas = Canvas(root, height=HEIGHT, width=WIDTH)
-canvas.pack()
+root.geometry('500x475')
 
 iconFile = PhotoImage(file='formating/ball.png') #Icon image
 root.iconphoto(False, iconFile)
 
-frame1 = Frame(root,
-               bg='#5778BB',
-               highlightbackground='#9C9FA5',
-               highlightthickness='4')
+backgroundImage = PhotoImage(file='formating/background.png')
+canvas = Canvas(root, width=600, height=500, highlightbackground='#9C9FA5', highlightthickness='4')
+canvas.pack(fill='both', expand=True)
+canvas.create_image(0, 0, image=backgroundImage, anchor='nw') #Created an image so that text and buttons are able to show the background
 
-frame1.place(relx=0.5, rely=0.0,
-             relwidth=1, relheight=1,
-             anchor='n')
+canvas.create_text(105, 30, text='DEVS:', font=('times', 50, 'bold'), fill='#9C9FA5', underline='5')
+canvas.create_text(98, 180, text='Madmegsox1\n' + 'FSNCryo\n' + 'Basker 12\n' + 'Hiddenmaask\n' + 'PointlessQuack\n' + 'DraconicDroid\n' + 'Squidnugi\n',
+                   font=('times', 20, 'bold'), fill='Black')
 
+startButton = Button(root, text='START', font=('times', 15, 'bold'), borderwidth='4',
+                     fg='#5778BB',
+                     bg='#9C9FA5',
+                     width='35',
+                     command=lambda: on_button_push())
+startButtonWindow = canvas.create_window(250, 400, anchor='center', window=startButton)
 
-text1 = Label(root,
-              bg='#5778BB',
-              fg='#DFE2EA',
-              font=('times', 50, 'bold'))
-
-text1.place(relx=0.5, rely=0.100,
-            relwidth=0.50, relheight=0.10,
-            anchor="center") #anchor makes the position of your widget move
-
-text1["text"] = 'DEVS:'
-
-text2 = Label(root,
-              bg='#5778BB',
-              fg='#DFE2EA',
-              font=('times', 15, 'bold'))
-
-text2.place(relx=0.300, rely=0.25,
-            relwidth=0.40, relheight=0.45)
-
-text2["text"] = ('Madmegsox1\n' + 'FSNCryo\n' + 'Basker 12\n' + 'Hiddenmaask\n' + 'PointlessQuack\n' + 'DraconicDroid\n' + 'Squidnugi\n')
-
-
-start_button = Button(frame1,
-                      bg='#9C9FA5',
-                      fg='#DFE2EA',
-                      font=('times', 11, 'bold'), borderwidth=4,
-
-                      command=lambda: on_button_push()) # on_button_push() Runs When a BUTTON is Pushed
-
-
-start_button.place(relx=0.25, rely=0.765,
-                   relheight=0.08, relwidth=0.50)
-
-start_button["text"] = f'START'
-
-def on_button_push(): # Run Main GUI
+def on_button_push():
     print("Test")
-    
+
 #HEX Colours: #9C9FA5 - Grey | #5778BB - Blue | #DFE2EA - white
 
 root.mainloop()
