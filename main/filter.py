@@ -6,8 +6,8 @@ except ImportError:
 root = Tk()
 root.title('Pokemon Index Finder')
 
-HEIGHT = 342 # 642
-WIDTH = 205 # 205
+HEIGHT = 642 # 642
+WIDTH = 405 # 405
 
 root.minsize(WIDTH, HEIGHT)
 root.maxsize(WIDTH, HEIGHT)
@@ -45,7 +45,7 @@ poke_name = Entry(InnerFrame,
 poke_name.place(relx=0.25, rely=0.105,
                 relwidth=0.5, relheight=0.09)
 
-poke_name.insert(0, f'Name')
+poke_name.insert(0, f'Search')
 
 
 Pokemon_Browser = Label(root,
@@ -66,12 +66,42 @@ help_button = Button(ButtonFrame,
                      font=('times', 11, 'bold'), borderwidth=4,
                      command=lambda: help()) # runs when help button is clicked
 
-help_button.place(relx=0.25, rely=0.3,
-                   relheight=0.08, relwidth=0.50)
+help_button.place(relx=0.66, rely=0.3,
+                   relheight=0.4, relwidth=0.30)
 
 help_button["text"] = f'Help'
 
+search_button = Button(ButtonFrame,
+                     bg='#9c9fa5',
+                     fg='#dfe2ea',
+                     font=('times', 11, 'bold'), borderwidth=4,
+                     command=lambda: search()) # runs when help button is clicked
+
+search_button.place(relx=0.345, rely=0.3,
+                   relheight=0.4, relwidth=0.30)
+
+search_button["text"] = f'Search'
+
+
+view_all_button = Button(ButtonFrame,
+                     bg='#9c9fa5',
+                     fg='#dfe2ea',
+                     font=('times', 11, 'bold'), borderwidth=4,
+                     command=lambda: view_all()) # runs when help button is clicked
+
+view_all_button.place(relx=0.03, rely=0.3,
+                   relheight=0.4, relwidth=0.30)
+
+view_all_button["text"] = f'view all'
+
+
 def help():
+    return
+
+def search():
+    return
+
+def view_all():
     return
 
 root.mainloop()
