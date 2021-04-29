@@ -18,14 +18,14 @@ canvas.pack(fill='both', expand=True)
 canvas.create_image(0, 0, image=backgroundImage, anchor='nw') #Created an image so that text and buttons are able to show the background
 
 canvas.create_text(105, 30, text='DEVS:', font=('times', 50, 'bold'), fill='#9C9FA5', underline='5')
-canvas.create_text(98, 180, text='Madmegsox1\n' + 'FSNCryo\n' + 'Basker 12\n' + 'Hiddenmaask\n' + 'PointlessQuack\n' + 'DraconicDroid\n' + 'Squidnugi\n',
+canvas.create_text(98, 180, text='Madmegsox1\n' + 'FSNCryo\n' + 'Basker12\n' + 'Hiddenmaask\n' + 'PointlessQuack\n' + 'DraconicDroid\n' + 'Squidnugi\n',
                    font=('times', 20, 'bold'), fill='Black')
 
 startButton = Button(root, text='START', font=('times', 15, 'bold'), borderwidth='4',
                      fg='#5778BB',
                      bg='#9C9FA5',
                      width='35',
-                     command=lambda: on_button_push())
+                     command=lambda: on_button_push()) #This runs on_button_push and prints "Test" to the terminal
 startButtonWindow = canvas.create_window(250, 400, anchor='center', window=startButton)
 
 def on_button_push():
