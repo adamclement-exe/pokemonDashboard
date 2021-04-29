@@ -2,7 +2,7 @@ try:
     from Tkinter import *
 except ImportError:
     from tkinter import *
-
+import os
 root = Tk()
 root.title('Pokemon Index Finder')
 
@@ -231,7 +231,8 @@ def help():
 
 
 def home():
-    return
+    root.destroy()
+    os.system('python menu.py')
 
 
 def search(type1_var, type2_var,

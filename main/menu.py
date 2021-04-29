@@ -5,6 +5,7 @@
 try: from Tkinter import *
 except ImportError: from tkinter import *
 from tkinter import messagebox
+import os
 root = Tk()
 root.title('Pokemon Index Finder')
 root.geometry('500x475')
@@ -39,7 +40,8 @@ search_button.place(relx=0.02, rely=0.02,
 search_button["text"] = f'Devs'
 
 def on_button_push():
-    print("Test")
+    root.destroy()
+    os.system('python filter.py')
 
 def dev():
     messagebox.showinfo\
