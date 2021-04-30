@@ -109,15 +109,19 @@ home_button.place(relx=0.345, rely=0.3,
 
 home_button["text"] = f'Home'
 
-scrollbar = Scrollbar(root)
+
+scrollbar = Scrollbar(InnerFrame,
+                       bg='#5778bb',
+                       highlightthickness=0,highlightbackground='#5778bb')
+
 scrollbar.pack(side = RIGHT, fill = BOTH)
 
 listbox = Listbox(InnerFrame,
                        bg='#5778bb',
                        fg='black',
-                       font=('times', 11, 'bold'), borderwidth=4)
+                       font=('times', 11, 'bold'), highlightthickness=0,highlightbackground='#5778bb')
 
-listbox.pack(side=LEFT, fill=BOTH)
+listbox.pack(side=LEFT,expand=True, fill=BOTH)
 
 for i in range(100):
     listbox.insert(END, "Hello")
