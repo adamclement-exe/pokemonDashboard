@@ -39,6 +39,7 @@ class csv_loader:
 
     def __init__(self, file_dir):
         self.file_dir = file_dir
+        self.data = self.read_csv()
 
     def read_csv(self):
         r_val = {}
@@ -70,43 +71,52 @@ class csv_loader:
         return r_val
 
     def get_pokemon_by_name(self, name):
-        data = self.read_csv()
-        if name in data:
-            return data[name]
+        if name in self.data:
+            return self.data[name]
         else:
             return 0
 
     def get_pokemon_by_category(self, category, name):
-        data = self.read_csv()
         r_val = []
-        for i in data:
-            if category not in data[i]:
+        for i in self.data:
+            if category not in self.data[i]:
                 return 0
-            if data[i][category] == name:
+            if self.data[i][category] == name:
                 r_val.append(i)
         if len(r_val) == 0:
             return 0
         return r_val
 
     def sort(self, category, high_to_low):
-        data = self.read_csv()
         r_val = []
         sort = []
         pok = []
-        for i in data:
-            if category not in data[i]:
+        for i in self.data:
+            if category not in self.data[i]:
                 return 0
-            r_val.append(data[i])
+            r_val.append(self.data[i])
 
         for x in r_val:
             sort.append(x[category])
         sort.sort(reverse=high_to_low)
 
         for y in sort:
-            v = get_pokemon_by_category_opp(category, y, data)
+            v = get_pokemon_by_category_opp(category, y, self.data)
             for a in v:
                 if a in pok:
                     continue
                 pok.append(a)
 
         return pok
+
+    def refactor_list(self, list, category, name):
+        r_val = []
+        for i in list:
+            p_data = self.get_pokemon_by_name(i)
+            if (p_data != 0) and (category in p_data):
+                if p_data[category] == name:
+                    r_val.append(i)
+
+        if len(r_val) == 0:
+            return 0
+        return r_val
