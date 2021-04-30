@@ -129,7 +129,10 @@ dev_manual_choices = {'Madmegsox1', 'FSNCryo', 'Basker12', 'Hiddenmaask', 'Point
                       'Squidnugi'}  # Items in Drop Down menu
 
 dev_manual_var.set('Dev Manual Select')  # sets Starting Value for Drop Down menu
-
+file = open(f"manual/Dev Manual Select.txt", "r")
+lines = file.readlines()
+for line in lines:
+    listbox.insert(END, line)
 
 def manual(dev_manual_var):
     listbox.delete(0, END)
