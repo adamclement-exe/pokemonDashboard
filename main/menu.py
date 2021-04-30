@@ -12,8 +12,8 @@ import os
 root = Tk()
 root.title('Pokemon Index Finder')
 
-HEIGHT = '475'
-WIDTH = '475'
+HEIGHT = 475
+WIDTH = 475
 
 root.geometry(f'{HEIGHT}x{WIDTH}')
 
@@ -24,6 +24,7 @@ iconFile = PhotoImage(file='formating/ball.png')  # Icon image
 root.iconphoto(False, iconFile)
 
 backgroundImage = PhotoImage(file='formating/background.png')
+
 canvas = Canvas(root, width=WIDTH, height=HEIGHT, highlightbackground='#9C9FA5', highlightthickness='4')
 canvas.pack(fill='both', expand=True)
 canvas.create_image(0, 0, image=backgroundImage,
@@ -33,21 +34,16 @@ startButton = Button(root, text='START', font=('times', 15, 'bold'), borderwidth
                      fg='#5778BB',
                      bg='#9C9FA5',
                      width='35',
-                     command=lambda: on_button_push())  # This runs on_button_push and prints "Test" to the terminal
+                     command=lambda: on_button_push())  # Destroys current window and runs python filter.py
 
-startButtonWindow = canvas.create_window((int(HEIGHT)/2), 400, anchor='center', window=startButton)
+startButtonWindow = canvas.create_window(235, 400, anchor='center', window=startButton)
 
-dev_button = Button(root,
-                    bg='#dfe2ea',
-                    fg='black',
-                    font=('times', 11, 'bold'), borderwidth=4,
-                    command=lambda: dev()  # runs when Dev button is clicked
-                    )
+devButton = Button(root, text='DEVS', font=('times', 15, 'bold'), borderwidth='4',
+                   fg='#5778BB',
+                   bg='#9C9FA5',
+                   command=lambda: dev()) # runs when Dev button is clicked
 
-dev_button.place(relx=0.02, rely=0.02,
-                 relheight=0.06, relwidth=0.2)
-
-dev_button["text"] = f'Devs'
+devButtonWindow = canvas.create_window(10, 10, anchor='nw', window=devButton)
 
 
 def on_button_push():
@@ -72,3 +68,4 @@ def dev():
 # HEX Colours: #9C9FA5 - Grey | #5778BB - Blue | #DFE2EA - white
 
 root.mainloop()
+
