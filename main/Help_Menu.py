@@ -42,11 +42,7 @@ poke_name.place(relx=0.25, rely=0.105,
 poke_name.insert(0, f'Name Search')
 
 
-listbox = = Entry(InnerFrame,
-
-                  bg='#dfe2ea', fg='black',
-
-                  font=70, borderwidth=5)
+listbox = Listbox(root)
 
 listbox.pack(side=LEFT, fill=BOTH)
 
@@ -116,20 +112,5 @@ home_button["text"] = f'Home'
 def home():
     root.destroy()
     os.system('python menu.py')
-
-def view_all():
-    return
-
-
-def reset():
-    AorD_var.set('Sort')
-    stats_var.set('Stats')
-    Legendary_var.set('Legendary')
-    gen_var.set('Generation')
-    type2_var.set('Type 2')
-    type1_var.set('Type 1')
-    poke_name.delete(0, 'end')
-    poke_name.insert(0, 'Name Search')  # resets all to default values
-
 
 root.mainloop()
