@@ -228,7 +228,8 @@ reset_button["text"] = f'Reset'
 
 
 def help():
-    return
+    root.destroy()
+    os.system('Help_Menu.py')
 
 
 def home():

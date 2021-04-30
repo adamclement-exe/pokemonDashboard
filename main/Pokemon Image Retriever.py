@@ -12,6 +12,8 @@ print(im)
 
 
 #google image finder - not all images needed are on wikipedia
+
+
 """
 import selenium
 from selenium import webdriver
