@@ -1,3 +1,6 @@
+"""
+:author FSNCryo
+"""
 try:
     from Tkinter import *
 except ImportError:
@@ -6,8 +9,8 @@ import os
 root = Tk()
 root.title('Pokemon Index Finder')
 
-HEIGHT = 642  # 642
-WIDTH = 405  # 405
+HEIGHT = 642
+WIDTH = 405
 
 root.minsize(WIDTH, HEIGHT)
 root.maxsize(WIDTH, HEIGHT)
@@ -228,7 +231,8 @@ reset_button["text"] = f'Reset'
 
 
 def help():
-    return
+    root.destroy()
+    os.system('Python Help_Menu.py')
 
 
 def home():
