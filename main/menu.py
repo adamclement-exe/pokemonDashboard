@@ -33,7 +33,7 @@ canvas.create_image(0, 0, image=backgroundImage,
 startButton = Button(root, text='START', font=('times', 15, 'bold'), borderwidth='4',
                      fg='#5778BB',
                      bg='#9C9FA5',
-                     width='35',
+                     width='36',
                      command=lambda: on_button_push())  # Destroys current window and runs python filter.py
 
 startButtonWindow = canvas.create_window((int(HEIGHT)/2), 400, anchor='center', window=startButton)
@@ -41,9 +41,23 @@ startButtonWindow = canvas.create_window((int(HEIGHT)/2), 400, anchor='center', 
 devButton = Button(root, text='DEVS', font=('times', 15, 'bold'), borderwidth='4',
                    fg='#5778BB',
                    bg='#9C9FA5',
+                   width='18',
                    command=lambda: dev()) # runs when Dev button is clicked
 
-devButtonWindow = canvas.create_window(10, 10, anchor='nw', window=devButton)
+devButtonWindow = canvas.create_window(12, 468, anchor='sw', window=devButton)
+
+settingsButton = Button(root, text='SETTINGS', font=('times', 14, 'bold'), borderwidth='4',
+                        fg='#5778BB',
+                        bg='#9C9FA5',
+                        width='18',
+                        command=lambda: settings_menu())
+
+settingsButtonWindow = canvas.create_window(245, 468, anchor='sw', window=settingsButton)
+
+titleImage = PhotoImage(file='formating/logo.png')
+titleImage = titleImage.zoom(2)
+titleImage = titleImage.subsample(5)
+canvas.create_image(250, 94, image=titleImage)
 
 
 def on_button_push():
@@ -64,8 +78,9 @@ def dev():
         )
     )
 
+def settings_menu():
+    print("Test Settings")
 
 # HEX Colours: #9C9FA5 - Grey | #5778BB - Blue | #DFE2EA - white
 
 root.mainloop()
-
