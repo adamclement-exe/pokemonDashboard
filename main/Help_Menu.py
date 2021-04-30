@@ -41,7 +41,6 @@ poke_name.place(relx=0.25, rely=0.105,
 
 poke_name.insert(0, f'Name Search')
 
-
 listbox = Listbox(root)
 
 listbox.pack(side=LEFT, fill=BOTH)
@@ -85,7 +84,6 @@ ButtonFrame.place(relx=0.5, rely=0.87,
                   relwidth=1, relheight=0.12,
                   anchor='n')
 
-
 Pokemon_Browser = Label(root,
 
                         bg='#9c9fa5', fg='#dfe2ea',
@@ -96,7 +94,6 @@ Pokemon_Browser.place(relx=0.17, rely=0,
                       relwidth=0.66, relheight=0.09)
 
 Pokemon_Browser["text"] = f'Help Menu'  # title
-
 
 home_button = Button(ButtonFrame,
                      bg='#dfe2ea',
@@ -109,32 +106,57 @@ home_button.place(relx=0.345, rely=0.3,
 
 home_button["text"] = f'Home'
 
-
 scrollbar = Scrollbar(InnerFrame,
-                       bg='#5778bb',
-                       highlightthickness=0,highlightbackground='#5778bb')
+                      bg='#5778bb',
+                      highlightthickness=0, highlightbackground='#5778bb')
 
-scrollbar.pack(side = RIGHT, fill = BOTH)
+scrollbar.pack(side=RIGHT, fill=BOTH)
 
 listbox = Listbox(InnerFrame,
-                       bg='#5778bb',
-                       fg='black',
-                       font=('times', 11, 'bold'), highlightthickness=0,highlightbackground='#5778bb')
+                  bg='#5778bb',
+                  fg='black',
+                  font=('times', 11, 'bold'), highlightthickness=0, highlightbackground='#5778bb')
 
-listbox.pack(side=LEFT,expand=True, fill=BOTH)
-
-with open("Help Text.txt","r") as file:
-    lines = file.readlines()
-    for line in lines:
-        listbox.insert(END, line)
+listbox.pack(side=LEFT, expand=True, fill=BOTH)
 
 listbox.config(yscrollcommand=scrollbar.set)
 
 scrollbar.config(command=listbox.yview)
 
+dev_manual_var = StringVar(root)
+
+dev_manual_choices = {'Madmegsox1', 'FSNCryo', 'Basker12', 'Hiddenmaask', 'PointlessQuack', 'DraconicDroid',
+                      'Squidnugi'}  # Items in Drop Down menu
+
+dev_manual_var.set('Dev Manual Select')  # sets Starting Value for Drop Down menu
+
+
+def manual(dev_manual_var):
+    listbox.delete(0, END)
+    file = open(f"manual/{dev_manual_var}.txt", "r")
+    lines = file.readlines()
+    for line in lines:
+        listbox.insert(END, line)
+
+    print(dev_manual_var)
+
+
+dev_manual_menu = OptionMenu(root, dev_manual_var, *dev_manual_choices, command=manual)
+
+dev_manual_menu.config(bg='#9c9fa5', fg='#5778bb')  # menu Icon colours
+
+dev_manual_menu["menu"].config(bg='#5778bb', fg='#dfe2ea')  # menu drop down colours
+
+dev_manual_menu.place(relx=0.025, rely=0.025,
+                      relwidth=0.35, relheight=0.04)
+
+
+
+
 
 def home():
     root.destroy()
     os.system('python menu.py')
+
 
 root.mainloop()
