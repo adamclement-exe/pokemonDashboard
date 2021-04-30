@@ -9,6 +9,9 @@ except ImportError:
     from tkinter import *
 import tkinter as tk
 
+# Importing Image class from PIL module
+from PIL import ImageTk,Image
+
 root = Tk()
 root.title("Pokemon Index Finder")
 iconFile = PhotoImage(file="formating/ball.png")  # Icon image
@@ -53,28 +56,74 @@ pokeName.place(relx=0.06, rely=0.12,
 
 pokeName["text"] = "[POKE_NAME]"
 
-text2 = Label(root,
+totalName = Label(root,
               bg="#2E4053",
-              fg="white",
+              fg="#DFE2EA",
               font=("times", 11, "bold"))
 
-text2.place(relx=0.06, rely=0.3,
-            relwidth=0.18, relheight=0.3)
+totalName.place(relx=0.4, rely=0.12,
+            relwidth=0.2, relheight=0.05)
 
-text2["text"] = (
-        "Madmegsox1\n" + "FSNCryo\n" + "Basker 12\n" + "Hiddenmaask\n" + "PointlessQuack\n" + "DraconicDroid\n" + "Squidnugi\n")
+totalName["text"] = "[TOTAL]"
 
-start_button = Button(frame,
-                      bg="#9C9FA5",
+HPName = Label(root,
+              bg="#2E4053",
+              fg="#DFE2EA",
+              font=("times", 11, "bold"))
+
+HPName.place(relx=0.7, rely=0.12,
+            relwidth=0.1, relheight=0.05)
+
+HPName["text"] = "[HP]"
+
+pokemonPicFile = PhotoImage(file="formating/imagePlace.PNG")        #change image with the filtered pokemon
+pokemonPic = Label(frame,
+                   image=pokemonPicFile)
+pokemonPic.place(relx=0.03, rely=0.1,
+                   height=225, width=353)
+
+
+type1IconFile = PhotoImage(file="formating/PokemonTypes.PNG")  # Icon1 image    CHANGE THIS TO INDIVIDUAL TYPES
+type2IconFile = PhotoImage(file="formating/PokemonTypes.PNG")  # Icon2 image
+
+backButtonFile = PhotoImage(file="formating/Previous.PNG")  # Back Button image
+
+back_button = Button(bottomBar,
+                      bg="#DFE2EA",
                       fg="#DFE2EA",
-                      font=("times", 11, "bold"), borderwidth=4,
+                      image=backButtonFile,
+                      font=("times", 11, "bold"), borderwidth=0,
 
                       command=lambda: on_button_push())  # on_button_push() Runs When a BUTTON is Pushed
 
-start_button.place(relx=0.25, rely=0.765,
-                   relheight=0.08, relwidth=0.50)
+back_button.place(relx=0.0, rely=0,
+                   height=75, width=100)
 
-start_button["text"] = f"START"
+homeButtonFile = PhotoImage(file="formating/Home.PNG")  # home Button image
+
+home_button = Button(bottomBar,
+                      bg="#DFE2EA",
+                      fg="#DFE2EA",
+                      image=homeButtonFile,
+                      font=("times", 11, "bold"), borderwidth=0,
+
+                      command=lambda: on_button_push())  # on_button_push() Runs When a BUTTON is Pushed
+
+home_button.place(relx=0.37, rely=0.2,
+                   height=40, width=100)
+
+nextButtonFile = PhotoImage(file="formating/Next.PNG")  # next Button image
+
+next_button = Button(bottomBar,
+                      bg="#DFE2EA",
+                      fg="#DFE2EA",
+                      image=nextButtonFile,
+                      font=("times", 11, "bold"), borderwidth=0,
+
+                      command=lambda: on_button_push())  # on_button_push() Runs When a BUTTON is Pushed
+
+next_button.place(relx=0.75, rely=0,
+                   height=75, width=100)
 
 
 def on_button_push():  # Run Main GUI
