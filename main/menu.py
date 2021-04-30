@@ -36,7 +36,7 @@ startButton = Button(root, text='START', font=('times', 15, 'bold'), borderwidth
                      width='35',
                      command=lambda: on_button_push())  # Destroys current window and runs python filter.py
 
-startButtonWindow = canvas.create_window(235, 400, anchor='center', window=startButton)
+startButtonWindow = canvas.create_window((int(HEIGHT)/2), 400, anchor='center', window=startButton)
 
 devButton = Button(root, text='DEVS', font=('times', 15, 'bold'), borderwidth='4',
                    fg='#5778BB',
