@@ -123,8 +123,10 @@ listbox = Listbox(InnerFrame,
 
 listbox.pack(side=LEFT,expand=True, fill=BOTH)
 
-for i in range(100):
-    listbox.insert(END, "Hello")
+with open("Help Text.txt","r") as file:
+    lines = file.readlines()
+    for line in lines:
+        listbox.insert(END, line)
 
 listbox.config(yscrollcommand=scrollbar.set)
 
