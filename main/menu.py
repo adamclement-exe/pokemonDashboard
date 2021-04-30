@@ -36,7 +36,9 @@ startButton = Button(root, text='START', font=('times', 15, 'bold'), borderwidth
                      width='36',
                      command=lambda: on_button_push())  # Destroys current window and runs python filter.py
 
-startButtonWindow = canvas.create_window((int(HEIGHT)/2), 400, anchor='center', window=startButton)
+#  startButtonWindow = canvas.create_window((int(HEIGHT)/2), 400, anchor='center', window=startButton)
+startButton.place(relx=0.025, rely=0.790,
+                  relheight=0.090, relwidth=0.95)
 
 devButton = Button(root, text='DEVS', font=('times', 15, 'bold'), borderwidth='4',
                    fg='#5778BB',
@@ -44,7 +46,9 @@ devButton = Button(root, text='DEVS', font=('times', 15, 'bold'), borderwidth='4
                    width='18',
                    command=lambda: dev()) # runs when Dev button is clicked
 
-devButtonWindow = canvas.create_window(12, 468, anchor='sw', window=devButton)
+#  devButtonWindow = canvas.create_window(12, 468, anchor='sw', window=devButton)
+devButton.place(relx=0.025, rely=0.890,
+                relheight=0.090, relwidth=0.46)
 
 settingsButton = Button(root, text='SETTINGS', font=('times', 14, 'bold'), borderwidth='4',
                         fg='#5778BB',
@@ -52,7 +56,9 @@ settingsButton = Button(root, text='SETTINGS', font=('times', 14, 'bold'), borde
                         width='18',
                         command=lambda: settings_menu())
 
-settingsButtonWindow = canvas.create_window(245, 468, anchor='sw', window=settingsButton)
+#  settingsButtonWindow = canvas.create_window(245, 468, anchor='sw', window=settingsButton)
+settingsButton.place(relx=0.515, rely=0.890,
+                     relheight=0.090, relwidth=0.46)
 
 titleImage = PhotoImage(file='formating/logo.png')
 titleImage = titleImage.zoom(2)
