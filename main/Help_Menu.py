@@ -28,6 +28,59 @@ InnerFrame = Frame(root,
 InnerFrame.place(relx=0.5, rely=0.09,
                  relwidth=0.90, relheight=0.75,
                  anchor='n')
+###
+
+poke_name = Entry(InnerFrame,
+
+                  bg='#dfe2ea', fg='black',
+
+                  font=70, borderwidth=5)
+
+poke_name.place(relx=0.25, rely=0.105,
+                relwidth=0.5, relheight=0.09)
+
+poke_name.insert(0, f'Name Search')
+
+
+listbox = = Entry(InnerFrame,
+
+                  bg='#dfe2ea', fg='black',
+
+                  font=70, borderwidth=5)
+
+listbox.pack(side=LEFT, fill=BOTH)
+
+scrollbar = Scrollbar(root)
+
+scrollbar.pack(side=RIGHT, fill=BOTH)
+
+listbox.insert(END, "Hello")
+
+# Attaching Listbox to Scrollbar
+# Since we need to have a vertical
+# scroll we use yscrollcommand
+listbox.config(yscrollcommand=scrollbar.set)
+
+# setting scrollbar command parameter
+# to listbox.yview method its yview because
+# we need to have a vertical view
+scrollbar.config(command=listbox.yview)
+
+###
+
+OuterFrame = Frame(root,
+                   bg='#9c9fa5')
+
+OuterFrame.place(relx=0.5, rely=0.0,
+                 relwidth=1, relheight=1,
+                 anchor='n')
+
+InnerFrame = Frame(root,
+                   bg='#5778bb')
+
+InnerFrame.place(relx=0.5, rely=0.09,
+                 relwidth=0.90, relheight=0.75,
+                 anchor='n')
 
 ButtonFrame = Frame(root,
                     bg='#dfe2ea')
