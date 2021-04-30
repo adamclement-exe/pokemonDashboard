@@ -84,7 +84,7 @@ listbox = Listbox(InnerFrame,
                        fg='black',
                        font=('times', 11, 'bold'), borderwidth=4)
 
-listbox.pack(side=LEFT, fill=BOTH)
+listbox.pack(side=LEFT, fill=BOTH) JAMIE SMELLS
 
 for i in range(100):
     listbox.insert(END, "Hello")
