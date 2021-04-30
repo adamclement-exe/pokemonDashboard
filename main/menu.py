@@ -85,7 +85,8 @@ def dev():
     )
 
 def settings_menu():
-    print("Test Settings")
+    root.destroy()
+    os.system('settings.py')
 
 # HEX Colours: #9C9FA5 - Grey | #5778BB - Blue | #DFE2EA - white
 
