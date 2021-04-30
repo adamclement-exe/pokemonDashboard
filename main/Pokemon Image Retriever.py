@@ -1,10 +1,29 @@
+#wiki image finder
 import wikipedia
-
 def pokemon_image(pokemon):
     wikipage = wikipedia.page(pokemon)
     return wikipage.images[1]
+url = pokemon_image("Charmeleon")
+print(url)
+from PIL import Image
+import requests
+im = Image.open(requests.get(url, stream=True).raw)
+print(im)
 
-print(pokemon_image("Charmeleon"))
+
+#google image finder - not all images needed are on wikipedia
+"""
+import selenium
+from selenium import webdriver
+# This is the path I use
+# DRIVER_PATH = '.../Desktop/Scraping/chromedriver 2'
+# Put the path for your ChromeDriver here
+DRIVER_PATH = ''
+wd = webdriver.Chrome(executable_path=DRIVER_PATH)
+wd.get('https://google.com')
+search_box = wd.find_element_by_css_selector('input.gLFyf')
+search_box.send_keys('Dogs')
+"""
 
 """
 from gsearch.googlesearch import search
