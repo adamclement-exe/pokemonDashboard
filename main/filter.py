@@ -183,7 +183,8 @@ search_button = Button(InnerFrame,
                            gen_var.get(),
                            Legendary_var.get(),
                            stats_var.get(),
-                           AorD_var.get()
+                           AorD_var.get(),
+                           poke_name.get()
                        )  # runs when Search button is clicked
 
                        )
@@ -237,15 +238,33 @@ def home():
 
 def search(type1_var, type2_var,
            gen_var, Legendary_var,
-           stats_var, AorD_var):
+           stats_var, AorD_var,
+           poke_name):
+
+    if type1_var == 'Type 1':
+        type1_var = None
+    if type2_var == 'Type 2' and 'None':
+        type2_var = None
+    if gen_var == 'Generation':
+        gen_var = None
+    if Legendary_var == 'Legendary':
+        Legendary_var = None
+    if stats_var == 'Stats':
+        stats_var = None
+    if AorD_var == 'Sort':
+        AorD_var = None
+    if poke_name == 'Name Search':
+        poke_name = None
+
     print(
         '\n'
         'Type 1: ', type1_var, '\n' +  # Don't call this Chinese code
-                               'Type 2: ', type2_var, '\n' +
-                               'Gen: ', gen_var, '\n' +
-                               'Legendary: ', Legendary_var, '\n' +
-                               'Stats: ', stats_var, '\n' +
-                               'Sort: ', AorD_var,
+        'Type 2: ', type2_var, '\n' +
+        'Gen: ', gen_var, '\n' +
+        'Legendary: ', Legendary_var, '\n' +
+        'Stats: ', stats_var, '\n' +
+        'Sort: ', AorD_var, '\n' +
+        'Entry Box: ', poke_name,
         '\n'
     )
 
@@ -262,7 +281,7 @@ def reset():
     type2_var.set('Type 2')
     type1_var.set('Type 1')
     poke_name.delete(0, 'end')
-    poke_name.insert(0, f'Name Search')  # resets all to default values
+    poke_name.insert(0, 'Name Search')  # resets all to default values
 
 
 root.mainloop()
