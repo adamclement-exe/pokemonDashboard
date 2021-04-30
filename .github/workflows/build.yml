@@ -21,6 +21,8 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Check spelling
+      uses: check-spelling/check-spelling@0.0.17-alpha
     - name: Syntax Test
       run: |
         # stop the build if there are Python syntax errors or undefined names
