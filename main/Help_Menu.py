@@ -101,10 +101,25 @@ home_button = Button(ButtonFrame,
                      font=('times', 11, 'bold'), borderwidth=4,
                      command=lambda: home())  # runs when Home button is clicked
 
-home_button.place(relx=0.345, rely=0.3,
+home_button.place(relx=0.11, rely=0.3,
                   relheight=0.4, relwidth=0.30)
 
 home_button["text"] = f'Home'
+
+
+
+
+settings_button = Button(ButtonFrame,
+                     bg='#dfe2ea',
+                     fg='black',
+                     font=('times', 11, 'bold'), borderwidth=4,
+                     command=lambda: settings_menu())  # runs when Home button is clicked
+
+settings_button.place(relx=0.55, rely=0.3,
+                  relheight=0.4, relwidth=0.30)
+
+settings_button["text"] = f'Settings'
+
 
 scrollbar = Scrollbar(InnerFrame,
                       bg='#5778bb',
@@ -161,5 +176,8 @@ def home():
     root.destroy()
     os.system('python menu.py')
 
+def settings_menu():
+    root.destroy()
+    os.system('python settings.py')
 
 root.mainloop()
