@@ -48,12 +48,12 @@ helpButton.place(relx=0.025, rely=0.890,
 
 def mainmenu():
     root.destroy()
-    os.system('menu.py')
+    os.system('python menu.py')
 
 def helpsection():
-    print("Test")
-    #root.destroy()
-    #os.system('manual/Dev Manual Select.txt')
+    #print("Test")
+    root.destroy()
+    os.system('python Help_Menu.py')
 
 # HEX Colours: #9C9FA5 - Grey | #5778BB - Blue | #DFE2EA - white
 root.mainloop()
