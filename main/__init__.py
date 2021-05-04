@@ -33,11 +33,11 @@ class run:
         instance = util.csv_loader("Pokemon.csv")
         #  following code filters the users search
         d = instance.sort(searches.stats_var, searches.AorD_var)
-
+        print('d', d)
         t1 = instance.refactor_list(d, "type1", searches.type1_var)
-
+        print('t1', t1)
         t2 = instance.refactor_list(t1, "type2", searches.type2_var)
-
+        print('t2', t2)
         gen = instance.refactor_list(t2, "gen", searches.gen_var)
 
         leg = instance.refactor_list(gen, "legendary", searches.Legendary_var)

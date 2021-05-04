@@ -6,10 +6,11 @@ try:
 except ImportError:
     from tkinter import *
 import os
-from __init__ import run
-
 searches = open("searches.py", "w")
 searches.write('')
+from __init__ import run
+
+
 
 root = Tk()
 root.title('Pokemon Index Finder')
@@ -48,12 +49,27 @@ poke_name = Entry(InnerFrame,
 
                   bg='#dfe2ea', fg='black',
 
-                  font=70, borderwidth=5)
+                  font=65, borderwidth=5)
 
-poke_name.place(relx=0.25, rely=0.105,
-                relwidth=0.5, relheight=0.09)
+poke_name.place(relx=0.1, rely=0.105,
+                relwidth=0.40, relheight=0.07)
 
 poke_name.insert(0, f'Name Search')
+
+name_search_button = Button(InnerFrame,
+                            bg='#dfe2ea',
+                            fg='black',
+                            font=('times', 11, 'bold'), borderwidth=4,
+                            command=lambda: name_search(
+                                poke_name.get()
+                            )  # runs when Search button is clicked
+
+                            )
+
+name_search_button.place(relx=0.55, rely=0.105,
+                         relwidth=0.35, relheight=0.07)
+
+name_search_button["text"] = f'Search'
 
 type1_var = StringVar(root)
 
@@ -181,9 +197,6 @@ help_button.place(relx=0.66, rely=0.3,
 
 help_button["text"] = f'Help'
 
-name_search = StringVar("")
-refract_search = StringVar("")
-
 search_button = Button(InnerFrame,
                        bg='#dfe2ea',
                        fg='black',
@@ -194,8 +207,7 @@ search_button = Button(InnerFrame,
                            gen_var.get(),
                            Legendary_var.get(),
                            stats_var.get(),
-                           AorD_var.get(),
-                           poke_name.get()
+                           AorD_var.get()
                        )  # runs when Search button is clicked
 
                        )
@@ -248,21 +260,28 @@ def home():
     os.system('python menu.py')
 
 
+def name_search(poke_name, self=None):
+    if poke_name == 'Name Search':
+        return
+    else:
+        searches.write(f"poke_name = '{str(poke_name)}'\n")
+        root.destroy()
+        run.name_search(self)
+
+
 def search(type1_var, type2_var,
            gen_var, Legendary_var,
            stats_var, AorD_var,
-           poke_name, self=None):
+           self=None):
     refract_search = "Clicked"
     name_search = ""
     check = [type1_var, type2_var,
              gen_var, Legendary_var,
-             stats_var, AorD_var,
-             poke_name]
+             stats_var, AorD_var]
 
     check_str = ['type1_var', 'type2_var',
                  'gen_var', 'Legendary_var',
-                 'stats_var', 'AorD_var',
-                 'poke_name']
+                 'stats_var', 'AorD_var']
     searches = open("searches.py", "w")
     num = 0
     for var in check:
@@ -301,31 +320,12 @@ def search(type1_var, type2_var,
             var = False
             searches.write(f"{str(i)} = {str(var)}\n")
             continue
-        elif var == 'Name Search':
-            var = None
-            searches.write(f"{str(i)} = {str(var)}\n")
-            continue
         else:
             if str(i) == 'gen_var':
                 searches.write(f"{str(i)} = {int(var)}\n")
             else:
                 searches.write(f"{str(i)} = '{str(var)}'\n")
 
-
-
-
-
-    """
-    searches.write(
-        f"type1_var = {str(type1_var)}\n" +  # Don't call this Chinese code
-        f"type2_var = {str(type2_var)}\n" +
-        f"gen_var = {str(gen_var)}\n" +
-        f"Legendary_var = {str(Legendary_var)}\n" +
-        f"stats_var = {str(stats_var)}\n" +
-        f"AorD_var = {str(AorD_var)}\n" +
-        f"poke_name = {str(poke_name)}"
-    )
-    """
     root.destroy()
     run.refract_search(self)
 
