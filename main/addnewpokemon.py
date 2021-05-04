@@ -6,6 +6,8 @@ try:
 except ImportError:
     from tkinter import *
 import os
+import csv
+from csv import writer
 
 root = Tk()
 root.title('Add a new Pokemon')
@@ -67,7 +69,7 @@ newLegendary = Entry(root, font=('times', 8, 'bold'), borderwidth='4',
                      bg='#9C9FA5',
                      fg='#5778BB')
 
-newLegendary.place(relx=0.60, rely=0.315,
+newLegendary.place(relx=0.30, rely=0.315,
                    relheight=0.09, relwidth=0.38)
 
 newLegendary.insert(0, f'Is the Pokemon a legendary?')
@@ -114,9 +116,17 @@ def createdPokemon():
     if pokelegnd == pokelegnd:
         legendary = pokelegnd.title()
 
+    list = [name, poketype1, poketype2, pokegen, pokelegnd]
+
+    with open('Pokemon.csv', 'a') as pk:  # Opens Pokemon.csv and the writes into the csv file a new pokemon
+        Pokemon = writer(pk)
+        Pokemon.writerow(list)
+        pk.close()
+
+'''
     print(f"This is your new pokemon, his name is {name}, it's first type is {type1}, and it's second type is {type2}, "
           f"It's generation is {gen}, Legendary: {legendary}")
-
+'''
 newPokeName.bind('<Button-1>', clearText) # clearText runs the definition
 newType1.bind('<Button-1>', clearText)
 newType2.bind('<Button-1>', clearText)
