@@ -12,16 +12,15 @@ import searches
 # This is the base of the project
 
 class run:
+    searches.stats_var = None
+    searches.AorD_var = None
+    searches.type1_var = None
+    searches.type2_var = None
+    searches.gen_var = None
+    searches.Legendary_var = None
+    searches.poke_name = None
+
     def __init__(self):
-        """
-        self.stats_var = searches.stats_var
-        self.AorD_var = searches.AorD_var
-        self.type1_var = searches.type1_var
-        self.type2_var = searches.type2_var
-        self.gen_var = searches.gen_var
-        self.Legendary_var = searches.Legendary_var
-        self.poke_name = searches.poke_name
-        """
         print("Project by: Madmegsox1, FSNCryo, HiddenMask, Basker12, PointlessQuack, DraconicDroid, Squidnugi")
 
     def name_search(self):
