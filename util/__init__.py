@@ -54,17 +54,18 @@ class csv_loader:
 
                     data = {
                         "id": int(row[0]),
+                        "name": row[1],
                         "type1": row[2],
                         "type2": row[3],
                         "total": int(row[4]),
-                        "hp": int(row[5]),
-                        "attack": int(row[6]),
-                        "defence": int(row[7]),
-                        "spAtk": int(row[8]),
-                        "spDef": int(row[9]),
-                        "speed": int(row[10]),
-                        "gen": int(row[11]),
-                        "legendary": leg
+                        "HP": int(row[5]),
+                        "Attack": int(row[6]),
+                        "Defence": int(row[7]),
+                        "Sp. Atk": int(row[8]),
+                        "Sp. Def": int(row[9]),
+                        "Speed": int(row[10]),
+                        "Generation": int(row[11]),
+                        "Legendary": leg
                     }
                     r_val[row[1]] = data
                 line_count += 1

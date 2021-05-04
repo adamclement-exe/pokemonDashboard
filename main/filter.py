@@ -6,6 +6,11 @@ try:
 except ImportError:
     from tkinter import *
 import os
+from __init__ import run
+
+searches = open("searches.py", "w")
+searches.write('')
+
 root = Tk()
 root.title('Pokemon Index Finder')
 
@@ -176,6 +181,9 @@ help_button.place(relx=0.66, rely=0.3,
 
 help_button["text"] = f'Help'
 
+name_search = StringVar("")
+refract_search = StringVar("")
+
 search_button = Button(InnerFrame,
                        bg='#dfe2ea',
                        fg='black',
@@ -243,34 +251,83 @@ def home():
 def search(type1_var, type2_var,
            gen_var, Legendary_var,
            stats_var, AorD_var,
-           poke_name):
+           poke_name, self=None):
+    refract_search = "Clicked"
+    name_search = ""
+    check = [type1_var, type2_var,
+             gen_var, Legendary_var,
+             stats_var, AorD_var,
+             poke_name]
 
-    if type1_var == 'Type 1':
-        type1_var = None
-    if type2_var == 'Type 2' and 'None':
-        type2_var = None
-    if gen_var == 'Generation':
-        gen_var = None
-    if Legendary_var == 'Legendary':
-        Legendary_var = None
-    if stats_var == 'Stats':
-        stats_var = None
-    if AorD_var == 'Sort':
-        AorD_var = None
-    if poke_name == 'Name Search':
-        poke_name = None
+    check_str = ['type1_var', 'type2_var',
+                 'gen_var', 'Legendary_var',
+                 'stats_var', 'AorD_var',
+                 'poke_name']
+    searches = open("searches.py", "w")
+    num = 0
+    for var in check:
+        i = check_str[num]
+        num += 1
 
-    print(
-        '\n'
-        'Type 1: ', type1_var, '\n' +  # Don't call this Chinese code
-        'Type 2: ', type2_var, '\n' +
-        'Gen: ', gen_var, '\n' +
-        'Legendary: ', Legendary_var, '\n' +
-        'Stats: ', stats_var, '\n' +
-        'Sort: ', AorD_var, '\n' +
-        'Entry Box: ', poke_name,
-        '\n'
+        if var == 'Type 1':
+            var = None
+            searches.write(f"{str(i)} = {str(var)}\n")
+            continue
+        elif var == 'Type 2' and 'None':
+            var = None
+            searches.write(f"{str(i)} = {str(var)}\n")
+            continue
+        elif var == 'Generation':
+            var = None
+            searches.write(f"{str(i)} = {str(var)}\n")
+            continue
+        elif var == 'Legendary':
+            var = None
+            searches.write(f"{str(i)} = {str(var)}\n")
+            continue
+        elif var == 'Stats':
+            var = "Ascending"
+            searches.write(f"{str(i)} = '{str(var)}'\n")
+            continue
+        elif var == 'Sort':
+            var = None
+            searches.write(f"{str(i)} = {str(var)}\n")
+            continue
+        elif var == "Ascending":
+            var = True
+            searches.write(f"{str(i)} = {str(var)}\n")
+            continue
+        elif var == "Descending":
+            var = False
+            searches.write(f"{str(i)} = {str(var)}\n")
+            continue
+        elif var == 'Name Search':
+            var = None
+            searches.write(f"{str(i)} = {str(var)}\n")
+            continue
+        else:
+            if str(i) == 'gen_var':
+                searches.write(f"{str(i)} = {int(var)}\n")
+            else:
+                searches.write(f"{str(i)} = '{str(var)}'\n")
+
+
+
+
+
+    """
+    searches.write(
+        f"type1_var = {str(type1_var)}\n" +  # Don't call this Chinese code
+        f"type2_var = {str(type2_var)}\n" +
+        f"gen_var = {str(gen_var)}\n" +
+        f"Legendary_var = {str(Legendary_var)}\n" +
+        f"stats_var = {str(stats_var)}\n" +
+        f"AorD_var = {str(AorD_var)}\n" +
+        f"poke_name = {str(poke_name)}"
     )
+    """
+    root.destroy()
+    run.refract_search(self)
 
 
 def view_all():
