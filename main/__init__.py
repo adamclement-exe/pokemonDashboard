@@ -26,7 +26,6 @@ class run:
         var = s.readline()
         var = (var[:-1]).split(",")
 
-
         type1_var = str(var[0])
         type2_var = str(var[1])
         stats_var = var[4]
@@ -35,16 +34,18 @@ class run:
         if gen_var != 'All':
             gen_var = int(var[2])
 
-
         Legendary_var = str(var[3])
-        if Legendary_var == "False": Legendary_var = False
-        elif Legendary_var == "True": Legendary_var = True
+        if Legendary_var == "False":
+            Legendary_var = False
+        elif Legendary_var == "True":
+            Legendary_var = True
 
         AorD_var = str(var[5])
-        if AorD_var == "False": AorD_var = False
-        elif AorD_var == "True": AorD_var = True
-
+        if AorD_var == "False":
+            AorD_var = False
+        elif AorD_var == "True":
+            AorD_var = True
 
         a = util.search()
-        a = a.getList(stats_var, AorD_var, [type1_var, type2_var, gen_var, Legendary_var])
+        a = a.getList(stats_var, AorD_var, [type1_var, type2_var, gen_var, Legendary_var])  # filtered search
         print(a)
