@@ -1,1 +1,1 @@
-All,All,All,False,id,True,
+Grass,Poison,1,False,Alphabetical,True,

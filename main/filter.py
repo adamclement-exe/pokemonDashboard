@@ -146,11 +146,11 @@ Legendary_menu.place(relx=0.55, rely=0.545,
 
 stats_var = StringVar(root)
 
-stats_choices = {'Stats': 1,
-                 'HP': 2, 'Attack': 3, 'Defense': 4,  # Numbers Give the Types an Order
-                 'Sp. Atk': 5, 'Sp. Def': 6, 'Speed': 7}  # Items in Drop Down menu
+stats_choices = {'Sort': 1, 'Alphabetical': 2,
+                 'HP': 3, 'Attack': 4, 'Defense': 5,  # Numbers Give the Types an Order
+                 'Sp. Atk': 6, 'Sp. Def': 7, 'Speed': 8}  # Items in Drop Down menu
 
-stats_var.set('Stats')  # sets Starting Value for Drop Down menu
+stats_var.set('Sort')  # sets Starting Value for Drop Down menu
 
 stats_menu = OptionMenu(InnerFrame, stats_var, *stats_choices)
 
@@ -163,10 +163,10 @@ stats_menu.place(relx=0.1, rely=0.685,
 
 AorD_var = StringVar(root)
 
-AorD_choices = {'Sort': 1,  # Items in Drop Down menu
+AorD_choices = {'Sort Method': 1,  # Items in Drop Down menu
                 'Ascending': 2, 'Descending': 3}
 
-AorD_var.set('Sort')  # sets Starting Value for Drop Down menu
+AorD_var.set('Sort Method')  # sets Starting Value for Drop Down menu
 
 AorD_menu = OptionMenu(InnerFrame, AorD_var, *AorD_choices)
 
@@ -313,12 +313,12 @@ def search(type1_var, type2_var,
             searches.write(str(var))
             searches.write((","))
             continue
-        elif var == 'Sort':
+        elif var == 'Sort Method':
             var = True
             searches.write(str(var))
             searches.write((","))
             continue
-        elif var == 'Stats':
+        elif var == 'Sort':
             var = 'id'
             searches.write(str(var))
             searches.write((","))
