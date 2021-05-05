@@ -145,17 +145,38 @@ createButton = Button(root, text='CREATE POKEMON', font=('times', 12, 'bold'), b
 createButton.place(relx=0.25, rely=0.750,
                    relheight=0.09, relwidth=0.5)
 
-musicButton = Button(root, text='Stop Music', font=('times', 12, 'bold'), borderwidth='4',
+stopMusicButton = Button(root, text='Stop Music', font=('times', 12, 'bold'), borderwidth='4',
                      bg='#9C9FA5',
                      fg='#5778BB',
                      command=lambda: stopMusic())
 
-musicButton.place(relx=0.02, rely=0.895,
+stopMusicButton.place(relx=0.02, rely=0.895,
                   relheight=0.09, relwidth=0.25)
 
-def stopMusic():
+pauseMusicButton = Button(root, text='Pause Music', font=('times', 12, 'bold'), borderwidth='4',
+                          bg='#9C9FA5',
+                          fg='#5778BB',
+                          command=lambda: pauseMusic())
+
+pauseMusicButton.place(relx=0.37, rely=0.895,
+                       relheight=0.09, relwidth=0.25)
+
+playMusicButton = Button(root, text='Play Music', font=('times', 12, 'bold'), borderwidth='4',
+                         bg='#9C9FA5',
+                         fg='#5778BB',
+                         command=lambda: unpauseMusic())
+
+playMusicButton.place(relx=0.73, rely=0.895,
+                      relheight=0.09, relwidth=0.25)
+
+def stopMusic(): # This definition stops the music completely
     pygame.mixer.music.stop()
 
+def pauseMusic(): # This definition pauses the music
+    pygame.mixer.music.pause()
+
+def unpauseMusic(): # This definition unpauses the music
+    pygame.mixer.music.unpause()
 
 def clearText(e): # This definition clears the entry box text, instead having to do it manually
     if newPokeName.get() == 'Your new Pokemons name':
