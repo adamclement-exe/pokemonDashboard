@@ -205,7 +205,7 @@ def createdPokemon():
     if pokelegnd == pokelegnd:
         legendary = pokelegnd.title()
 
-    list = [name, poketype1, poketype2, pokegen, pokelegnd]
+    newPokemon = [name, poketype1, poketype2, pokegen, pokelegnd]
 
     with open('temp.csv', 'a') as pk:  # Opens Pokemon.csv and the writes into the csv file a new pokemon
         Pokemon = writer(pk)
