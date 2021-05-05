@@ -289,28 +289,28 @@ def search(type1_var, type2_var,
         num += 1
 
         if var == 'Type 1':
-            var = None
-            searches.write(f"{str(i)} = {str(var)}\n")
+            var = 'All'
+            searches.write(f"{str(i)} = '{str(var)}'\n")
             continue
         elif var == 'Type 2' and 'None':
-            var = None
-            searches.write(f"{str(i)} = {str(var)}\n")
+            var = 'All'
+            searches.write(f"{str(i)} = '{str(var)}'\n")
             continue
         elif var == 'Generation':
-            var = None
-            searches.write(f"{str(i)} = {str(var)}\n")
+            var = 'All'
+            searches.write(f"{str(i)} = '{str(var)}'\n")
             continue
         elif var == 'Legendary':
-            var = None
+            var = False
             searches.write(f"{str(i)} = {str(var)}\n")
             continue
-        elif var == 'Stats':
+        elif var == 'Sort':
             var = "Ascending"
             searches.write(f"{str(i)} = '{str(var)}'\n")
             continue
-        elif var == 'Sort':
-            var = None
-            searches.write(f"{str(i)} = {str(var)}\n")
+        elif var == 'Stats':
+            var = 'id'
+            searches.write(f"{str(i)} = '{str(var)}'\n")
             continue
         elif var == "Ascending":
             var = True
@@ -343,6 +343,8 @@ def reset():
     type1_var.set('Type 1')
     poke_name.delete(0, 'end')
     poke_name.insert(0, 'Name Search')  # resets all to default values
+    searches = open("searches.py", "w")
+    searches.write('')
 
 
 root.mainloop()

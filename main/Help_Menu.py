@@ -156,7 +156,7 @@ def manual(dev_manual_var):
     for line in lines:
         listbox.insert(END, line)
 
-    print(dev_manual_var)
+    #  print(dev_manual_var)
 
 
 dev_manual_menu = OptionMenu(root, dev_manual_var, *dev_manual_choices, command=manual)
