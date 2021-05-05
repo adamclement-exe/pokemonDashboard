@@ -22,6 +22,9 @@ class run:
 
     def __init__(self):
         Devs = ("Madmegsox1, FSNCryo, HiddenMask, Basker12, PointlessQuack, DraconicDroid, Squidnugi")
+        a = util.search()
+        a = a.getList("id", False, ["All", "Electric", "All", "All", "All", "All", "All", "All", "All", 1, False])
+        print(a)
 
     def name_search(self):
         instance = util.csv_loader("Pokemon.csv")
@@ -45,5 +48,4 @@ class run:
         print(searches_list)
 
 
-
-run().refract_search()
+run()

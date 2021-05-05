@@ -121,3 +121,27 @@ class csv_loader:
         if len(r_val) == 0:
             return 0
         return r_val
+
+
+class search:
+    def __init__(self):
+        self.instance = csv_loader("Pokemon.csv")
+
+    def getList(self, sort, hTl, list):
+        r_val = self.instance.sort(sort, hTl)
+        type_list = ["type1", "type2", "total", "HP", "Attack", "Defence", "Sp. Atk", "Sp. Def", "Speed", "Generation",
+                     "Legendary"]
+        for i in range(len(list)):
+            if (list[i] == "All") or (list[i] is None): continue
+            if r_val == 0:
+                return None
+            r_val = self.instance.refactor_list(r_val, type_list[i], list[i])
+
+        return r_val
+        # ------------HOW TO CONSTRUCT------------#
+        #   The Pram "list" must be in the same
+        #   sequence as type_list e.g.
+        #   index1 -> type1
+        #   index2 -> type2
+        #   index3 -> total
+        #   if the search is null it returns None
