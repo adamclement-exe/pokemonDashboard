@@ -8,6 +8,9 @@ except ImportError:
 import os
 import csv
 from csv import writer
+import pygame
+
+pygame.mixer.init()
 
 root = Tk()
 root.title('Add a new Pokemon')
@@ -139,6 +142,19 @@ createButton = Button(root, text='CREATE POKEMON', font=('times', 12, 'bold'), b
 createButton.place(relx=0.25, rely=0.800,
                    relheight=0.09, relwidth=0.5)
 
+musicButton = Button(root, text='PRESS FOR DA MUSIC', font=('times', 8, 'bold'), borderwidth='4',
+                     bg='#9C9FA5',
+                     fg='#5778BB',
+                     command=lambda: playMusic())
+
+musicButton.place(relx=0.50, rely=0.850,
+                  relheight=0.09, relwidth=0.38)
+
+def playMusic():
+    pygame.mixer.music.load("music/Driftveil_City.mp3")
+    pygame.mixer.music.play(loops=0)
+
+
 def clearText(e): # This definition clears the entry box text, instead having to do it manually
     if newPokeName.get() == 'Your new Pokemons name':
         newPokeName.delete(0, END)
@@ -214,7 +230,6 @@ def createdPokemon():
     specialDefence = int(newSpecialDefence.get())
 
     gen = int(newGen.get())
-
 
     total = hp + speed + attack + defence + specialAttack + specialDefence # This takes all the Pokemon's int stats and adds them to a total
 
