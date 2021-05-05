@@ -5,9 +5,11 @@ try:
     from Tkinter import *
 except ImportError:
     from tkinter import *
+import time
 import os
 searches = open("searches.py", "w")
 searches.write('')
+searches.close()
 from __init__ import run
 
 
@@ -261,10 +263,12 @@ def home():
 
 
 def name_search(poke_name, self=None):
+    searches = open("searches.txt", "w")
     if poke_name == 'Name Search':
         return
     else:
-        searches.write(f"poke_name = '{str(poke_name)}'\n")
+        searches.write(f"{str(poke_name)}\n")
+        searches.close()
         root.destroy()
         run.name_search(self)
 
@@ -282,7 +286,8 @@ def search(type1_var, type2_var,
     check_str = ['type1_var', 'type2_var',
                  'gen_var', 'Legendary_var',
                  'stats_var', 'AorD_var']
-    searches = open("searches.py", "w")
+    
+    searches = open("searches.txt", "w")
     num = 0
     for var in check:
         i = check_str[num]
@@ -290,43 +295,52 @@ def search(type1_var, type2_var,
 
         if var == 'Type 1':
             var = 'All'
-            searches.write(f"{str(i)} = '{str(var)}'\n")
+            searches.write(f"'{str(var)}'\n")
             continue
         elif var == 'Type 2' and 'None':
             var = 'All'
-            searches.write(f"{str(i)} = '{str(var)}'\n")
+            searches.write(f"'{str(var)}'\n")
             continue
         elif var == 'Generation':
             var = 'All'
-            searches.write(f"{str(i)} = '{str(var)}'\n")
+            searches.write(f"'{str(var)}'\n")
             continue
         elif var == 'Legendary':
             var = False
-            searches.write(f"{str(i)} = {str(var)}\n")
+            searches.write(f"{str(var)}\n")
             continue
         elif var == 'Sort':
-            var = "Ascending"
-            searches.write(f"{str(i)} = '{str(var)}'\n")
+            var = True
+            searches.write(f"{str(var)}\n")
             continue
         elif var == 'Stats':
             var = 'id'
-            searches.write(f"{str(i)} = '{str(var)}'\n")
+            searches.write(f"'{str(var)}'\n")
             continue
         elif var == "Ascending":
             var = True
-            searches.write(f"{str(i)} = {str(var)}\n")
+            searches.write(f"{str(var)}\n")
             continue
         elif var == "Descending":
             var = False
-            searches.write(f"{str(i)} = {str(var)}\n")
+            searches.write(f"{str(var)}\n")
             continue
         else:
             if str(i) == 'gen_var':
-                searches.write(f"{str(i)} = {int(var)}\n")
+                searches.write(f"{int(var)}\n")
+                continue
             else:
-                searches.write(f"{str(i)} = '{str(var)}'\n")
-
+                searches.write(f"'{str(var)}'\n")
+                continue
+    searches.close()
     root.destroy()
+    #print(s.type1_var)
+    #type1_var = s.type1_var
+    #type2_var = s.type2_var
+    #gen_var = s.gen_var
+    #Legendary_var = s.Legendary_var
+    #stats_var = s.stats_var
+    #AorD_var = s.AorD_var
     run.refract_search(self)
 
 
@@ -345,6 +359,7 @@ def reset():
     poke_name.insert(0, 'Name Search')  # resets all to default values
     searches = open("searches.py", "w")
     searches.write('')
+    searches.close()
 
 
 root.mainloop()
