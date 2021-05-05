@@ -1,1 +1,1 @@
-Dragon,All,All,True,id,True,
+All,All,All,False,id,True,
