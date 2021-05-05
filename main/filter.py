@@ -295,15 +295,15 @@ def search(type1_var, type2_var,
 
         if var == 'Type 1':
             var = 'All'
-            searches.write(f"'{str(var)}'\n")
+            searches.write(f"{str(var)}\n")
             continue
         elif var == 'Type 2' and 'None':
             var = 'All'
-            searches.write(f"'{str(var)}'\n")
+            searches.write(f"{str(var)}\n")
             continue
         elif var == 'Generation':
             var = 'All'
-            searches.write(f"'{str(var)}'\n")
+            searches.write(f"{str(var)}\n")
             continue
         elif var == 'Legendary':
             var = False
@@ -315,7 +315,7 @@ def search(type1_var, type2_var,
             continue
         elif var == 'Stats':
             var = 'id'
-            searches.write(f"'{str(var)}'\n")
+            searches.write(f"{str(var)}\n")
             continue
         elif var == "Ascending":
             var = True
@@ -330,7 +330,7 @@ def search(type1_var, type2_var,
                 searches.write(f"{int(var)}\n")
                 continue
             else:
-                searches.write(f"'{str(var)}'\n")
+                searches.write(f"{str(var)}\n")
                 continue
     searches.close()
     root.destroy()

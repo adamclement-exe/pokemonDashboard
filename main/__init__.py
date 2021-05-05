@@ -34,6 +34,9 @@ class run:
         AorD_var = s.readline()
 
         a = util.search()
-        #print(stats_var+AorD_var+type1_var+type2_var+gen_var+Legendary_var)
         a = a.getList(stats_var, AorD_var, [type1_var, type2_var, gen_var, Legendary_var])
         print(a)
+
+        b = util.search()
+        b = b.getList("id", False, ["Poison", "All", 1, False])
+        print(b)

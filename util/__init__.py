@@ -141,6 +141,6 @@ class search:
         #   sequence as type_list e.g.
         #   index1 -> type1
         #   index2 -> type2
-        #   index3 -> HP
-        #   index4 -> Attack
+        #   index3 -> Generation
+        #   index4 -> Legendary
         #   if the search is null it returns None
