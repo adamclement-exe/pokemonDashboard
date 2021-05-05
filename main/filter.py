@@ -7,7 +7,7 @@ except ImportError:
     from tkinter import *
 import time
 import os
-searches = open("searches.py", "w")
+searches = open("searches.txt", "w")
 searches.write('')
 searches.close()
 from __init__ import run
@@ -295,52 +295,66 @@ def search(type1_var, type2_var,
 
         if var == 'Type 1':
             var = 'All'
-            searches.write(f"{str(var)}\n")
+            searches.write(str(var))
+            searches.write((","))
             continue
         elif var == 'Type 2' and 'None':
             var = 'All'
-            searches.write(f"{str(var)}\n")
+            searches.write(str(var))
+            searches.write((","))
             continue
         elif var == 'Generation':
             var = 'All'
-            searches.write(f"{str(var)}\n")
+            searches.write(str(var))
+            searches.write((","))
             continue
         elif var == 'Legendary':
             var = False
-            searches.write(f"{str(var)}\n")
+            searches.write(str(var))
+            searches.write((","))
             continue
         elif var == 'Sort':
             var = True
-            searches.write(f"{str(var)}\n")
+            searches.write(str(var))
+            searches.write((","))
             continue
         elif var == 'Stats':
             var = 'id'
-            searches.write(f"{str(var)}\n")
+            searches.write(str(var))
+            searches.write((","))
             continue
         elif var == "Ascending":
             var = True
-            searches.write(f"{str(var)}\n")
+            searches.write(str(var))
+            searches.write((","))
             continue
         elif var == "Descending":
             var = False
-            searches.write(f"{str(var)}\n")
+            searches.write(str(var))
+            searches.write((","))
+            continue
+        elif var == "False":
+            var = False
+            searches.write(str(var))
+            searches.write((","))
+            continue
+        elif var == "True":
+            var = True
+            searches.write(str(var))
+            searches.write((","))
             continue
         else:
             if str(i) == 'gen_var':
-                searches.write(f"{int(var)}\n")
+                searches.write(str(var))
+                searches.write((","))
                 continue
             else:
-                searches.write(f"{str(var)}\n")
+                searches.write(str(var))
+                searches.write((","))
                 continue
     searches.close()
     root.destroy()
-    #print(s.type1_var)
-    #type1_var = s.type1_var
-    #type2_var = s.type2_var
-    #gen_var = s.gen_var
-    #Legendary_var = s.Legendary_var
-    #stats_var = s.stats_var
-    #AorD_var = s.AorD_var
+
     run.refract_search(self)
 
 

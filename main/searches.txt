@@ -1,6 +1,1 @@
-All
-All
-All
-False
-id
-True
+Dragon,All,All,True,id,True,
