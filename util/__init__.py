@@ -112,7 +112,6 @@ class csv_loader:
 
     def refactor_list(self, list, category, name):
         r_val = []
-        print(list)
         for i in list:
             p_data = self.get_pokemon_by_name(i)
             if (p_data != 0) and (category in p_data):
