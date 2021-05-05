@@ -127,13 +127,30 @@ class search:
         self.instance = csv_loader("Pokemon.csv")
 
     def getList(self, sort, hTl, list):
+
+        #  China Code ( code to make Alphabetical sorts possible )
+        if sort == "Alphabetical":
+            print('run1')
+            Alpha = sort
+            sort = "id"
+        else:
+            Alpha = None
+        #  China Code ( code to make Alphabetical sorts possible )
+
         r_val = self.instance.sort(sort, hTl)
+
         type_list = ["type1", "type2", "Generation", "Legendary"]
         for i in range(len(list)):
             if (list[i] == "All") or (list[i] is None): continue
             if r_val == 0:
                 return None
             r_val = self.instance.refactor_list(r_val, type_list[i], list[i])
+
+            #  China Code ( code to make Alphabetical sorts possible )
+            if Alpha == "Alphabetical":
+                print('run2')
+                r_val = sorted(r_val, reverse=not hTl)
+            #  China Code ( code to make Alphabetical sorts possible )
 
         return r_val
         # ------------HOW TO CONSTRUCT------------#
