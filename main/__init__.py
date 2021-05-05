@@ -12,16 +12,16 @@ import searches
 # This is the base of the project
 
 class run:
-    searches.stats_var = None
-    searches.AorD_var = None
-    searches.type1_var = None
-    searches.type2_var = None
-    searches.gen_var = None
-    searches.Legendary_var = None
+    searches.stats_var = "id"
+    searches.AorD_var = True
+    searches.type1_var = "Grass"
+    searches.type2_var = "Poison"
+    searches.gen_var = 1
+    searches.Legendary_var = False
     searches.poke_name = None
 
     def __init__(self):
-        print("Project by: Madmegsox1, FSNCryo, HiddenMask, Basker12, PointlessQuack, DraconicDroid, Squidnugi")
+        Devs = ("Madmegsox1, FSNCryo, HiddenMask, Basker12, PointlessQuack, DraconicDroid, Squidnugi")
 
     def name_search(self):
         instance = util.csv_loader("Pokemon.csv")
@@ -38,12 +38,12 @@ class run:
         print('t1', t1)
         t2 = instance.refactor_list(t1, "type2", searches.type2_var)
         print('t2', t2)
-        gen = instance.refactor_list(t2, "gen", searches.gen_var)
-
-        leg = instance.refactor_list(gen, "legendary", searches.Legendary_var)
+        gen = instance.refactor_list(t2, "Generation", searches.gen_var)
+        leg = instance.refactor_list(gen, "Legendary", searches.Legendary_var)
         searches_list = leg
 
         print(searches_list)
 
 
-run()
+
+run().refract_search()
