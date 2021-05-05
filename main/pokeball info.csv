@@ -1,5 +1,7 @@
 ball_name,picture_name,gen,Catch rate modifier,description
-Poké Ball,Dream_Poké_Ball_Sprite.png,1,1x,""
+Poké Ball,Dream_Poké_Ball_Sprite.png,1,1x,"The Poké Ball (Japanese: モンスターボール Monster Ball) is a type of Poké Ball introduced in Generation I. It is the most basic form of Poké Ball, an item used to catch a wild Pokémon.
+
+The eponymous Poké Ball is the most ubiquitous kind of Poké Ball across the entire Pokémon franchise. It is frequently used to represent the Pokémon series as a whole, such as in the Pokémon series' icon in the Super Smash Bros. series."
 Great Ball,Dream_Great_Ball_Sprite.png,1,1.5x,""
 Ultra Ball,Dream_Ultra_Ball_Sprite.png,1,2x,""
 Master Ball,Dream_Master_Ball_Sprite.png,1,255x,""
