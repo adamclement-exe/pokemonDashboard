@@ -21,7 +21,7 @@ class run:
     searches.poke_name = None
 
     def __init__(self):
-        print("Project by: Madmegsox1, FSNCryo, HiddenMask, Basker12, PointlessQuack, DraconicDroid, Squidnugi")
+        Devs = ("Madmegsox1, FSNCryo, HiddenMask, Basker12, PointlessQuack, DraconicDroid, Squidnugi")
 
     def name_search(self):
         instance = util.csv_loader("Pokemon.csv")
