@@ -23,9 +23,7 @@ class run:
 
     def __init__(self):
         Devs = ("Madmegsox1, FSNCryo, HiddenMask, Basker12, PointlessQuack, DraconicDroid, Squidnugi")
-        a = util.search()
-        a = a.getList("id", False, ["All", "Electric", "All", "All", "All", "All", "All", "All", "All", 1, False])
-        print(a)
+
 
         points = [[-1, -1, -1], [-1, -1, 1], [-1, 1, 1], [-1, 1, -1], [1, -1, -1], [1, -1, 1], [1, 1, 1], [1, 1, -1]]
         triangles = [[0, 1, 2], [0, 2, 3], [2, 3, 7], [2, 7, 6], [1, 2, 5], [2, 5, 6], [0, 1, 4], [1, 4, 5], [4, 5, 6],
@@ -43,25 +41,25 @@ class run:
         test.screen.window.mainloop()
 
     def name_search(self):
-        instance = util.csv_loader("Pokemon.csv")
-        d = instance.sort("id", True)
-        pokename = instance.refactor_list(d, "name", searches.poke_name)
-        print(pokename)
+        s = open("searches.txt", "r")
+        pokename_var = s.readline()
+
+        print(pokename_var)
 
     def refract_search(self):
-        instance = util.csv_loader("Pokemon.csv")
-        #  following code filters the users search
-        d = instance.sort(searches.stats_var, searches.AorD_var)
-        print('d', d)
-        t1 = instance.refactor_list(d, "type1", searches.type1_var)
-        print('t1', t1)
-        t2 = instance.refactor_list(t1, "type2", searches.type2_var)
-        print('t2', t2)
-        gen = instance.refactor_list(t2, "Generation", searches.gen_var)
-        leg = instance.refactor_list(gen, "Legendary", searches.Legendary_var)
-        searches_list = leg
+        s = open("searches.txt", "r")
 
-        print(searches_list)
+        type1_var = s.readline()
+        type2_var = s.readline()
+        gen_var = s.readline()
+        Legendary_var = s.readline()
+        stats_var = s.readline()
+        AorD_var = s.readline()
 
+        a = util.search()
+        a = a.getList(stats_var, AorD_var, [type1_var, type2_var, gen_var, Legendary_var])
+        print(a)
 
-run()
+        b = util.search()
+        b = b.getList("id", False, ["Poison", "All", 1, False])
+        print(b)

@@ -8,6 +8,9 @@ except ImportError:
 import os
 import csv
 from csv import writer
+import pygame
+
+pygame.mixer.init()
 
 root = Tk()
 root.title('Add a new Pokemon')
@@ -22,7 +25,7 @@ root.geometry(f'{HEIGHT}x{WIDTH}')
 root.minsize(WIDTH, HEIGHT)
 root.maxsize(WIDTH, HEIGHT)
 
-background = PhotoImage(file='formating/settingsbackgroundimage.png')
+background = PhotoImage(file='formating/newpkbg.png')
 
 Canvas = Canvas(root, width=WIDTH, height=HEIGHT, highlightbackground='#9C9FA5', highlightthickness='4')
 Canvas.pack(fill='both', expand='True')
@@ -69,7 +72,7 @@ newLegendary = Entry(root, font=('times', 8, 'bold'), borderwidth='4',
                      bg='#9C9FA5',
                      fg='#5778BB')
 
-newLegendary.place(relx=0.30, rely=0.750,
+newLegendary.place(relx=0.30, rely=0.630,
                    relheight=0.09, relwidth=0.38)
 
 newLegendary.insert(0, f'Is the Pokemon a legendary?')
@@ -139,6 +142,19 @@ createButton = Button(root, text='CREATE POKEMON', font=('times', 12, 'bold'), b
 createButton.place(relx=0.25, rely=0.800,
                    relheight=0.09, relwidth=0.5)
 
+musicButton = Button(root, text='PRESS FOR DA MUSIC', font=('times', 8, 'bold'), borderwidth='4',
+                     bg='#9C9FA5',
+                     fg='#5778BB',
+                     command=lambda: playMusic())
+
+musicButton.place(relx=0.50, rely=0.850,
+                  relheight=0.09, relwidth=0.38)
+
+def playMusic():
+    pygame.mixer.music.load("music/Driftveil_City.mp3")
+    pygame.mixer.music.play(loops=0)
+
+
 def clearText(e): # This definition clears the entry box text, instead having to do it manually
     if newPokeName.get() == 'Your new Pokemons name':
         newPokeName.delete(0, END)
@@ -185,36 +201,44 @@ def clearTextHP(e):
 
 def createdPokemon():
 
-    pokename = newPokeName.get()
+    pokename = str(newPokeName.get()) # Added str so that you're only able to input letters and not numbers
     if pokename == pokename:
         name = pokename.title()
 
-    poketype1 = newType1.get()
+    poketype1 = str(newType1.get())
     if poketype1 == poketype1:
         type1 = poketype1.title()
 
-    poketype2 = newType2.get()
+    poketype2 = str(newType2.get())
     if poketype2 == poketype2:
         type2 = poketype2.title()
 
-    pokegen = newGen.get()
-    if pokegen == pokegen:
-        gen = pokegen.title()
+    pokelegendary = str(newLegendary.get())
+    if pokelegendary == pokelegendary:
+        legendary = pokelegendary.title()
 
-    pokelegnd = newLegendary.get()
-    if pokelegnd == pokelegnd:
-        legendary = pokelegnd.title()
+    hp = int(newHP.get())
 
-    newPokemon = [name, poketype1, poketype2, pokegen, pokelegnd]
+    speed = int(newSpeed.get())
 
-    with open('temp.csv', 'a') as pk:  # Opens Pokemon.csv and the writes into the csv file a new pokemon
+    attack = int(newAttack.get())
+
+    defence = int(newDefence.get())
+
+    specialAttack = int(newSpecialAttack.get())
+
+    specialDefence = int(newSpecialDefence.get())
+
+    gen = int(newGen.get())
+
+    total = hp + speed + attack + defence + specialAttack + specialDefence # This takes all the Pokemon's int stats and adds them to a total
+
+    newPokemon = [name, type1, type2, total, hp, attack, defence, specialAttack, specialDefence, speed, gen, legendary]
+
+    with open('temp.csv', 'a', newline='') as pk:  # Opens Pokemon.csv and the writes into the csv file a new pokemon
         Pokemon = writer(pk)
-        Pokemon.writerow(list)
+        Pokemon.writerow(newPokemon)
         pk.close()
-
-
-    print(f"This is your new pokemon, his name is {name}, it's first type is {type1}, and it's second type is {type2}, "
-          f"It's generation is {gen}, Legendary: {legendary}")
 
 newPokeName.bind('<Button-1>', clearText) # clearText runs the definition
 newType1.bind('<Button-1>', clearTextNT1)

@@ -57,7 +57,6 @@ class csv_loader:
                         "name": row[1],
                         "type1": row[2],
                         "type2": row[3],
-                        "total": int(row[4]),
                         "HP": int(row[5]),
                         "Attack": int(row[6]),
                         "Defence": int(row[7]),
@@ -129,8 +128,7 @@ class search:
 
     def getList(self, sort, hTl, list):
         r_val = self.instance.sort(sort, hTl)
-        type_list = ["type1", "type2", "total", "HP", "Attack", "Defence", "Sp. Atk", "Sp. Def", "Speed", "Generation",
-                     "Legendary"]
+        type_list = ["type1", "type2", "Generation", "Legendary"]
         for i in range(len(list)):
             if (list[i] == "All") or (list[i] is None): continue
             if r_val == 0:
@@ -143,5 +141,6 @@ class search:
         #   sequence as type_list e.g.
         #   index1 -> type1
         #   index2 -> type2
-        #   index3 -> total
+        #   index3 -> Generation
+        #   index4 -> Legendary
         #   if the search is null it returns None
