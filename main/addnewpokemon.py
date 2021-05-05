@@ -12,6 +12,9 @@ import pygame
 
 pygame.mixer.init()
 
+pygame.mixer.music.load("music/Driftveil_City.mp3")
+pygame.mixer.music.play(loops=100)
+
 root = Tk()
 root.title('Add a new Pokemon')
 
@@ -139,20 +142,19 @@ createButton = Button(root, text='CREATE POKEMON', font=('times', 12, 'bold'), b
                      width='15',
                       command=lambda: createdPokemon())
 
-createButton.place(relx=0.25, rely=0.800,
+createButton.place(relx=0.25, rely=0.750,
                    relheight=0.09, relwidth=0.5)
 
-musicButton = Button(root, text='PRESS FOR DA MUSIC', font=('times', 8, 'bold'), borderwidth='4',
+musicButton = Button(root, text='Stop Music', font=('times', 12, 'bold'), borderwidth='4',
                      bg='#9C9FA5',
                      fg='#5778BB',
-                     command=lambda: playMusic())
+                     command=lambda: stopMusic())
 
-musicButton.place(relx=0.50, rely=0.850,
-                  relheight=0.09, relwidth=0.38)
+musicButton.place(relx=0.02, rely=0.895,
+                  relheight=0.09, relwidth=0.25)
 
-def playMusic():
-    pygame.mixer.music.load("music/Driftveil_City.mp3")
-    pygame.mixer.music.play(loops=0)
+def stopMusic():
+    pygame.mixer.music.stop()
 
 
 def clearText(e): # This definition clears the entry box text, instead having to do it manually
