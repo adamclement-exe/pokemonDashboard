@@ -22,7 +22,6 @@ with open("pokeball info.csv","r") as csvfile:
     for row in reader:
         if 'ball_name' not in row:
             list.append(row)
-            print(row)
 while True:
     choice = input("\n[poke/great/ultra/master/safari/fast/level/lure/heavy/love/friend/moon/sport/net/nest/repeat/timer/luxury/premier/dive/dusk/heal/quick/cherish/park/dream/beast]>> ")
     if choice != 'stop':
