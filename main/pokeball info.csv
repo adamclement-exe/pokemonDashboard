@@ -1,30 +1,57 @@
-ball_name,picture_name,gen,Catch rate modifier,description
-Poké Ball,Dream_Poké_Ball_Sprite.png,1,1x,"The Poké Ball (Japanese: モンスターボール Monster Ball) is a type of Poké Ball introduced in Generation I. It is the most basic form of Poké Ball, an item used to catch a wild Pokémon.
+ball_name,picture_name,gen,Catch_rate_modifier,Additional_effect,description
+Poke Ball,Dream_Poke_Ball_Sprite.png,1,1x,Must be in the player's bag with an empty space in the party to obtain a Shedinja when Nincada evolves from Generation IV onwards.,"The Poke Ball is a type of Poke Ball introduced in Generation I. It is the most basic form of Poke Ball, an item used to catch a wild Pokemon.
 
-The eponymous Poké Ball is the most ubiquitous kind of Poké Ball across the entire Pokémon franchise. It is frequently used to represent the Pokémon series as a whole, such as in the Pokémon series' icon in the Super Smash Bros. series."
-Great Ball,Dream_Great_Ball_Sprite.png,1,1.5x,""
-Ultra Ball,Dream_Ultra_Ball_Sprite.png,1,2x,""
-Master Ball,Dream_Master_Ball_Sprite.png,1,255x,""
-Safari Ball,Dream_Safari_Ball_Sprite.png,1,1.5x,""
-Fast Ball,Dream_Fast_Ball_Sprite.png,2,4x if used on a Pokémon with a base Speed of at least 100 otherwise 1x,""
-Level Ball,Dream_Level_Ball_Sprite.png,2,,""
-Lure Ball,Dream_Lure_Ball_Sprite.png,2,,""
-Heavy Ball,Dream_Heavy_Ball_Sprite.png,2,,""
-Love Ball,Dream_Love_Ball_Sprite.png,2,,""
-Friend Ball,Dream_Friend_Ball_Sprite.png,2,,""
-Moon Ball,Dream_Moon_Ball_Sprite.png,2,,""
-Sport Ball,Dream_Sport_Ball_Sprite.png,2,,""
-Net Ball,Dream_Net_Ball_Sprite.png,3,,""
-Nest Ball,Dream_Nest_Ball_Sprite.png,3,,""
-Repeat Ball,Dream_Repeat_Ball_Sprite.png,3,,""
-Timer Ball,Dream_Timer_Ball_Sprite.png,3,,""
-Luxury Ball,Dream_Luxury_Ball_Sprite.png,3,,""
-Premier Ball,Dream_Premier_Ball_Sprite.png,3,,""
-Dive Ball,Dream_Dive_Ball_Sprite.png,3,,""
-Dusk Ball,Dream_Dusk_Ball_Sprite.png,4,,""
-Heal Ball,Dream_Heal_Ball_Sprite.png,4,,""
-Quick Ball,Dream_Quick_Ball_Sprite.png,4,,""
-Cherish Ball,Dream_Cherish_Ball_Sprite.png,4,,""
-Park Ball,Dream_Park_Ball_Sprite.png,4,,""
-Dream Ball,Dream_Dream_Ball_Sprite.png,5,,""
-Beast Ball,Dream_Beast_Ball_Sprite.png,7,,""
+The eponymous Poke Ball is the most ubiquitous kind of Poke Ball across the entire Pokemon franchise. It is frequently used to represent the Pokemon series as a whole, such as in the Pokmon series' icon in the Super Smash Bros. series."
+Great Ball,Dream_Great_Ball_Sprite.png,1,1.5x,,"The Great Ball is a type of Poke Ball introduced in Generation I. It is an improved variant of the regular Poke Ball that can be used to catch wild Pokemon."
+Ultra Ball,Dream_Ultra_Ball_Sprite.png,1,2x,,"The Ultra Ball is a type of Poke Ball introduced in Generation I. It is an improved variant of the Great Ball that can be used to catch wild Pokemon."
+Master Ball,Dream_Master_Ball_Sprite.png,1,255x,,"The Master Ball is a type of Poke Ball introduced in Generation I. It can be used to catch a wild Pokemon without fail. It was invented by the Silph Co."
+Safari Ball,Dream_Safari_Ball_Sprite.png,1,1.5x,"Prior to Generation VIII, it could not be obtained in normal gameplay, and was only usable within Safari Zones.","The Safari Ball is a type of Poke Ball introduced in Generation I. It can be used to catch wild Pokemon during a Safari Game."
+Fast Ball,Dream_Fast_Ball_Sprite.png,2,4x if used on a Pokemon with a base Speed of at least 100 otherwise 1x,,"The Fast Ball is a type of Poke Ball introduced in Generation II. It can be used to catch a wild Pokemon, being more likely to succeed against Pokemon that are fast or quick to flee.
+
+It is one of Kurt's signature Apricorn Poke Balls, and is made from White Apricorns."
+Level Ball,Dream_Level_Ball_Sprite.png,2,"1× if the player's Pokemon is the same level as or a lower level than the wild Pokemon
+2× if the player's Pokemon is at a higher level than the wild Pokemon but less than double it
+4× if the player's Pokemon is more than double but less than four times the level of the wild Pokemon
+8× if the player's Pokemon is of a level four times or more than that of the wild Pokemon",,"The Level Ball is a type of Poke Ball introduced in Generation II. It can be used to catch a wild Pokemon, being more likely to succeed the higher the Trainer's Pokemon's level is than the wild Pokemon's.
+
+It is one of Kurt's signature Apricorn Poke Balls, and is made from Red Apricorns."
+Lure Ball,Dream_Lure_Ball_Sprite.png,2,5× if used on a Pokemon encountered while fishing otherwise 1x,,"The Lure Ball is a type of Poke Ball introduced in Generation II. It can be used to catch a wild Pokemon, being more likely to succeed in fishing encounters.
+
+It is one of Kurt's signature Apricorn Poke Balls, and is made from Blue Apricorns."
+Heavy Ball,Dream_Heavy_Ball_Sprite.png,2,"-20 if used on a Pokemon weighing 220.2 lbs. (99.9 kg) or less
+±0 if used on a Pokemon weighing 220.5 lbs. (100.0 kg) – 440.7 lbs. (199.9 kg)
++20 if used on a Pokemon weighing 440.9 lbs. (200.0 kg) – 661.2 lbs. (299.9 kg)
++30 if used on a Pokemon weighing 661.4 lbs. (300.0 kg) or more",,"The Heavy Ball is a type of Poke Ball introduced in Generation II. It can be used to catch a wild Pokemon, being more likely to succeed the heavier the Pokemon is.
+
+It is one of Kurt's signature Apricorn Poke Balls, and is made from Black Apricorns."
+Love Ball,Dream_Love_Ball_Sprite.png,2,8× if used on a Pokemon of the same species but opposite gender of the player's Pokemon otherwise 1x,,"The Love Ball is a type of Poke Ball introduced in Generation II. It can be used to catch a wild Pokemon, being more likely to succeed against a Pokemon of the opposite gender to the Trainer's Pokemon.
+
+It is one of Kurt's signature Apricorn Poke Balls, and is made from Pink Apricorns."
+Friend Ball,Dream_Friend_Ball_Sprite.png,2,1×,Sets caught Pokemon's friendship to 200.,"The Friend Ball is a type of Poke Ball introduced in Generation II. It can be used to catch a wild Pokemon. Pokemon caught in a Friend Ball become more friendly.
+
+It is one of Kurt's signature Apricorn Poke Balls, and is made from Green Apricorns."
+Moon Ball,Dream_Moon_Ball_Sprite.png,2,4× if used on a Pokemon that belongs to an evolutionary family which includes a Pokemon that evolves by using a Moon Stone otherwise 1x,,"The Moon Ball is a type of Poke Ball introduced in Generation II. It can be used to catch a wild Pokemon, being more likely to succeed against Pokemon that evolve by using Moon Stone and their evolutionary relatives.
+
+It is one of Kurt's signature Apricorn Poke Balls, and is made from Yellow Apricorns."
+Sport Ball,Dream_Sport_Ball_Sprite.png,2,1.5×,"Prior to Generation VIII, it could not be obtained in normal gameplay, and was only usable during the Bug-Catching Contest.","The Sport Ball, called the Park Ball in Generation II, is a type of Poke Ball introduced in Generation II. It can be used to catch wild Pokemon during a Bug-Catching Contest at National Park.
+
+This Poke Ball's name was changed due to the introduction of a different Poke Ball called a Park Ball in Generation IV."
+Net Ball,Dream_Net_Ball_Sprite.png,3,3.5× if used on a Water- or Bug-type Pokemon otherwise 1x,,"The Net Ball is a type of Poke Ball introduced in Generation III. It can be used to catch a wild Pokemon, being more likely to succeed against a Water- and Bug-type Pokemon.
+
+Net Balls were first developed in Mossdeep City."
+Nest Ball,Dream_Nest_Ball_Sprite.png,3,((41 - Pokemon's level) ÷ 10)× if Pokemon's level is between 1 and 29 otherwise 1x,,"The Nest Ball is a type of Poke Ball introduced in Generation III. It can be used to catch a wild Pokemon, being more likely to succeed against lower level Pokemon."
+Repeat Ball,Dream_Repeat_Ball_Sprite.png,3,3.5× if used on a Pokemon that is registered in the player's Pokedex as caught otherwise 1x,,"The Repeat Ball is a type of Poke Ball introduced in Generation III. It can be used to catch a wild Pokemon, being more likely to succeed if the Pokemon is already registered as caught in the Trainer's Pokedex. It was developed by the Devon Corporation."
+Timer Ball,Dream_Timer_Ball_Sprite.png,3,"(1 + number of turns passed in battle * 1229/4096)×, maximum 4× at 10 turns",,"The Timer Ball is a type of Poke Ball introduced in Generation III. It can be used to catch a wild Pokemon, being more likely to succeed the longer it has been since the start of the battle. It was developed by the Devon Corporation."
+Luxury Ball,Dream_Luxury_Ball_Sprite.png,3,1x,Doubles the rate in which the contained Pokemon receives friendship,"The Luxury Ball is a type of Poke Ball introduced in Generation III. It can be used to catch a wild Pokemon. Pokemon caught in a Luxury Ball gain friendship more quickly."
+Premier Ball,Dream_Premier_Ball_Sprite.png,3,1x,,"The Premier Ball is a type of Poke Ball introduced in Generation III. It can be used to catch a wild Pokemon. It was developed by the Devon Corporation."
+Dive Ball,Dream_Dive_Ball_Sprite.png,3,3.5× if used on a water-dwelling Pokemon otherwise 1x,,"The Dive Ball is a type of Poke Ball introduced in Generation III. It can be used to catch a wild Pokemon, being more likely to succeed in water encounters, originally specifically underwater encounters.
+
+Dive Balls were first developed in Mossdeep City."
+Dusk Ball,Dream_Dusk_Ball_Sprite.png,4,3× if used in a cave or at night otherwise 1x,,"The Dusk Ball is a type of Poke Ball introduced in Generation IV. It can be used to catch a wild Pokemon, being more likely to succeed if used at night or in a cave."
+Heal Ball,Dream_Heal_Ball_Sprite.png,4,1x,"Fully restores a caught Pokemon's HP, PP, and status.","The Heal Ball is a type of Poke Ball introduced in Generation IV. It can be used to catch a wild Pokemon. A Pokemon caught in a Heal Ball is fully healed."
+Quick Ball,Dream_Quick_Ball_Sprite.png,4,5× if used on the first turn of a battle otherwise 1x,,"The Quick Ball is a type of Poke Ball introduced in Generation IV. It can be used to catch a wild Pokemon, being more likely to succeed if used at the start of the encounter."
+Cherish Ball,Dream_Cherish_Ball_Sprite.png,4,1x,"Unobtainable by the player, used for various event Pokemon","The Cherish Ball is a type of Poke Ball introduced in Generation IV. Event Pokemon are often contained in a Cherish Ball."
+Park Ball,Dream_Park_Ball_Sprite.png,4,255x,Used only in Pal Park.,"The Park Ball is a type of Poke Ball introduced in Generation IV. It can be used to re-catch Pokemon migrated to Pal Park."
+Dream Ball,Dream_Dream_Ball_Sprite.png,5,4× if used on a sleeping Pokemon otherwise 1x,"Used only in Entree Forest prior to Generation VIII.
+Catch rate modifier 255× in Generation V.","The Dream Ball  is a type of Poke Ball introduced in Generation V. It can be used to catch a wild Pokemon in the Entree Forest. Starting from Generation VIII, it is more likely to succeed when used on a sleeping Pokemon."
+Beast Ball,Dream_Beast_Ball_Sprite.png,7,5× if used on an Ultra Beast otherwise 0.1x,,"The Beast Ball is a type of Poke Ball introduced in Generation VII. It can be used to catch a wild Pokemon, being more likely to succeed against Ultra Beasts and less likely against other Pokemon."
