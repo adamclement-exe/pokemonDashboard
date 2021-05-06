@@ -7,6 +7,8 @@
 
 import util
 import graphics.Engine
+import os
+
 
 # This is the base of the project
 
@@ -15,12 +17,12 @@ class run:
     def __init__(self):
         Devs = ("Madmegsox1, FSNCryo, HiddenMask, Basker12, PointlessQuack, DraconicDroid, Squidnugi")
 
-
         points = [[-1, -1, -1], [-1, -1, 1], [-1, 1, 1], [-1, 1, -1], [1, -1, -1], [1, -1, 1], [1, 1, 1], [1, 1, -1]]
         triangles = [[0, 1, 2], [0, 2, 3], [2, 3, 7], [2, 7, 6], [1, 2, 5], [2, 5, 6], [0, 1, 4], [1, 4, 5], [4, 5, 6],
                      [4, 6, 7], [3, 7, 4], [4, 3, 0]]
 
         test = graphics.Engine.Engine3D(points, triangles, title='Cube')
+
         def animation():
             test.clear()
             test.rotate('y', 0.1)
@@ -40,6 +42,7 @@ class run:
     def refract_search(self):
         s = open("searches.txt", "r")
         var = s.readline()
+        s.close()
         var = (var[:-1]).split(",")
 
         type1_var = str(var[0])
@@ -64,4 +67,9 @@ class run:
 
         a = util.search()
         a = a.getList(stats_var, AorD_var, [type1_var, type2_var, gen_var, Legendary_var])  # filtered search
-        print(a)
+        names = open("searches.txt", "w")
+        for i in a:
+            names.write(i)
+            names.write(",")
+        names.close()
+        os.system('python dashboard.py')
