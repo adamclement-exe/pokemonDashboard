@@ -63,10 +63,10 @@ legendFrame.place(relx=0.5, rely=0.18,
                   relheight=0.37, relwidth=0.88,
                   anchor="n")
 
-legendary = 1  # Placeholder
 
-if legendary == 0:
-    legendFrame.config(bg="#9C9FA5", highlightbackground="black", highlightthickness=0)
+
+#if legendary == 0:
+#    legendFrame.config(bg="#9C9FA5", highlightbackground="black", highlightthickness=0)
 
 browserTitle = Label(root,
                      fg="#000000",
@@ -280,9 +280,25 @@ def set_values():
     spDefenceName["text"] = f"Sp.Def: {r_val[name][9]}"
     speedName["text"] = f"Speed: {r_val[name][10]}"
     generationName["text"] = f"Gen: {r_val[name][11]}"
-    #  legendary
+    legendary = r_val[name][12]
+
+    if legendary == 'False':        #Creates boolean to avoid errors
+        legendary = False
+    elif legendary == 'True':
+        legendary = True
 
     #  sets picture
+    legendFrame.forget()        #changes the background depending on legendary or not
+    if legendary == False:
+        print("bruh")
+        legendFrame.config(bg="#9C9FA5", highlightbackground="black", highlightthickness=0)
+    elif legendary == True:
+        print("balls")
+        legendFrame.config(bg="#D4AF37", highlightbackground = "black", highlightthickness = 0)
+
+    legendFrame.place(relx=0.5, rely=0.18,
+                      relheight=0.37, relwidth=0.88,            #replaces after config
+                      anchor="n")
 
     try:
         pokemonPicFile = PhotoImage(file=f"Pokemon Pictures/{r_val[name][1].lower()}.png")
