@@ -1,1 +1,6 @@
 #,Name,Type 1,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp. Def,Speed,Generation,Legendary
+1,Kacper,Water,Fire,6,1,1,1,1,1,1,1,True
+2,Kacper,Water,Fire,6,1,1,1,1,1,1,1,1
+3,John,Elec,Pois,6,1,1,1,1,1,1,1,1
+4,Donny,Water,Fire,12,2,2,2,2,2,2,1,2
+5,Volcanion,Fire,Water,600,110,80,120,130,70,90,6,True

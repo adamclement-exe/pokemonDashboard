@@ -10,6 +10,7 @@ import csv
 from tkinter import messagebox
 from csv import writer
 import pygame
+import pandas as pd
 
 pygame.mixer.init()
 
@@ -224,6 +225,10 @@ def createdPokemon():
 
     gen = None
 
+    df = pd.read_csv('Pokemon.csv')
+    getLastID = df.iloc[-1, 0] # This finds the last element and its id (#)
+    id = getLastID + 1 # This adds 1 to the id whenever a new pokemon is created
+
     pokename = str(newPokeName.get()) # Added str so that you're only able to input letters and not numbers
     if pokename == pokename:
         name = pokename.title()
@@ -256,17 +261,17 @@ def createdPokemon():
 
     total = hp + speed + attack + defence + specialAttack + specialDefence # This takes all the Pokemon's int stats and adds them to a total
 
-    newPokemon = [name, type1, type2, total, hp, attack, defence, specialAttack, specialDefence, speed, gen, legendary]
+    newPokemon = [id, name, type1, type2, total, hp, attack, defence, specialAttack, specialDefence, speed, gen, legendary]
 
-    with open('temp.csv', 'a', newline='') as pk:  # Opens Pokemon.csv and the writes into the csv file a new pokemon
+    with open('Pokemon.csv', 'a', newline='') as pk:  # Opens Pokemon.csv and the writes into the csv file a new pokemon
         Pokemon = writer(pk)
         Pokemon.writerow(newPokemon)
         pk.close()
 
     creationFeedback(name, type1, type2, hp, speed, defence, attack, specialDefence, specialAttack, gen)
 
-def creationFeedback(name, type1, type2, hp, speed, defence, attack, specialDeffence, specialAttack, gen):
-    messagebox.showinfo(
+def creationFeedback(name, type1, type2, hp, speed, defence, attack, specialDefence, specialAttack, gen):
+    messagebox.showinfo(                    # Creates an messagebox which shoes all the pokemons stats
         "Your Pokemon was created!",
         (
             f'Your pokemons name is {name}\n'
@@ -277,13 +282,13 @@ def creationFeedback(name, type1, type2, hp, speed, defence, attack, specialDeff
             f"The pokemons attack is {attack}\n"
             f"The pokemons defence is {defence}\n"
             f"The pokemons special attack is {specialAttack}\n"
-            f"The pokemons special defence is {specialDeffence}\n"
+            f"The pokemons special defence is {specialDefence}\n"
             f"And lastly the pokemons gen is {gen}"
 
         )
     )
-
-newPokeName.bind('<Button-1>', clearText) # clearText runs the definition
+# clearText and its other version clears the text in an entry box
+newPokeName.bind('<Button-1>', clearText)
 newType1.bind('<Button-1>', clearTextNT1)
 newType2.bind('<Button-1>', clearTextNT2)
 newGen.bind('<Button-1>', clearTextG)
