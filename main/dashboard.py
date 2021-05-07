@@ -290,10 +290,8 @@ def set_values():
     #  sets picture
     legendFrame.forget()        #changes the background depending on legendary or not
     if legendary == False:
-        print("bruh")
         legendFrame.config(bg="#9C9FA5", highlightbackground="black", highlightthickness=0)
     elif legendary == True:
-        print("balls")
         legendFrame.config(bg="#D4AF37", highlightbackground = "black", highlightthickness = 0)
 
     legendFrame.place(relx=0.5, rely=0.18,
