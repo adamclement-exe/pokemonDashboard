@@ -3,9 +3,23 @@ try:
 except ImportError:
     from tkinter import *
 import os
+import csv
 
 #missing evolutions detector
-with open Pokemon
+evo = open("PokemonEvolutions.csv","r")
+evocsv = list(csv.reader(evo, delimiter=","))
+poke = open("Pokemon.csv","r")
+pokecsv = list(csv.reader(poke, delimiter=","))
+for row in pokecsv:
+    init = False
+    for row1 in evocsv:
+        for i in row1:
+            if i == row[1]:
+                init = True
+
+    if init == False:
+        print(row[1],i)
+
 ##
 #gui
 root = Tk()
