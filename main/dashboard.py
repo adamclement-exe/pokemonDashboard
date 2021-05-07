@@ -11,7 +11,6 @@ except ImportError:
     from tkinter import *
     import PIL.Image
     import PIL.ImageTk
-import tkinter as tk
 import os
 import csv
 # Importing Image class from PIL module
