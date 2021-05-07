@@ -75,7 +75,7 @@ newLegendary = Entry(root, font=('times', 8, 'bold'), borderwidth='4',
                      bg='#9C9FA5',
                      fg='#5778BB')
 
-newLegendary.place(relx=0.30, rely=0.630,
+newLegendary.place(relx=0.020, rely=0.630,
                    relheight=0.09, relwidth=0.38)
 
 newLegendary.insert(0, f'Is the Pokemon a legendary?')
@@ -135,6 +135,13 @@ newSpeed.insert(0, f'Pokemons Speed')
 newSpeed.place(relx=0.02, rely=0.525,
                relheight=0.09, relwidth=0.38)
 
+evolutionButton = Button(root, text='Config Evolutions', font=('times', 12, 'bold'), borderwidth='4',
+                     bg='#9C9FA5',
+                     fg='#5778BB',
+                     command=lambda: evolution())
+
+evolutionButton.place(relx=0.60, rely=0.630,
+                  relheight=0.09, relwidth=0.38)
 
 createButton = Button(root, text='CREATE POKEMON', font=('times', 12, 'bold'), borderwidth='4',
                      bg='#9C9FA5',
@@ -168,6 +175,10 @@ playMusicButton = Button(root, text='Play Music', font=('times', 12, 'bold'), bo
 
 playMusicButton.place(relx=0.73, rely=0.895,
                       relheight=0.09, relwidth=0.25)
+
+def evolution(): # This definition allows the user to configure evolutions
+    root.destroy()
+    os.system('python newpokemonevolutionadder.py')
 
 def stopMusic(): # This definition stops the music completely
     pygame.mixer.music.stop()
