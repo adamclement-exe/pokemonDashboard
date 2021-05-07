@@ -63,20 +63,19 @@ legendFrame.place(relx=0.5, rely=0.18,
                   relheight=0.37, relwidth=0.88,
                   anchor="n")
 
-legendary = 1  # Placeholder
 
-if legendary == 0:
-    legendFrame.config(bg="#9C9FA5", highlightbackground="black", highlightthickness=0)
 
-browserTitle = Label(root,
+#if legendary == 0:
+#    legendFrame.config(bg="#9C9FA5", highlightbackground="black", highlightthickness=0)
+
+totalTitle = Label(root,
                      fg="#000000",
                      bg="#9C9FA5",
-                     font=("times", 30, "bold"))
+                     font=("times", 16, "bold"))
 
-browserTitle.place(relx=0.08, rely=0.01,
+totalTitle.place(relx=0.08, rely=0.01,
                    width=350, height=50)
 
-browserTitle["text"] = "Pokémon Browser"
 
 pokeName = Label(root,
                  bg="#2E4053",
@@ -218,6 +217,16 @@ home_button = Button(bottomBar,
 home_button.place(relx=0.35, rely=0.5,
                   relheight=0.9, relwidth=0.3, anchor="w")
 
+pageLabel = Button(bottomBar,
+                     bg="#DFE2EA",
+                     fg="black",
+                     font=("times", 11, "bold"), borderwidth=0,
+
+                     command=lambda: home_button_push())  # on_button_push() Runs When a BUTTON is Pushed
+
+pageLabel.place(relx=0.45, rely=0.85,
+                  relheight=0.25, relwidth=0.1, anchor="w")
+
 nextButtonFile = PhotoImage(file="formating/Next.PNG")  # next Button image
 
 next_button = Button(bottomBar,
@@ -238,16 +247,17 @@ def run():
 
 
 def load():
+
     pokemon = "Pokemon.csv"
     name = open("searches.txt", "r")
     var = name.readline()
     name.close()
     var = (var[:-1]).split(",")
     line_count = 0
+    totalPoke = 0
 
     with open(pokemon, 'r') as csvfile:
         pokemon = csv.reader(csvfile)
-
         for row in pokemon:
             row = list(row)
             if line_count != 0:
@@ -263,6 +273,7 @@ def load():
 
 
 def set_values():
+
     # | Id [0] | name [1] | type1 [2] | type2 [3] | Total [4] | hp [5] | Attack [6]
     # | Defense [7] | Sp. Atk [8] | Sp. Def [9] | Speed [10] | Generation [11] | Legendary [12]
     name = list(r_val)
@@ -280,9 +291,25 @@ def set_values():
     spDefenceName["text"] = f"Sp.Def: {r_val[name][9]}"
     speedName["text"] = f"Speed: {r_val[name][10]}"
     generationName["text"] = f"Gen: {r_val[name][11]}"
-    #  legendary
+    legendary = r_val[name][12]
+    totalTitle["text"] = f"Total # of Filtered Pokemon: {len(r_val)}"
+    pageLabel["text"] = f"{count+1}/{len(r_val)}"       #sets page number
+
+    if legendary == 'False':        #Creates boolean to avoid errors
+        legendary = False
+    elif legendary == 'True':
+        legendary = True
 
     #  sets picture
+    legendFrame.forget()        #changes the background depending on legendary or not
+    if legendary == False:
+        legendFrame.config(bg="#9C9FA5", highlightbackground="black", highlightthickness=0)
+    elif legendary == True:
+        legendFrame.config(bg="#D4AF37", highlightbackground = "black", highlightthickness = 0)
+
+    legendFrame.place(relx=0.5, rely=0.18,
+                      relheight=0.37, relwidth=0.88,            #replaces after config
+                      anchor="n")
 
     try:
         pokemonPicFile = PhotoImage(file=f"Pokemon Pictures/{r_val[name][1].lower()}.png")
