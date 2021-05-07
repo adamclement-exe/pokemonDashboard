@@ -68,15 +68,14 @@ legendFrame.place(relx=0.5, rely=0.18,
 #if legendary == 0:
 #    legendFrame.config(bg="#9C9FA5", highlightbackground="black", highlightthickness=0)
 
-browserTitle = Label(root,
+totalTitle = Label(root,
                      fg="#000000",
                      bg="#9C9FA5",
-                     font=("times", 30, "bold"))
+                     font=("times", 16, "bold"))
 
-browserTitle.place(relx=0.08, rely=0.01,
+totalTitle.place(relx=0.08, rely=0.01,
                    width=350, height=50)
 
-browserTitle["text"] = "Pokémon Browser"
 
 pokeName = Label(root,
                  bg="#2E4053",
@@ -176,7 +175,18 @@ speedName = Label(root,
 speedName.place(relx=0.72, rely=0.75,
                 relwidth=0.2, relheight=0.05)
 
+# formating/imagePlace.PNG
 
+
+pokemonPicFile = PhotoImage(file=f"formating/imagePlace.png")  # change image with the filtered pokemon
+
+pokemonPicFile = pokemonPicFile.zoom(2)  # Resizes images
+pokemonPicFile = pokemonPicFile.subsample(1)
+
+pokemonPic = Label(legendFrame,
+                   image=pokemonPicFile)
+pokemonPic.place(relx=0.5, rely=0.5,
+                 relheight=0.9, relwidth=0.92, anchor="center")
 
 type1IconFile = PhotoImage(file="formating/PokemonTypes.PNG")  # Icon1 image    CHANGE THIS TO INDIVIDUAL TYPES
 type2IconFile = PhotoImage(file="formating/PokemonTypes.PNG")  # Icon2 image
@@ -207,6 +217,16 @@ home_button = Button(bottomBar,
 home_button.place(relx=0.35, rely=0.5,
                   relheight=0.9, relwidth=0.3, anchor="w")
 
+pageLabel = Button(bottomBar,
+                     bg="#DFE2EA",
+                     fg="black",
+                     font=("times", 11, "bold"), borderwidth=0,
+
+                     command=lambda: home_button_push())  # on_button_push() Runs When a BUTTON is Pushed
+
+pageLabel.place(relx=0.45, rely=0.85,
+                  relheight=0.25, relwidth=0.1, anchor="w")
+
 nextButtonFile = PhotoImage(file="formating/Next.PNG")  # next Button image
 
 next_button = Button(bottomBar,
@@ -227,18 +247,18 @@ def run():
 
 
 def load():
+
     pokemon = "Pokemon.csv"
     name = open("searches.txt", "r")
     var = name.readline()
     name.close()
     var = (var[:-1]).split(",")
     line_count = 0
+    totalPoke = 0
 
     with open(pokemon, 'r') as csvfile:
         pokemon = csv.reader(csvfile)
-
         for row in pokemon:
-
             row = list(row)
             if line_count != 0:
                 leg = False
@@ -253,7 +273,7 @@ def load():
 
 
 def set_values():
-    global count, r_val
+
     # | Id [0] | name [1] | type1 [2] | type2 [3] | Total [4] | hp [5] | Attack [6]
     # | Defense [7] | Sp. Atk [8] | Sp. Def [9] | Speed [10] | Generation [11] | Legendary [12]
     name = list(r_val)
@@ -272,6 +292,8 @@ def set_values():
     speedName["text"] = f"Speed: {r_val[name][10]}"
     generationName["text"] = f"Gen: {r_val[name][11]}"
     legendary = r_val[name][12]
+    totalTitle["text"] = f"Total # of Filtered Pokemon: {len(r_val)}"
+    pageLabel["text"] = f"{count+1}/{len(r_val)}"       #sets page number
 
     if legendary == 'False':        #Creates boolean to avoid errors
         legendary = False
@@ -289,30 +311,18 @@ def set_values():
                       relheight=0.37, relwidth=0.88,            #replaces after config
                       anchor="n")
 
-
-    pokemonPicFile = PhotoImage(file=f"Pokemon Pictures/abra.png")
-
-        #pokemonPicFile = PhotoImage(file=f"formating/imagePlace.png")
-
-    pokemonPicFile = pokemonPicFile.zoom(2)  # Resizes images
-    pokemonPicFile = pokemonPicFile.subsample(1)
+    try:
+        pokemonPicFile = PhotoImage(file=f"Pokemon Pictures/{r_val[name][1].lower()}.png")
+    except:
+        pokemonPicFile = PhotoImage(file=f"formating/imagePlace.png")
     pokemonPic = Label(legendFrame,
                        image=pokemonPicFile)
+    pokemonPicFile = pokemonPicFile.zoom(2)  # Resizes images
+    pokemonPicFile = pokemonPicFile.subsample(1)
+
     pokemonPic.place(relx=0.5, rely=0.5,
                      relheight=0.9, relwidth=0.92, anchor="center")
 
-
-    next_button.place(relx=0.7, rely=0.5,
-                      relheight=0.9, relwidth=0.3, anchor="w")
-
-    back_button.place(relx=0.0, rely=0.5,
-                      relheight=0.9, relwidth=0.3, anchor="w")
-
-    if count == len(r_val) - 1:
-        next_button.place_forget()
-
-    if count == 0:
-        back_button.place_forget()
 
 def home_button_push():
     root.destroy()
@@ -320,16 +330,29 @@ def home_button_push():
 
 
 def next_button_push():
-    global count
-    count += 1
+    global count, r_val
+    if count != len(r_val) - 1:
+        back_button.place(relx=0.0, rely=0.5,
+                          relheight=0.9, relwidth=0.3, anchor="w")
+
+        count += 1
+    else:
+        next_button.place_forget()
 
     load()
     set_values()
 
 
 def back_button_push():
-    global count
-    count -= 1
+    global count, r_val
+    if count != 0:
+        next_button.place(relx=0.7, rely=0.5,
+                          relheight=0.9, relwidth=0.3, anchor="w")
+
+        count -= 1
+    else:
+        back_button.place_forget()
+
     load()
     set_values()
 
