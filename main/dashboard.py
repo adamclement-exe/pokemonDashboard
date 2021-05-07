@@ -34,14 +34,6 @@ root.iconphoto(False, iconFile)
 canvas = Canvas(root, height=HEIGHT, width=WIDTH, bg="#9C9FA5", highlightbackground="black", highlightthickness=2)
 canvas.pack()
 
-type1PicFile = PhotoImage(file="pokemonTypes/Icon_Ice.png")  # change image with the filtered type from csv
-canvas.create_image(0, 100, image=type1PicFile)
-
-# needs a if type2 exists function here when implementing
-
-type2PicFile = PhotoImage(file="pokemonTypes/Icon_Ice.png")  # change image with the filtered type from csv
-canvas.create_image(0, 100, image=type2PicFile)
-
 frame = Frame(canvas,
               bg="#5778BB", highlightbackground="black", highlightthickness=5)
 
@@ -63,9 +55,7 @@ legendFrame.place(relx=0.5, rely=0.18,
                   relheight=0.37, relwidth=0.88,
                   anchor="n")
 
-
-
-#if legendary == 0:
+# if legendary == 0:
 #    legendFrame.config(bg="#9C9FA5", highlightbackground="black", highlightthickness=0)
 
 browserTitle = Label(root,
@@ -112,6 +102,7 @@ HPName.place(relx=0.72, rely=0.65,
 
 # type1Pic.place(relx=0.5, rely=0.5,
 # relheight=0.9, relwidth=0.92, anchor="center")
+"""
 type1Name = Label(root,
                   bg="#2E4053",
                   fg="#DFE2EA",
@@ -127,7 +118,7 @@ type2Name = Label(root,
 
 type2Name.place(relx=0.72, rely=0.56,
                 relwidth=0.2, relheight=0.05)
-
+"""
 generationName = Label(root,
                        bg="#2E4053",
                        fg="#DFE2EA",
@@ -176,8 +167,6 @@ speedName = Label(root,
 speedName.place(relx=0.72, rely=0.75,
                 relwidth=0.2, relheight=0.05)
 
-
-
 type1IconFile = PhotoImage(file="formating/PokemonTypes.PNG")  # Icon1 image    CHANGE THIS TO INDIVIDUAL TYPES
 type2IconFile = PhotoImage(file="formating/PokemonTypes.PNG")  # Icon2 image
 
@@ -220,6 +209,41 @@ next_button = Button(bottomBar,
 next_button.place(relx=0.7, rely=0.5,
                   relheight=0.9, relwidth=0.3, anchor="w")
 
+pokemonPicFile = PhotoImage(file=f"Pokemon Pictures/abra.png")
+
+# pokemonPicFile = PhotoImage(file=f"formating/imagePlace.png")
+
+pokemonPicFile = pokemonPicFile.zoom(4)  # Resizes images
+pokemonPicFile = pokemonPicFile.subsample(1)
+
+pokemonPic = Label(legendFrame,
+                   image=pokemonPicFile, bg="#5778BB")
+
+pokemonPic.place(relx=0.5, rely=0.5,
+                 relheight=0.9, relwidth=0.92, anchor="center")
+
+type1File = PhotoImage(file=f"pokemonTypes/Icon_None.png")
+
+type1File = type1File.zoom(1)
+type1File = type1File.subsample(3)
+
+type1Pic = Label(legendFrame,
+                 image=type1File, bg='white')  #  bg="#5778BB"
+
+type1Pic.place(relx=0.83, rely=0.11,
+               relheight=0.10, relwidth=0.07, anchor="center")
+
+type2File = PhotoImage(file=f"pokemonTypes/Icon_None.png")
+
+type2File = type2File.zoom(1)
+type2File = type2File.subsample(3)
+
+type2Pic = Label(legendFrame,
+                 image=type2File, bg="#5778BB")
+
+type2Pic.place(relx=0.915, rely=0.11,
+               relheight=0.10, relwidth=0.07, anchor="center")
+
 
 def run():
     load()
@@ -253,7 +277,16 @@ def load():
 
 
 def set_values():
-    global count, r_val
+    global count, r_val, pokemonPicFile, type1File, type2File
+    back_button.place(relx=0.0, rely=0.5,
+                      relheight=0.9, relwidth=0.3, anchor="w")
+    next_button.place(relx=0.7, rely=0.5,
+                      relheight=0.9, relwidth=0.3, anchor="w")
+    if count == len(r_val) - 1:
+        next_button.place_forget()
+
+    if count == 0:
+        back_button.place_forget()
     # | Id [0] | name [1] | type1 [2] | type2 [3] | Total [4] | hp [5] | Attack [6]
     # | Defense [7] | Sp. Atk [8] | Sp. Def [9] | Speed [10] | Generation [11] | Legendary [12]
     name = list(r_val)
@@ -261,8 +294,8 @@ def set_values():
 
     idName["text"] = f"ID: {r_val[name][0]}"
     pokeName["text"] = f"{r_val[name][1]}"
-    type1Name["text"] = f"{r_val[name][2]}"
-    type2Name["text"] = f"{r_val[name][3]}"
+    #type1Name["text"] = f"{r_val[name][2]}"
+    #type2Name["text"] = f"{r_val[name][3]}"
     totalName["text"] = f"Total: {r_val[name][4]}"
     HPName["text"] = f"HP: {r_val[name][5]}"
     attackName["text"] = f"Atk: {r_val[name][6]}"
@@ -273,46 +306,71 @@ def set_values():
     generationName["text"] = f"Gen: {r_val[name][11]}"
     legendary = r_val[name][12]
 
-    if legendary == 'False':        #Creates boolean to avoid errors
+    if legendary == 'False':  # Creates boolean to avoid errors
         legendary = False
     elif legendary == 'True':
         legendary = True
 
     #  sets picture
-    legendFrame.forget()        #changes the background depending on legendary or not
+    legendFrame.forget()  # changes the background depending on legendary or not
+
     if legendary == False:
-        legendFrame.config(bg="#9C9FA5", highlightbackground="black", highlightthickness=0)
+        legbg = "#9C9FA5"
+        legendFrame.config(bg=legbg, highlightbackground="black", highlightthickness=0)
+
     elif legendary == True:
-        legendFrame.config(bg="#D4AF37", highlightbackground = "black", highlightthickness = 0)
+        legbg = "#D4AF37"
+        legendFrame.config(bg=legbg, highlightbackground="black", highlightthickness=0)
 
     legendFrame.place(relx=0.5, rely=0.18,
-                      relheight=0.37, relwidth=0.88,            #replaces after config
+                      relheight=0.37, relwidth=0.88,  # replaces after config
                       anchor="n")
 
+    try:
+        pokemonPicFile.config(file=f'Pokemon Pictures/{r_val[name][1].lower()}.png')
+        pokemonPicFile = pokemonPicFile.zoom(7)  # Resizes images
+        pokemonPicFile = pokemonPicFile.subsample(3)
 
-    pokemonPicFile = PhotoImage(file=f"Pokemon Pictures/abra.png")
+        pokemonPic = Label(legendFrame,
+                           image=pokemonPicFile, bg="#5778BB")
 
-        #pokemonPicFile = PhotoImage(file=f"formating/imagePlace.png")
-
-    pokemonPicFile = pokemonPicFile.zoom(2)  # Resizes images
-    pokemonPicFile = pokemonPicFile.subsample(1)
-    pokemonPic = Label(legendFrame,
-                       image=pokemonPicFile)
-    pokemonPic.place(relx=0.5, rely=0.5,
-                     relheight=0.9, relwidth=0.92, anchor="center")
+        pokemonPic.place(relx=0.5, rely=0.5,
+                         relheight=0.9, relwidth=0.92, anchor="center")
 
 
-    next_button.place(relx=0.7, rely=0.5,
-                      relheight=0.9, relwidth=0.3, anchor="w")
+    except:
+        # pokemonPicFile = pokemonPicFile.zoom(2)  # Resizes images
+        # pokemonPicFile = pokemonPicFile.subsample(1)
+        pokemonPicFile.config(file='Pokemon Pictures/ditto.png')
+        pokemonPicFile = pokemonPicFile.zoom(7)  # Resizes images
+        pokemonPicFile = pokemonPicFile.subsample(3)
 
-    back_button.place(relx=0.0, rely=0.5,
-                      relheight=0.9, relwidth=0.3, anchor="w")
+        pokemonPic = Label(legendFrame,
+                           image=pokemonPicFile, bg="#5778BB")
 
-    if count == len(r_val) - 1:
-        next_button.place_forget()
+        pokemonPic.place(relx=0.5, rely=0.5,
+                         relheight=0.9, relwidth=0.92, anchor="center")
 
-    if count == 0:
-        back_button.place_forget()
+
+    type1File.config(file=f'pokemonTypes/Icon_{r_val[name][2]}.png')
+    type1File = type1File.zoom(1)
+    type1File = type1File.subsample(3)
+
+    type1Pic = Label(legendFrame,
+                  image=type1File, bg="#5778BB")  #  bg="#5778BB"
+
+    type1Pic.place(relx=0.83, rely=0.11,
+                   relheight=0.10, relwidth=0.07, anchor="center")
+
+    type2File.config(file=f'pokemonTypes/Icon_{r_val[name][3]}.png')
+    type2File = type2File.zoom(1)
+    type2File = type2File.subsample(3)
+
+    type2Pic = Label(legendFrame,
+                  image=type2File, bg="#5778BB")  #  bg="#5778BB"
+
+    type2Pic.place(relx=0.915, rely=0.11,
+                   relheight=0.10, relwidth=0.07, anchor="center")
 
 def home_button_push():
     root.destroy()
@@ -339,3 +397,4 @@ def back_button_push():
 
 run()
 root.mainloop()
+# root.wm_attributes("-transparentcolor", 'grey')
