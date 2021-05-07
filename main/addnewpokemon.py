@@ -7,8 +7,10 @@ except ImportError:
     from tkinter import *
 import os
 import csv
+from tkinter import messagebox
 from csv import writer
 import pygame
+import pandas as pd
 
 pygame.mixer.init()
 
@@ -140,42 +142,22 @@ createButton = Button(root, text='CREATE POKEMON', font=('times', 12, 'bold'), b
                      bg='#9C9FA5',
                      fg='#5778BB',
                      width='15',
-                      command=lambda: createdPokemon())
+                      command=lambda:createdPokemon())
 
 createButton.place(relx=0.25, rely=0.750,
                    relheight=0.09, relwidth=0.5)
 
-stopMusicButton = Button(root, text='Stop Music', font=('times', 12, 'bold'), borderwidth='4',
-                     bg='#9C9FA5',
-                     fg='#5778BB',
-                     command=lambda: stopMusic())
+Canvas.create_text(200, 625, text='Ctrl+S = Stops music  Ctrl+P = Pauses the music  Ctrl+U = Unpauses the music',
+                   font=('times', 7, 'bold'),
+                   fill='#5778BB')
 
-stopMusicButton.place(relx=0.02, rely=0.895,
-                  relheight=0.09, relwidth=0.25)
-
-pauseMusicButton = Button(root, text='Pause Music', font=('times', 12, 'bold'), borderwidth='4',
-                          bg='#9C9FA5',
-                          fg='#5778BB',
-                          command=lambda: pauseMusic())
-
-pauseMusicButton.place(relx=0.37, rely=0.895,
-                       relheight=0.09, relwidth=0.25)
-
-playMusicButton = Button(root, text='Play Music', font=('times', 12, 'bold'), borderwidth='4',
-                         bg='#9C9FA5',
-                         fg='#5778BB',
-                         command=lambda: unpauseMusic())
-
-playMusicButton.place(relx=0.73, rely=0.895,
-                      relheight=0.09, relwidth=0.25)
-
-def stopMusic(): # This definition stops the music completely
+def stopMusic(event): # This definition stops the music completely
     pygame.mixer.music.stop()
 
-def pauseMusic(): # This definition pauses the music
+def pauseMusic(event): # This definition pauses the music
     pygame.mixer.music.pause()
 
-def unpauseMusic(): # This definition unpauses the music
+def unpauseMusic(event): # This definition unpauses the music
     pygame.mixer.music.unpause()
 
 def clearText(e): # This definition clears the entry box text, instead having to do it manually
@@ -223,6 +205,29 @@ def clearTextHP(e):
         newHP.delete(0, END)
 
 def createdPokemon():
+    name = None
+
+    type1 = None
+
+    type2 = None
+
+    hp = None
+
+    speed = None
+
+    attack = None
+
+    defence = None
+
+    specialAttack = None
+
+    specialDefence = None
+
+    gen = None
+
+    df = pd.read_csv('Pokemon.csv')
+    getLastID = df.iloc[-1, 0] # This finds the last element and its id (#)
+    id = getLastID + 1 # This adds 1 to the id whenever a new pokemon is created
 
     pokename = str(newPokeName.get()) # Added str so that you're only able to input letters and not numbers
     if pokename == pokename:
@@ -256,14 +261,34 @@ def createdPokemon():
 
     total = hp + speed + attack + defence + specialAttack + specialDefence # This takes all the Pokemon's int stats and adds them to a total
 
-    newPokemon = [name, type1, type2, total, hp, attack, defence, specialAttack, specialDefence, speed, gen, legendary]
+    newPokemon = [id, name, type1, type2, total, hp, attack, defence, specialAttack, specialDefence, speed, gen, legendary]
 
-    with open('temp.csv', 'a', newline='') as pk:  # Opens Pokemon.csv and the writes into the csv file a new pokemon
+    with open('Pokemon.csv', 'a', newline='') as pk:  # Opens Pokemon.csv and the writes into the csv file a new pokemon
         Pokemon = writer(pk)
         Pokemon.writerow(newPokemon)
         pk.close()
 
-newPokeName.bind('<Button-1>', clearText) # clearText runs the definition
+    creationFeedback(name, type1, type2, hp, speed, defence, attack, specialDefence, specialAttack, gen)
+
+def creationFeedback(name, type1, type2, hp, speed, defence, attack, specialDefence, specialAttack, gen):
+    messagebox.showinfo(                    # Creates an messagebox which shoes all the pokemons stats
+        "Your Pokemon was created!",
+        (
+            f'Your pokemons name is {name}\n'
+            f"It's first type is {type1}\n"
+            f"It's second type is {type2}\n"
+            f"The pokemons HP is {hp}\n"
+            f"The pokemons speed is {speed}\n"
+            f"The pokemons attack is {attack}\n"
+            f"The pokemons defence is {defence}\n"
+            f"The pokemons special attack is {specialAttack}\n"
+            f"The pokemons special defence is {specialDefence}\n"
+            f"And lastly the pokemons gen is {gen}"
+
+        )
+    )
+# clearText and its other version clears the text in an entry box
+newPokeName.bind('<Button-1>', clearText)
 newType1.bind('<Button-1>', clearTextNT1)
 newType2.bind('<Button-1>', clearTextNT2)
 newGen.bind('<Button-1>', clearTextG)
@@ -274,6 +299,11 @@ newDefence.bind('<Button-1>', clearTextDEF)
 newSpecialAttack.bind('<Button-1>', clearTextSAT)
 newSpecialDefence.bind('<Button-1>', clearTextSDEF)
 newHP.bind('<Button-1>', clearTextHP)
+
+# Music shortcuts
+root.bind('<Control_L><s>', stopMusic)
+root.bind('<Control_L><p>', pauseMusic)
+root.bind('<Control_L><u>', unpauseMusic)
 
 
 # HEX Colours: #9C9FA5 - Grey | #5778BB - Blue | #DFE2EA - white
