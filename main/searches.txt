@@ -1,1 +1,1 @@
-MeowsticMale,MeowsticFemale,Espurr,Beheeyem,Elgyem,Reuniclus,Duosion,Solosis,Gothitelle,Gothorita,Gothita,Musharna,Munna,Cresselia,Azelf,Mesprit,Uxie,Chingling,DeoxysNormal Forme,DeoxysAttack Forme,DeoxysDefense Forme,DeoxysSpeed Forme,Wynaut,Chimecho,Grumpig,Spoink,Wobbuffet,Unown,Espeon,Mew,Mewtwo,MewtwoMega Mewtwo Y,Hypno,Drowzee,Alakazam,AlakazamMega Alakazam,Kadabra,Abra,
+Victreebel,Weepinbell,Bellsprout,Vileplume,Gloom,Oddish,Venusaur,VenusaurMega Venusaur,Ivysaur,Bulbasaur,
