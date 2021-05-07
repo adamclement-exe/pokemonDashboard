@@ -7,12 +7,11 @@ except ImportError:
     from tkinter import *
 import time
 import os
+
 searches = open("searches.txt", "w")
 searches.write('')
 searches.close()
-from __init__ import run
-
-
+from main.__init__ import run
 
 root = Tk()
 root.title('Pokemon Index Finder')
@@ -286,7 +285,7 @@ def search(type1_var, type2_var,
     check_str = ['type1_var', 'type2_var',
                  'gen_var', 'Legendary_var',
                  'stats_var', 'AorD_var']
-    
+
     searches = open("searches.txt", "w")
     num = 0
     for var in check:
@@ -309,7 +308,7 @@ def search(type1_var, type2_var,
             searches.write((","))
             continue
         elif var == 'Legendary':
-            var = False
+            var = "All"
             searches.write(str(var))
             searches.write((","))
             continue
