@@ -61,13 +61,13 @@ class run:
 
         AorD_var = str(var[5])
         if AorD_var == "False":
-            AorD_var = False
-        elif AorD_var == "True":
             AorD_var = True
+        elif AorD_var == "True":
+            AorD_var = False
 
         a = util.search()
         a = a.getList(stats_var, AorD_var, [type1_var, type2_var, gen_var, Legendary_var])  # filtered search
-        names = open("searches.txt", "w")
+        names = open("pokemon data.txt", "w")
         for i in a:
             names.write(i)
             names.write(",")

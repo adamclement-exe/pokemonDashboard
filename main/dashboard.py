@@ -13,6 +13,7 @@ except ImportError:
     import PIL.ImageTk
 import os
 import csv
+import util
 # Importing Image class from PIL module
 from PIL import ImageTk, Image
 
@@ -167,8 +168,8 @@ speedName = Label(root,
 speedName.place(relx=0.72, rely=0.75,
                 relwidth=0.2, relheight=0.05)
 
-type1IconFile = PhotoImage(file="formating/PokemonTypes.PNG")  # Icon1 image    CHANGE THIS TO INDIVIDUAL TYPES
-type2IconFile = PhotoImage(file="formating/PokemonTypes.PNG")  # Icon2 image
+# type1IconFile = PhotoImage(file="formating/PokemonTypes.PNG")  # Icon1 image    CHANGE THIS TO INDIVIDUAL TYPES
+# type2IconFile = PhotoImage(file="formating/PokemonTypes.PNG")  # Icon2 image
 
 backButtonFile = PhotoImage(file="formating/Previous.PNG")  # Back Button image
 
@@ -228,7 +229,7 @@ type1File = type1File.zoom(1)
 type1File = type1File.subsample(3)
 
 type1Pic = Label(legendFrame,
-                 image=type1File, bg='white')  #  bg="#5778BB"
+                 image=type1File, bg='white')  # bg="#5778BB"
 
 type1Pic.place(relx=0.83, rely=0.11,
                relheight=0.10, relwidth=0.07, anchor="center")
@@ -251,25 +252,41 @@ def run():
 
 
 def load():
-    pokemon = "Pokemon.csv"
-    name = open("searches.txt", "r")
+    #pokemon = "Pokemon.csv"
+    name = open("pokemon data.txt", "r")
     var = name.readline()
     name.close()
+
+    s = open("searches.txt", "r")
+    sort = s.readline()
+    s.close()
+    sort = (sort[:-1]).split(",")
     var = (var[:-1]).split(",")
     line_count = 0
 
-    with open(pokemon, 'r') as csvfile:
+    stats_var = sort[4]
+
+    AorD_var = str(sort[5])
+
+    if AorD_var == "False":
+        AorD_var = False
+    elif AorD_var == "True":
+        AorD_var = True
+
+
+    for i in var:
+        line_count = 0
+
+        csvfile = open("Pokemon.csv", 'r')
         pokemon = csv.reader(csvfile)
-
         for row in pokemon:
-
             row = list(row)
             if line_count != 0:
                 leg = False
                 if row[12] == "True":
                     leg = True
 
-                if row[1] in var:
+                if row[1] == i:
                     r_val[row[1]] = row
             line_count += 1
 
@@ -294,8 +311,8 @@ def set_values():
 
     idName["text"] = f"ID: {r_val[name][0]}"
     pokeName["text"] = f"{r_val[name][1]}"
-    #type1Name["text"] = f"{r_val[name][2]}"
-    #type2Name["text"] = f"{r_val[name][3]}"
+    # type1Name["text"] = f"{r_val[name][2]}"
+    # type2Name["text"] = f"{r_val[name][3]}"
     totalName["text"] = f"Total: {r_val[name][4]}"
     HPName["text"] = f"HP: {r_val[name][5]}"
     attackName["text"] = f"Atk: {r_val[name][6]}"
@@ -351,13 +368,12 @@ def set_values():
         pokemonPic.place(relx=0.5, rely=0.5,
                          relheight=0.9, relwidth=0.92, anchor="center")
 
-
     type1File.config(file=f'pokemonTypes/Icon_{r_val[name][2]}.png')
     type1File = type1File.zoom(1)
     type1File = type1File.subsample(3)
 
     type1Pic = Label(legendFrame,
-                  image=type1File, bg="#5778BB")  #  bg="#5778BB"
+                     image=type1File, bg="#5778BB")  # bg="#5778BB"
 
     type1Pic.place(relx=0.83, rely=0.11,
                    relheight=0.10, relwidth=0.07, anchor="center")
@@ -367,10 +383,11 @@ def set_values():
     type2File = type2File.subsample(3)
 
     type2Pic = Label(legendFrame,
-                  image=type2File, bg="#5778BB")  #  bg="#5778BB"
+                     image=type2File, bg="#5778BB")  # bg="#5778BB"
 
     type2Pic.place(relx=0.915, rely=0.11,
                    relheight=0.10, relwidth=0.07, anchor="center")
+
 
 def home_button_push():
     root.destroy()
@@ -381,14 +398,13 @@ def next_button_push():
     global count
     count += 1
 
-    load()
     set_values()
 
 
 def back_button_push():
     global count
     count -= 1
-    load()
+
     set_values()
 
 
