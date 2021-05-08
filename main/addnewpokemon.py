@@ -73,15 +73,14 @@ newGen.place(relx=0.60, rely=0.210,
 
 newGen.insert(0, f'Pokemons Generation')
 
-newLegendary = Entry(root, font=('times', 8, 'bold'), borderwidth='4',
-                     bg='#9C9FA5',
-                     fg='#5778BB')
+var = StringVar(root)
+var.set('None')
 
-newLegendary.place(relx=0.30, rely=0.630,
-                   relheight=0.09, relwidth=0.38)
+legendaryOption = OptionMenu(root, var, 'True', 'False') # Creates a drop down menu
+legendaryOption.config(bg='#9C9FA5', fg='#5778BB', borderwidth='4')
 
-newLegendary.insert(0, f'Is the Pokemon a legendary?')
-
+legendaryOption.place(relx=0.30, rely=0.630,
+                      relheight=0.09, relwidth=0.38)
 
 newAttack = Entry(root, font=('times', 8, 'bold'), borderwidth='4',
                   bg='#9C9FA5',
@@ -176,10 +175,6 @@ def clearTextG(e):
     if newGen.get() == 'Pokemons Generation':
         newGen.delete(0, END)
 
-def clearTextLEG(e):
-    if newLegendary.get() == 'Is the Pokemon a legendary?':
-        newLegendary.delete(0, END)
-
 def clearTextSPEED(e):
     if newSpeed.get() == 'Pokemons Speed':
         newSpeed.delete(0, END)
@@ -241,7 +236,7 @@ def createdPokemon():
     if poketype2 == poketype2:
         type2 = poketype2.title()
 
-    pokelegendary = str(newLegendary.get())
+    pokelegendary = str(var.get())
     if pokelegendary == pokelegendary:
         legendary = pokelegendary.title()
 
@@ -292,7 +287,6 @@ newPokeName.bind('<Button-1>', clearText)
 newType1.bind('<Button-1>', clearTextNT1)
 newType2.bind('<Button-1>', clearTextNT2)
 newGen.bind('<Button-1>', clearTextG)
-newLegendary.bind('<Button-1>', clearTextLEG)
 newSpeed.bind('<Button-1>', clearTextSPEED)
 newAttack.bind('<Button-1>', clearTextAT)
 newDefence.bind('<Button-1>', clearTextDEF)
