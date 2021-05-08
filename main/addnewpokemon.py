@@ -74,10 +74,12 @@ newGen.place(relx=0.60, rely=0.210,
 newGen.insert(0, f'Pokemons Generation')
 
 var = StringVar(root)
-var.set('None')
+var.set('Legendary')
 
 legendaryOption = OptionMenu(root, var, 'True', 'False') # Creates a drop down menu
-legendaryOption.config(bg='#9C9FA5', fg='#5778BB', borderwidth='4')
+legendaryOption.config(bg='#9C9FA5', fg='#5778BB', borderwidth='4') # The colour of the menu
+legendaryOption["menu"].config(bg='#9C9FA5', fg='#5788BB', font=('times', 15, 'bold')) # The colour of the drop down
+
 
 legendaryOption.place(relx=0.30, rely=0.630,
                       relheight=0.09, relwidth=0.38)

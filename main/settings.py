@@ -49,7 +49,7 @@ createAPokemon = Button(root, text='Create a pokemon', font=('times', 15, 'bold'
                         bg='#9C9FA5',
                         fg='#5778BB',
                         width='36',
-                        command=lambda: createsection())
+                        command=lambda: createsection()) # Runs createsection which goes to the creation window
 
 createAPokemon.place(relx=0.025, rely=0.690,
                      relheight=0.09, relwidth=0.95)
@@ -60,7 +60,6 @@ def mainmenu():
     os.system('python menu.py')
 
 def helpsection():
-    #print("Test")
     root.destroy()
     os.system('python Help_Menu.py')
 
