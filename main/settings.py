@@ -25,7 +25,7 @@ backgroundImage = PhotoImage(file='formating/settingsbackgroundimage.png')
 Canvas = Canvas(root, width=WIDTH, height=HEIGHT, highlightbackground='#9C9FA5', highlightthickness='4')
 Canvas.pack(fill='both', expand='True')
 Canvas.create_image(0, 0, image=backgroundImage,
-                    anchor='nw') # Created an image so that text and buttons are able to show the background
+                    anchor='nw') # Created an canvas so that text and buttons are able to show the background
 
 menuButton = Button(root, text='MENU', font=('times', 15, 'bold'), borderwidth='4',
                     bg='#9C9FA5',
@@ -45,6 +45,15 @@ helpButton = Button(root, text='HELP', font=('times', 15, 'bold'), borderwidth='
 helpButton.place(relx=0.025, rely=0.890,
                  relheight=0.090, relwidth=0.95)
 
+createAPokemon = Button(root, text='Create a pokemon', font=('times', 15, 'bold'), borderwidth='4',
+                        bg='#9C9FA5',
+                        fg='#5778BB',
+                        width='36',
+                        command=lambda: createsection())
+
+createAPokemon.place(relx=0.025, rely=0.690,
+                     relheight=0.09, relwidth=0.95)
+
 
 def mainmenu():
     root.destroy()
@@ -54,6 +63,10 @@ def helpsection():
     #print("Test")
     root.destroy()
     os.system('python Help_Menu.py')
+
+def createsection():
+    root.destroy()
+    os.system('python addnewpokemon.py')
 
 # HEX Colours: #9C9FA5 - Grey | #5778BB - Blue | #DFE2EA - white
 root.mainloop()
