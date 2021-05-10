@@ -46,23 +46,31 @@ newPokeName.place(relx=0.02, rely=0.105,
 
 newPokeName.insert(0, f'Your new Pokemons name')
 
-newType1 = Entry(root, font=('times', 8, 'bold'), borderwidth='4',
-                 bg='#9C9FA5',
-                 fg='#5778BB')
+pokemonTypes = {'Type 1': 1, 'Water': 2, 'Fire': 3, 'Poison': 4, # Pokemon types dictionary
+                 'Grass': 5, 'Ground': 6, 'Normal': 7, 'Bug': 8,
+                 'Electric': 9, 'Fairy': 10, 'Fighting': 11, 'Psychic': 12,
+                 'Rock': 13, 'Ghost': 14, 'Ice': 15, 'Dragon': 16,
+                 'Dark': 17, 'Steel': 18}
+
+var1 = StringVar(root)
+var1.set('Type 1')
+
+newType1 = OptionMenu(root, var1, *pokemonTypes)
+newType1.config(bg='#9C9FA5', fg='#5778BB', borderwidth='4')
+newType1["menu"].config(bg='#9C9FA5', fg='#5778BB', font=('times', 8, 'bold'))
 
 newType1.place(relx=0.60, rely=0.105,
                relheight=0.09, relwidth=0.38)
 
-newType1.insert(0, f'Pokemons first type')
+var2 = StringVar(root)
+var2.set('Type 2')
 
-newType2 = Entry(root, font=('times', 8, 'bold'), borderwidth='4',
-                 bg='#9C9FA5',
-                 fg='#5778BB')
+newType2 = OptionMenu(root, var2, *pokemonTypes)
+newType2.config(bg='#9C9FA5', fg='#5778BB', borderwidth='4')
+newType2["menu"].config(bg='#9C9FA5', fg='#5778BB', font=('times', 8, 'bold'))
 
 newType2.place(relx=0.02, rely=0.210,
                relheight=0.09, relwidth=0.38)
-
-newType2.insert(0, f'Pokemons second type')
 
 newGen = Entry(root, font=('times', 8, 'bold'), borderwidth='4',
                bg='#9C9FA5',
@@ -165,14 +173,6 @@ def clearText(e): # This definition clears the entry box text, instead having to
     if newPokeName.get() == 'Your new Pokemons name':
         newPokeName.delete(0, END)
 
-def clearTextNT1(e):
-    if newType1.get() == 'Pokemons first type':
-        newType1.delete(0, END)
-
-def clearTextNT2(e):
-    if newType2.get() == 'Pokemons second type':
-        newType2.delete(0, END)
-
 def clearTextG(e):
     if newGen.get() == 'Pokemons Generation':
         newGen.delete(0, END)
@@ -230,11 +230,11 @@ def createdPokemon():
     if pokename == pokename:
         name = pokename.title()
 
-    poketype1 = str(newType1.get())
+    poketype1 = str(var1.get())
     if poketype1 == poketype1:
         type1 = poketype1.title()
 
-    poketype2 = str(newType2.get())
+    poketype2 = str(var2.get())
     if poketype2 == poketype2:
         type2 = poketype2.title()
 
@@ -286,8 +286,6 @@ def creationFeedback(name, type1, type2, hp, speed, defence, attack, specialDefe
     )
 # clearText and its other version clears the text in an entry box
 newPokeName.bind('<Button-1>', clearText)
-newType1.bind('<Button-1>', clearTextNT1)
-newType2.bind('<Button-1>', clearTextNT2)
 newGen.bind('<Button-1>', clearTextG)
 newSpeed.bind('<Button-1>', clearTextSPEED)
 newAttack.bind('<Button-1>', clearTextAT)
