@@ -125,7 +125,7 @@ dive.grid(row=4,column=5)
 
 #row 5
 duskimage=images(image_list[20])
-dusk = Button(root, image=pokeimage,command=lambda: info_page(list[20]))
+dusk = Button(root, image=duskimage,command=lambda: info_page(list[20]))
 dusk.grid(row=5,column=1)
 healimage=images(image_list[21])
 heal = Button(root, image=healimage,command=lambda: info_page(list[21]))
