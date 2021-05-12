@@ -12,6 +12,7 @@ evocsv = list(csv.reader(evo, delimiter=","))
 poke = open("Pokemon.csv","r")
 pokecsv = list(csv.reader(poke, delimiter=","))
 pokecsv.remove(pokecsv[0])
+
 for row in pokecsv:
     init = False
     for row1 in evocsv:
@@ -121,7 +122,6 @@ def back():
     os.system('python addnewpokemon.py')
 
 def add():
-    print("WIP")
     inputValue1=poke_name1.get()
     inputValue2=poke_name2.get()
     print(inputValue1)
@@ -129,17 +129,44 @@ def add():
 
     init = False
     for row in evocsv:
-        if i in row:
+        for i in row:
             if i.upper() == inputValue1.upper():
                 init = True
+                temp1 = row
+                temp2 = i
 
     if init == True:
+        row = temp1
+        i = temp2
         print("Found in file")
-        writer = csv.writer(open('PokemonEvolutions.csv', 'wb'))
-        a = index(poke_name1)
-        print(a)
-        #writer.writerows([row][i],inputValue2)
+        a = evocsv.index(row)
+        b = row.index(i)
+        print(a, b)
+        print(evocsv[a][b])
+
+        if inputValue2 in evocsv[a]:
+            print("Both already added")
+
+        elif inputValue2 != "Name of Evolution":
+            with open('PokemonEvolutions.csv', mode='w', newline="") as f:
+                writer = csv.writer(f, delimiter=',')
+                row.append(inputValue2)
+                for row2 in evocsv:
+                    if evocsv.index(row2) == a:
+                        writer.writerow(row)
+                    else:
+                        writer.writerow(row2)
+
+
+        else:
+            print("Please enter a Evolution")
+
     else:
         print("Not found. Making new row")
+        with open('PokemonEvolutions.csv', mode='w', newline="") as f:
+            writer = csv.writer(f, delimiter=',')
+            for row2 in evocsv:
+                writer.writerow(row2)
+            writer.writerow((inputValue1,inputValue2))
 
 root.mainloop()
