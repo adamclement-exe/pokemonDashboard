@@ -17,21 +17,12 @@ pygame.mixer.init()
 
 playlist = list(["music/Lavender_Town.mp3", "music/Team_Skull.mp3", "music/Elite_Four.mp3",
                 "music/Bede_Battle.mp3", "music/Champion_Battle.mp3", "music/Driftveil_City.mp3",
-                 "music/Pokemon_Theme_Lyrics.mp3", "music/Pokemon_Theme.mp3"])
+                 "music/Pokemon_Theme_Lyrics.mp3"])
 
-
-for select in range(0,len(playlist)):
-    randomSong = random.choice(playlist)
-    print(randomSong)
-    if select == 0:
-        pygame.mixer.music.load(randomSong)  # Get the first track from the playlist
-        playlist.remove(randomSong)
-    pygame.mixer.music.queue(randomSong)  # Queue the 2nd song
-    playlist.remove(randomSong)
-
-pygame.mixer.music.play()  # Play the music
-
-#pygame.mixer.music.load(randomSong)# Get the first track from the playlist
+randomSong = random.choice(playlist)
+pygame.mixer.music.load(randomSong) # Loads a random song from the playlist
+pygame.mixer.music.queue(randomSong)
+pygame.mixer.music.play(loops=999)
 
 
 root = Tk()
@@ -52,25 +43,6 @@ Canvas = Canvas(root, width=WIDTH, height=HEIGHT, highlightbackground='#9C9FA5',
 Canvas.pack(fill='both', expand='True')
 Canvas.create_image(0, 0, image=background,
                     anchor='nw')
-
-home_button = Button(root,
-                     bg='#9C9FA5',
-                     fg='#5778BB',
-                     font=('times', 8, 'bold'), borderwidth=4,
-                     command=lambda: home())  # runs when Home button is clicked
-
-home_button.place(relx=0.06, rely=0.900,
-                  relheight=0.06, relwidth=0.3)
-
-home_button["text"] = f'Home'
-
-evolutionButton = Button(root, text='Config Evo', font=('times', 8, 'bold'), borderwidth='4',
-                     bg='#9C9FA5',
-                     fg='#5778BB',
-                      command=lambda:evolution())
-
-evolutionButton.place(relx=0.64, rely=0.900,
-                   relheight=0.06, relwidth=0.3)
 
 newPokeName = Entry(root, font=('times', 8, 'bold'), borderwidth='4',
                     bg='#9C9FA5',
@@ -190,9 +162,27 @@ createButton = Button(root, text='CREATE POKEMON', font=('times', 12, 'bold'), b
 createButton.place(relx=0.25, rely=0.750,
                    relheight=0.09, relwidth=0.5)
 
-Canvas.create_text(200, 625, text='Ctrl+S = Stops music  Ctrl+P = Pauses the music  Ctrl+U = Unpauses the music',
+Canvas.create_text(200, 625, text='Ctrl+S=Stops music/Ctrl+P=Pauses the music/Ctrl+U=Unpauses the music/Ctrl+Right=Skip music',
                    font=('times', 7, 'bold'),
                    fill='#5778BB')
+
+homeButton = Button(root, text='HOME', font=('times', 12, 'bold'), borderwidth='4',
+                    bg='#9C9FA5',
+                    fg='#5788BB',
+                    width=15,
+                    command=lambda: home())
+
+homeButton.place(relx=0.06, rely=0.900,
+                  relheight=0.06, relwidth=0.3)
+
+evolutionButton = Button(root, text='Config Evo', font=('times', 12, 'bold'), borderwidth='4',
+                     bg='#9C9FA5',
+                     fg='#5778BB',
+                     width=15,
+                     command=lambda: evolution())
+
+evolutionButton.place(relx=0.64, rely=0.900,
+                   relheight=0.06, relwidth=0.3)
 
 def stopMusic(event): # This definition stops the music completely
     pygame.mixer.music.stop()
@@ -202,6 +192,13 @@ def pauseMusic(event): # This definition pauses the music
 
 def unpauseMusic(event): # This definition unpauses the music
     pygame.mixer.music.unpause()
+
+def skipMusic(event):
+    randomSong = random.choice(playlist)
+
+    pygame.mixer.music.stop()
+    pygame.mixer.music.load(randomSong)
+    pygame.mixer.music.play(loops=999)
 
 def clearText(e): # This definition clears the entry box text, instead having to do it manually
     if newPokeName.get() == 'Your new Pokemons name':
@@ -237,7 +234,7 @@ def clearTextHP(e):
 
 def evolution():
     root.destroy()
-    os.system('Python newpokemonevolutionadder.py')
+    os.system('Python EvolutionConfig.py')
 
 def home():
     root.destroy()
@@ -340,7 +337,7 @@ newHP.bind('<Button-1>', clearTextHP)
 root.bind('<Control_L><s>', stopMusic)
 root.bind('<Control_L><p>', pauseMusic)
 root.bind('<Control_L><u>', unpauseMusic)
-
+root.bind('<Control_L><Right>', skipMusic)
 
 # HEX Colours: #9C9FA5 - Grey | #5778BB - Blue | #DFE2EA - white
 root.mainloop()

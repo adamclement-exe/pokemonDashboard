@@ -1,30 +1,50 @@
+import tkinter
 from tkinter import *
 from tkinter.ttk import *
+from PIL import Image, ImageTk
 import csv
 import os
 """
-put somewhere that python doesn't like other languages (not coding languages)
+put somewhere that python doesn't like non english words
 """
 
 def info_page(list):
-    print(f"""\nname: {list[0]} 
-gen: {list[2]} 
-multiplier: {list[3]}
-Additional effect: {list[4]}
-description:
-{list[5]}""")
+    poot=Toplevel()
+    poot.title("Ball Info")
+    #poot.geometry("450x300")
+    iconFile = PhotoImage(file='formating/ball.png')
+    poot.iconphoto(False, iconFile)
+    image = images(list[1])
+    label = Label(poot, image=image)
+    label.image = image
+    label.pack()
+
+
+
+    #pokeimage = images(list[1])
+    #poke = Button(root, image=pokeimage)
+
+    # Create a photoimage object of the image in the path
+    #image1 = Image.open(list[1])
+    #test = ImageTk.PhotoImage(image1)
+
+    #label1 = Label(image=test)
+    #label1.image = test
+
+    # Position image
+    #label1.place(x= 1, y = 1)
+
+
 
 def images(list):
-    photo = PhotoImage(file=list)
-    photoimage = photo.subsample(1, 1)
-    return photoimage
+    image1 = Image.open(list)
+    test = ImageTk.PhotoImage(image1)
+    return test
 
 def home():
     root.destroy()
     os.system('python menu.py')
 
-#def info_page():
-#    print('test')
 
 def image_grab(file):
     image=[]
@@ -44,7 +64,7 @@ root=Tk()
 root.title("Ball select")
 root.minsize(475, 475)
 root.maxsize(1000, 1000)
-iconFile = PhotoImage(file='formating/ball.png')  # Icon image
+iconFile = PhotoImage(file='formating/ball.png')
 root.iconphoto(False, iconFile)
 
 

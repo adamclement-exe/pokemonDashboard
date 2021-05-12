@@ -49,10 +49,15 @@ createAPokemon = Button(root, text='Create a pokemon', font=('times', 15, 'bold'
                         bg='#9C9FA5',
                         fg='#5778BB',
                         width='36',
-                        command=lambda: createsection()) # Runs createsection which goes to the creation window
+                        command=lambda: createsection()) # Runs create section which goes to the creation window
 
 createAPokemon.place(relx=0.025, rely=0.690,
                      relheight=0.09, relwidth=0.95)
+
+titleImage = PhotoImage(file='formating/settingsLogo.png')
+titleImage = titleImage.zoom(2)
+titleImage = titleImage.subsample(3)
+Canvas.create_image(250, 94, image=titleImage)
 
 
 def mainmenu():
