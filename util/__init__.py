@@ -58,6 +58,7 @@ class csv_loader:
                         "name": row[1],
                         "type1": row[2],
                         "type2": row[3],
+                        "Total": int(row[4]),
                         "HP": int(row[5]),
                         "Attack": int(row[6]),
                         "Defence": int(row[7]),

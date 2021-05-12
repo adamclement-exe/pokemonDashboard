@@ -1,7 +1,6 @@
 import pyautogui as pg
 import subprocess
 import util
-import searches
 import time
 import csv
 

@@ -147,7 +147,8 @@ stats_var = StringVar(root)
 
 stats_choices = {'Sort': 1, 'Alphabetical': 2,
                  'HP': 3, 'Attack': 4, 'Defense': 5,  # Numbers Give the Types an Order
-                 'Sp. Atk': 6, 'Sp. Def': 7, 'Speed': 8}  # Items in Drop Down menu
+                 'Sp. Atk': 6, 'Sp. Def': 7, 'Speed': 8,
+                 'Total': 9, 'ID': 10}  # Items in Drop Down menu
 
 stats_var.set('Sort')  # sets Starting Value for Drop Down menu
 
@@ -322,6 +323,11 @@ def search(type1_var, type2_var,
             searches.write(str(var))
             searches.write((","))
             continue
+        elif var == 'ID':
+            var = 'id'
+            searches.write(str(var))
+            searches.write((","))
+            continue
         elif var == "Ascending":
             var = True
             searches.write(str(var))
@@ -370,8 +376,7 @@ def reset():
     type1_var.set('Type 1')
     poke_name.delete(0, 'end')
     poke_name.insert(0, 'Name Search')  # resets all to default values
-    searches = open("searches.py", "w")
-    searches.write('')
+    searches = open("searches.txt", "w")
     searches.close()
 
 
