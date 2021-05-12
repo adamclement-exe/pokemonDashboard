@@ -375,7 +375,7 @@ def set_values():
     type1Pic = Label(legendFrame,
                      image=type1File, bg="#5778BB")  # bg="#5778BB"
 
-    type1Pic.place(relx=0.83, rely=0.11,
+    type1Pic.place(relx=0.915, rely=0.11,
                    relheight=0.10, relwidth=0.07, anchor="center")
 
     type2File.config(file=f'pokemonTypes/Icon_{r_val[name][3]}.png')
@@ -385,7 +385,7 @@ def set_values():
     type2Pic = Label(legendFrame,
                      image=type2File, bg="#5778BB")  # bg="#5778BB"
 
-    type2Pic.place(relx=0.915, rely=0.11,
+    type2Pic.place(relx=0.83, rely=0.11,
                    relheight=0.10, relwidth=0.07, anchor="center")
 
 
