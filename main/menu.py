@@ -7,7 +7,9 @@ try:
 except ImportError:
     from tkinter import *
 from tkinter import messagebox
+import pygame
 import os
+from musicSettings import Music
 
 root = Tk()
 root.title('Pokemon Index Finder')
@@ -89,5 +91,8 @@ def settings_menu():
     os.system('python settings.py')
 
 # HEX Colours: #9C9FA5 - Grey | #5778BB - Blue | #DFE2EA - white
+
+Music().musicPlay()
+Music().musicControls(root)
 
 root.mainloop()
