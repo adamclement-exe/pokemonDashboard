@@ -70,7 +70,7 @@ canvas.create_image(250, 94, image=titleImage)
 
 def on_button_push():
     root.destroy()
-    os.system('python filter.py')
+    os.system('python LaunchMenu.py')
 
 
 def dev():
