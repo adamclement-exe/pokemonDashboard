@@ -11,7 +11,6 @@ from tkinter import messagebox
 from csv import writer
 import pygame
 import pandas as pd
-import random
 from musicSettings import Music
 
 root = Tk()
@@ -19,6 +18,7 @@ root.title('Add a new Pokemon')
 
 iconFile = PhotoImage(file='formating/ball.png')
 root.iconphoto(False, iconFile) # Icon Image
+
 HEIGHT = 642
 WIDTH = 405
 root.geometry(f'{HEIGHT}x{WIDTH}')
@@ -150,10 +150,6 @@ createButton = Button(root, text='CREATE POKEMON', font=('times', 12, 'bold'), b
 
 createButton.place(relx=0.25, rely=0.750,
                    relheight=0.09, relwidth=0.5)
-
-Canvas.create_text(200, 625, text='Ctrl+S=Stops music/Ctrl+P=Pauses the music/Ctrl+U=Unpauses the music/Ctrl+Right=Skip music',
-                   font=('times', 7, 'bold'),
-                   fill='#5778BB')
 
 homeButton = Button(root, text='HOME', font=('times', 12, 'bold'), borderwidth='4',
                     bg='#9C9FA5',
@@ -306,7 +302,7 @@ newSpecialAttack.bind('<Button-1>', clearTextSAT)
 newSpecialDefence.bind('<Button-1>', clearTextSDEF)
 newHP.bind('<Button-1>', clearTextHP)
 
-Music().musicPlay()
+Music().musicPlay() # Calls the class in musicSettings and runs it
 Music().musicControls(root)
 
 # HEX Colours: #9C9FA5 - Grey | #5778BB - Blue | #DFE2EA - white
