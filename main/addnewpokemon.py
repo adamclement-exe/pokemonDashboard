@@ -11,22 +11,19 @@ from tkinter import messagebox
 from csv import writer
 import pygame
 import pandas as pd
+import random
 
 pygame.mixer.init()
-playlist = list()
-playlist.append ("music/Lavender_Town.mp3")
-playlist.append ("music/Team_Skull.mp3")
-playlist.append ("music/Elite_Four.mp3")
-playlist.append ("music/Bede_Battle.mp3")
-playlist.append ("music/Champion_Battle.mp3")
-playlist.append ("music/Driftveil_City.mp3")
 
-pygame.mixer.music.load ( playlist.pop(0) )  # Get the first track from the playlist
-pygame.mixer.music.queue ( playlist.pop(1) ) # Queue the 2nd song
-pygame.mixer.music.play()           # Play the music
+playlist = list(["music/Lavender_Town.mp3", "music/Team_Skull.mp3", "music/Elite_Four.mp3",
+                "music/Bede_Battle.mp3", "music/Champion_Battle.mp3", "music/Driftveil_City.mp3",
+                 "music/Pokemon_Theme_Lyrics.mp3", "music/Pokemon_Theme.mp3"])
 
-if len ( playlist ) > 0:       # If there are more tracks in the queue...
-    pygame.mixer.music.queue ( playlist.pop() ) # Q
+randomSong = random.choice(playlist)
+
+pygame.mixer.music.load(randomSong)# Get the first track from the playlist
+pygame.mixer.music.queue(randomSong) # Queue the 2nd song
+pygame.mixer.music.play() # Play the music
 
 root = Tk()
 root.title('Add a new Pokemon')
@@ -171,9 +168,7 @@ Canvas.create_text(200, 625, text='Ctrl+S = Stops music  Ctrl+P = Pauses the mus
                    fill='#5778BB')
 
 def stopMusic(event): # This definition stops the music completely
-    pygame.mixer.music.set_pos(999)
-    pygame.mixer.music.queue( playlist.pop() )
-
+    pygame.mixer.music.stop()
 
 def pauseMusic(event): # This definition pauses the music
     pygame.mixer.music.pause()
@@ -272,7 +267,7 @@ def createdPokemon():
 
     newPokemon = [id, name, type1, type2, total, hp, attack, defence, specialAttack, specialDefence, speed, gen, legendary]
 
-    with open('Pokemon.csv', 'a', newline='') as pk:  # Opens Pokemon.csv and the writes into the csv file a new pokemon
+    with open('Pokemon.csv', 'a', newline='\n') as pk:  # Opens Pokemon.csv and the writes into the csv file a new pokemon
         Pokemon = writer(pk)
         Pokemon.writerow(newPokemon)
         pk.close()
@@ -283,16 +278,16 @@ def creationFeedback(name, type1, type2, hp, speed, defence, attack, specialDefe
     messagebox.showinfo(                    # Creates an messagebox which shoes all the pokemons stats
         "Your Pokemon was created!",
         (
-            f'Your pokemons name is {name}\n'
-            f"It's first type is {type1}\n"
-            f"It's second type is {type2}\n"
-            f"The pokemons HP is {hp}\n"
-            f"The pokemons speed is {speed}\n"
-            f"The pokemons attack is {attack}\n"
-            f"The pokemons defence is {defence}\n"
-            f"The pokemons special attack is {specialAttack}\n"
-            f"The pokemons special defence is {specialDefence}\n"
-            f"And lastly the pokemons gen is {gen}"
+            f'Your pokemons name is: {name}\n'
+            f"It's first type is: {type1}\n"
+            f"It's second type is: {type2}\n"
+            f"The pokemons HP is: {hp}\n"
+            f"The pokemons speed is: {speed}\n"
+            f"The pokemons attack is: {attack}\n"
+            f"The pokemons defence is: {defence}\n"
+            f"The pokemons special attack is: {specialAttack}\n"
+            f"The pokemons special defence is: {specialDefence}\n"
+            f"And lastly the pokemons gen is: {gen}"
 
         )
     )
