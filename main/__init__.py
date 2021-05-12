@@ -35,8 +35,8 @@ class run:
 
     def name_search(self):
         s = open("searches.txt", "r")
-        pokename_var = s.readline()
-        pokename_var = util.csv_loader.get_pokemon_by_name(self, name=pokename_var)
+        pokename_var = s.readline().replace('\n', '')
+        pokename_var = util.csv_loader("Pokemon.csv").get_pokemon_by_name(pokename_var)
         print(pokename_var)
 
     def refract_search(self):
