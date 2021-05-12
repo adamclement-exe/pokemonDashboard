@@ -53,6 +53,25 @@ Canvas.pack(fill='both', expand='True')
 Canvas.create_image(0, 0, image=background,
                     anchor='nw')
 
+home_button = Button(root,
+                     bg='#9C9FA5',
+                     fg='#5778BB',
+                     font=('times', 8, 'bold'), borderwidth=4,
+                     command=lambda: home())  # runs when Home button is clicked
+
+home_button.place(relx=0.06, rely=0.900,
+                  relheight=0.06, relwidth=0.3)
+
+home_button["text"] = f'Home'
+
+evolutionButton = Button(root, text='Config Evo', font=('times', 8, 'bold'), borderwidth='4',
+                     bg='#9C9FA5',
+                     fg='#5778BB',
+                      command=lambda:evolution())
+
+evolutionButton.place(relx=0.64, rely=0.900,
+                   relheight=0.06, relwidth=0.3)
+
 newPokeName = Entry(root, font=('times', 8, 'bold'), borderwidth='4',
                     bg='#9C9FA5',
                     fg='#5778BB')
@@ -162,7 +181,6 @@ newSpeed.insert(0, f'Pokemons Speed')
 newSpeed.place(relx=0.02, rely=0.525,
                relheight=0.09, relwidth=0.38)
 
-
 createButton = Button(root, text='CREATE POKEMON', font=('times', 12, 'bold'), borderwidth='4',
                      bg='#9C9FA5',
                      fg='#5778BB',
@@ -216,6 +234,14 @@ def clearTextSDEF(e):
 def clearTextHP(e):
     if newHP.get() == 'Pokemons HP':
         newHP.delete(0, END)
+
+def evolution():
+    root.destroy()
+    os.system('Python newpokemonevolutionadder.py')
+
+def home():
+    root.destroy()
+    os.system('Python menu.py')
 
 def createdPokemon():
     name = None
