@@ -19,11 +19,20 @@ playlist = list(["music/Lavender_Town.mp3", "music/Team_Skull.mp3", "music/Elite
                 "music/Bede_Battle.mp3", "music/Champion_Battle.mp3", "music/Driftveil_City.mp3",
                  "music/Pokemon_Theme_Lyrics.mp3", "music/Pokemon_Theme.mp3"])
 
-randomSong = random.choice(playlist)
 
-pygame.mixer.music.load(randomSong)# Get the first track from the playlist
-pygame.mixer.music.queue(randomSong) # Queue the 2nd song
-pygame.mixer.music.play() # Play the music
+for select in range(0,len(playlist)):
+    randomSong = random.choice(playlist)
+    print(randomSong)
+    if select == 0:
+        pygame.mixer.music.load(randomSong)  # Get the first track from the playlist
+        playlist.remove(randomSong)
+    pygame.mixer.music.queue(randomSong)  # Queue the 2nd song
+    playlist.remove(randomSong)
+
+pygame.mixer.music.play()  # Play the music
+
+#pygame.mixer.music.load(randomSong)# Get the first track from the playlist
+
 
 root = Tk()
 root.title('Add a new Pokemon')
