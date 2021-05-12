@@ -17,7 +17,7 @@ pygame.mixer.init()
 
 playlist = list(["music/Lavender_Town.mp3", "music/Team_Skull.mp3", "music/Elite_Four.mp3",
                 "music/Bede_Battle.mp3", "music/Champion_Battle.mp3", "music/Driftveil_City.mp3",
-                 "music/Pokemon_Theme_Lyrics.mp3", "music/Pokemon_Theme.mp3"])
+                 "music/Pokemon_Theme_Lyrics.mp3"])
 
 randomSong = random.choice(playlist)
 pygame.mixer.music.load(randomSong) # Loads a random song from the playlist
@@ -162,7 +162,7 @@ createButton = Button(root, text='CREATE POKEMON', font=('times', 12, 'bold'), b
 createButton.place(relx=0.25, rely=0.750,
                    relheight=0.09, relwidth=0.5)
 
-Canvas.create_text(200, 625, text='Ctrl+S = Stops music  Ctrl+P = Pauses the music  Ctrl+U = Unpauses the music',
+Canvas.create_text(200, 625, text='Ctrl+S=Stops music/Ctrl+P=Pauses the music/Ctrl+U=Unpauses the music/Ctrl+Right=Skip music',
                    font=('times', 7, 'bold'),
                    fill='#5778BB')
 
@@ -192,6 +192,13 @@ def pauseMusic(event): # This definition pauses the music
 
 def unpauseMusic(event): # This definition unpauses the music
     pygame.mixer.music.unpause()
+
+def skipMusic(event):
+    randomSong = random.choice(playlist)
+
+    pygame.mixer.music.stop()
+    pygame.mixer.music.load(randomSong)
+    pygame.mixer.music.play(loops=999)
 
 def clearText(e): # This definition clears the entry box text, instead having to do it manually
     if newPokeName.get() == 'Your new Pokemons name':
@@ -330,7 +337,7 @@ newHP.bind('<Button-1>', clearTextHP)
 root.bind('<Control_L><s>', stopMusic)
 root.bind('<Control_L><p>', pauseMusic)
 root.bind('<Control_L><u>', unpauseMusic)
-
+root.bind('<Control_L><Right>', skipMusic)
 
 # HEX Colours: #9C9FA5 - Grey | #5778BB - Blue | #DFE2EA - white
 root.mainloop()
