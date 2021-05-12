@@ -11,13 +11,26 @@ put somewhere that python doesn't like non english words
 def info_page(list):
     poot=Toplevel()
     poot.title("Ball Info")
-    #poot.geometry("450x300")
+    poot.geometry("450x300")
     iconFile = PhotoImage(file='formating/ball.png')
     poot.iconphoto(False, iconFile)
+
+    Label(poot, text='Name:').place(x=1,y=1)
+    name = Label(poot, text=list[0])
+    name.place(x=1,y=20)
     image = images(list[1])
     label = Label(poot, image=image)
     label.image = image
-    label.pack()
+    label.place(x=1,y=40)
+    Label(poot, text='Gen:').place(x=1,y=130)
+    gen = Label(poot, text=list[2])
+    gen.place(x=1,y=150)
+    Label(poot, text='Catch Rate Modifier:').place(x=1,y=170)
+    Catch_rate_modifier=Label(poot, text=list[3])
+    Catch_rate_modifier.place(x=1,y=190)
+
+
+
 
 
 
@@ -61,7 +74,7 @@ with open("pokeball info.csv", "r") as csvfile:
 
 
 root=Tk()
-root.title("Ball select")
+root.title("Ball Select")
 root.minsize(475, 475)
 root.maxsize(1000, 1000)
 iconFile = PhotoImage(file='formating/ball.png')
@@ -168,7 +181,15 @@ dream.grid(row=6,column=2)
 beastimage=images(image_list[26])
 beast = Button(root, image=beastimage,command=lambda: info_page(list[26]))
 beast.grid(row=6,column=4)
-homebutton = Button(root, text='home',command=lambda: home())
+homeimage = images('formating\Home.PNG')
+homebutton = Button(root,
+                    #bg="#DFE2EA",
+                    #fg="#DFE2EA",
+                    image=homeimage,
+                    #relief="flat",
+                    #font=("times", 11, "bold"),
+                    #borderwidth=0,
+                    command=lambda: home())
 homebutton.grid(row=6,column=3)
 
 root.mainloop()
