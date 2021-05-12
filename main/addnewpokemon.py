@@ -11,18 +11,34 @@ from tkinter import messagebox
 from csv import writer
 import pygame
 import pandas as pd
+import random
 
 pygame.mixer.init()
 
-pygame.mixer.music.load("music/Driftveil_City.mp3")
-pygame.mixer.music.play(loops=100)
+playlist = list(["music/Lavender_Town.mp3", "music/Team_Skull.mp3", "music/Elite_Four.mp3",
+                "music/Bede_Battle.mp3", "music/Champion_Battle.mp3", "music/Driftveil_City.mp3",
+                 "music/Pokemon_Theme_Lyrics.mp3", "music/Pokemon_Theme.mp3"])
+
+
+for select in range(0,len(playlist)):
+    randomSong = random.choice(playlist)
+    print(randomSong)
+    if select == 0:
+        pygame.mixer.music.load(randomSong)  # Get the first track from the playlist
+        playlist.remove(randomSong)
+    pygame.mixer.music.queue(randomSong)  # Queue the 2nd song
+    playlist.remove(randomSong)
+
+pygame.mixer.music.play()  # Play the music
+
+#pygame.mixer.music.load(randomSong)# Get the first track from the playlist
+
 
 root = Tk()
 root.title('Add a new Pokemon')
 
 iconFile = PhotoImage(file='formating/ball.png')
 root.iconphoto(False, iconFile) # Icon Image
-
 HEIGHT = 642
 WIDTH = 405
 root.geometry(f'{HEIGHT}x{WIDTH}')
@@ -36,6 +52,25 @@ Canvas = Canvas(root, width=WIDTH, height=HEIGHT, highlightbackground='#9C9FA5',
 Canvas.pack(fill='both', expand='True')
 Canvas.create_image(0, 0, image=background,
                     anchor='nw')
+
+home_button = Button(root,
+                     bg='#9C9FA5',
+                     fg='#5778BB',
+                     font=('times', 8, 'bold'), borderwidth=4,
+                     command=lambda: home())  # runs when Home button is clicked
+
+home_button.place(relx=0.06, rely=0.900,
+                  relheight=0.06, relwidth=0.3)
+
+home_button["text"] = f'Home'
+
+evolutionButton = Button(root, text='Config Evo', font=('times', 8, 'bold'), borderwidth='4',
+                     bg='#9C9FA5',
+                     fg='#5778BB',
+                      command=lambda:evolution())
+
+evolutionButton.place(relx=0.64, rely=0.900,
+                   relheight=0.06, relwidth=0.3)
 
 newPokeName = Entry(root, font=('times', 8, 'bold'), borderwidth='4',
                     bg='#9C9FA5',
@@ -146,7 +181,6 @@ newSpeed.insert(0, f'Pokemons Speed')
 newSpeed.place(relx=0.02, rely=0.525,
                relheight=0.09, relwidth=0.38)
 
-
 createButton = Button(root, text='CREATE POKEMON', font=('times', 12, 'bold'), borderwidth='4',
                      bg='#9C9FA5',
                      fg='#5778BB',
@@ -200,6 +234,14 @@ def clearTextSDEF(e):
 def clearTextHP(e):
     if newHP.get() == 'Pokemons HP':
         newHP.delete(0, END)
+
+def evolution():
+    root.destroy()
+    os.system('Python newpokemonevolutionadder.py')
+
+def home():
+    root.destroy()
+    os.system('Python menu.py')
 
 def createdPokemon():
     name = None
@@ -260,7 +302,7 @@ def createdPokemon():
 
     newPokemon = [id, name, type1, type2, total, hp, attack, defence, specialAttack, specialDefence, speed, gen, legendary]
 
-    with open('Pokemon.csv', 'a', newline='') as pk:  # Opens Pokemon.csv and the writes into the csv file a new pokemon
+    with open('Pokemon.csv', 'a', newline='\n') as pk:  # Opens Pokemon.csv and the writes into the csv file a new pokemon
         Pokemon = writer(pk)
         Pokemon.writerow(newPokemon)
         pk.close()
@@ -271,16 +313,16 @@ def creationFeedback(name, type1, type2, hp, speed, defence, attack, specialDefe
     messagebox.showinfo(                    # Creates an messagebox which shoes all the pokemons stats
         "Your Pokemon was created!",
         (
-            f'Your pokemons name is {name}\n'
-            f"It's first type is {type1}\n"
-            f"It's second type is {type2}\n"
-            f"The pokemons HP is {hp}\n"
-            f"The pokemons speed is {speed}\n"
-            f"The pokemons attack is {attack}\n"
-            f"The pokemons defence is {defence}\n"
-            f"The pokemons special attack is {specialAttack}\n"
-            f"The pokemons special defence is {specialDefence}\n"
-            f"And lastly the pokemons gen is {gen}"
+            f'Your pokemons name is: {name}\n'
+            f"It's first type is: {type1}\n"
+            f"It's second type is: {type2}\n"
+            f"The pokemons HP is: {hp}\n"
+            f"The pokemons speed is: {speed}\n"
+            f"The pokemons attack is: {attack}\n"
+            f"The pokemons defence is: {defence}\n"
+            f"The pokemons special attack is: {specialAttack}\n"
+            f"The pokemons special defence is: {specialDefence}\n"
+            f"And lastly the pokemons gen is: {gen}"
 
         )
     )

@@ -21,7 +21,7 @@ root.geometry('%dx%d+%d+%d' % (WIDTH, HEIGHT, x, y))
 ####
 subprocess.Popen("Python filter.py")
 
-f = open("Pokemon.csv","r")
+f = open("../main/Pokemon.csv", "r")
 csv = list(csv.reader(f, delimiter=","))
 
 for row in csv:
