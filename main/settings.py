@@ -59,7 +59,6 @@ titleImage = titleImage.zoom(2)
 titleImage = titleImage.subsample(3)
 Canvas.create_image(250, 94, image=titleImage)
 
-
 def mainmenu():
     root.destroy()
     os.system('python menu.py')

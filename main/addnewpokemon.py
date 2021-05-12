@@ -12,18 +12,7 @@ from csv import writer
 import pygame
 import pandas as pd
 import random
-
-pygame.mixer.init()
-
-playlist = list(["music/Lavender_Town.mp3", "music/Team_Skull.mp3", "music/Elite_Four.mp3",
-                "music/Bede_Battle.mp3", "music/Champion_Battle.mp3", "music/Driftveil_City.mp3",
-                 "music/Pokemon_Theme_Lyrics.mp3"])
-
-randomSong = random.choice(playlist)
-pygame.mixer.music.load(randomSong) # Loads a random song from the playlist
-pygame.mixer.music.queue(randomSong)
-pygame.mixer.music.play(loops=999)
-
+from musicSettings import Music
 
 root = Tk()
 root.title('Add a new Pokemon')
@@ -184,22 +173,6 @@ evolutionButton = Button(root, text='Config Evo', font=('times', 12, 'bold'), bo
 evolutionButton.place(relx=0.64, rely=0.900,
                    relheight=0.06, relwidth=0.3)
 
-def stopMusic(event): # This definition stops the music completely
-    pygame.mixer.music.stop()
-
-def pauseMusic(event): # This definition pauses the music
-    pygame.mixer.music.pause()
-
-def unpauseMusic(event): # This definition unpauses the music
-    pygame.mixer.music.unpause()
-
-def skipMusic(event):
-    randomSong = random.choice(playlist)
-
-    pygame.mixer.music.stop()
-    pygame.mixer.music.load(randomSong)
-    pygame.mixer.music.play(loops=999)
-
 def clearText(e): # This definition clears the entry box text, instead having to do it manually
     if newPokeName.get() == 'Your new Pokemons name':
         newPokeName.delete(0, END)
@@ -333,11 +306,8 @@ newSpecialAttack.bind('<Button-1>', clearTextSAT)
 newSpecialDefence.bind('<Button-1>', clearTextSDEF)
 newHP.bind('<Button-1>', clearTextHP)
 
-# Music shortcuts
-root.bind('<Control_L><s>', stopMusic)
-root.bind('<Control_L><p>', pauseMusic)
-root.bind('<Control_L><u>', unpauseMusic)
-root.bind('<Control_L><Right>', skipMusic)
+Music().musicPlay()
+Music().musicControls(root)
 
 # HEX Colours: #9C9FA5 - Grey | #5778BB - Blue | #DFE2EA - white
 root.mainloop()
