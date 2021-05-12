@@ -4,6 +4,7 @@ except ImportError:
     from tkinter import *
 import os
 import csv
+import pandas as pd
 
 #missing evolutions detector
 evo = open("PokemonEvolutions.csv","r")
@@ -125,4 +126,20 @@ def add():
     inputValue2=poke_name2.get()
     print(inputValue1)
     print(inputValue2)
+
+    init = False
+    for row in evocsv:
+        if i in row:
+            if i.upper() == inputValue1.upper():
+                init = True
+
+    if init == True:
+        print("Found in file")
+        writer = csv.writer(open('PokemonEvolutions.csv', 'wb'))
+        a = index(poke_name1)
+        print(a)
+        #writer.writerows([row][i],inputValue2)
+    else:
+        print("Not found. Making new row")
+
 root.mainloop()

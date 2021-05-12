@@ -237,7 +237,7 @@ def clearTextHP(e):
 
 def evolution():
     root.destroy()
-    os.system('Python newpokemonevolutionadder.py')
+    os.system('Python EvolutionConfig.py')
 
 def home():
     root.destroy()
