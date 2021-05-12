@@ -38,6 +38,7 @@ class run:
         pokename_var = s.readline().replace('\n', '')
         pokename_var = util.csv_loader("Pokemon.csv").get_pokemon_by_name(pokename_var)
         print(pokename_var)
+        os.system('python dashboard.py')
 
     def refract_search(self):
         s = open("searches.txt", "r")
