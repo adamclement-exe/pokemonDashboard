@@ -13,16 +13,26 @@ import pygame
 import pandas as pd
 
 pygame.mixer.init()
+playlist = list()
+playlist.append ("music/Lavender_Town.mp3")
+playlist.append ("music/Team_Skull.mp3")
+playlist.append ("music/Elite_Four.mp3")
+playlist.append ("music/Bede_Battle.mp3")
+playlist.append ("music/Champion_Battle.mp3")
+playlist.append ("music/Driftveil_City.mp3")
 
-pygame.mixer.music.load("music/Driftveil_City.mp3")
-pygame.mixer.music.play(loops=100)
+pygame.mixer.music.load ( playlist.pop(0) )  # Get the first track from the playlist
+pygame.mixer.music.queue ( playlist.pop(1) ) # Queue the 2nd song
+pygame.mixer.music.play()           # Play the music
+
+if len ( playlist ) > 0:       # If there are more tracks in the queue...
+    pygame.mixer.music.queue ( playlist.pop() ) # Q
 
 root = Tk()
 root.title('Add a new Pokemon')
 
 iconFile = PhotoImage(file='formating/ball.png')
 root.iconphoto(False, iconFile) # Icon Image
-
 HEIGHT = 642
 WIDTH = 405
 root.geometry(f'{HEIGHT}x{WIDTH}')
@@ -161,7 +171,9 @@ Canvas.create_text(200, 625, text='Ctrl+S = Stops music  Ctrl+P = Pauses the mus
                    fill='#5778BB')
 
 def stopMusic(event): # This definition stops the music completely
-    pygame.mixer.music.stop()
+    pygame.mixer.music.set_pos(999)
+    pygame.mixer.music.queue( playlist.pop() )
+
 
 def pauseMusic(event): # This definition pauses the music
     pygame.mixer.music.pause()
