@@ -10,6 +10,7 @@ evo = open("PokemonEvolutions.csv","r")
 evocsv = list(csv.reader(evo, delimiter=","))
 poke = open("Pokemon.csv","r")
 pokecsv = list(csv.reader(poke, delimiter=","))
+pokecsv.remove(pokecsv[0])
 for row in pokecsv:
     init = False
     for row1 in evocsv:
@@ -18,130 +19,62 @@ for row in pokecsv:
                 init = True
 
     if init == False:
-        print(row[1],i)
+        print("Missing pokemon in evolution csv")
+        print(i)
 
-##
+#extra evolutions detector
+for row in evocsv:
+    init = False
+    for i in row:
+        for row1 in pokecsv:
+            if row1[1] == i:
+                init = True
+
+    if init == False:
+        print("Extra pokemon in evolution csv")
+        print(i)
+
 #gui
 root = Tk()
 root.title('Pokemon Index Finder')
 
-HEIGHT = 642  # 642
-WIDTH = 405  # 405
+iconFile = PhotoImage(file='formating/ball.png')
+root.iconphoto(False, iconFile) # Icon Image
+HEIGHT = 642
+WIDTH = 405
+root.geometry(f'{HEIGHT}x{WIDTH}')
 
 root.minsize(WIDTH, HEIGHT)
 root.maxsize(WIDTH, HEIGHT)
 
-canvas = Canvas(root, height=HEIGHT, width=WIDTH)
-canvas.pack()
+background = PhotoImage(file='formating/newpkbg.png')
 
-OuterFrame = Frame(root,
-                   bg='#9c9fa5')
+Canvas = Canvas(root, width=WIDTH, height=HEIGHT, highlightbackground='#9C9FA5', highlightthickness='4')
+Canvas.pack(fill='both', expand='True')
+Canvas.create_image(0, 0, image=background,
+                    anchor='nw')
+root.title("Evolution Adder")
 
-OuterFrame.place(relx=0.5, rely=0.0,
-                 relwidth=1, relheight=1,
-                 anchor='n')
-
-InnerFrame = Frame(root,
-                   bg='#5778bb')
-
-InnerFrame.place(relx=0.5, rely=0.09,
-                 relwidth=0.90, relheight=0.75,
-                 anchor='n')
-###
-
-poke_name = Entry(InnerFrame,
-
-                  bg='#dfe2ea', fg='black',
-
-                  font=70, borderwidth=5)
-
-poke_name.place(relx=0.25, rely=0.105,
-                relwidth=0.5, relheight=0.09)
-
-poke_name.insert(0, f'Name Search')
-
-listbox = Listbox(root)
-
-listbox.pack(side=LEFT, fill=BOTH)
-
-scrollbar = Scrollbar(root)
-
-scrollbar.pack(side=RIGHT, fill=BOTH)
-
-listbox.insert(END, "Hello")
-
-# Attaching Listbox to Scrollbar
-# Since we need to have a vertical
-# scroll we use yscrollcommand
-listbox.config(yscrollcommand=scrollbar.set)
-
-# setting scrollbar command parameter
-# to listbox.yview method its yview because
-# we need to have a vertical view
-scrollbar.config(command=listbox.yview)
-
-###
-
-OuterFrame = Frame(root,
-                   bg='#9c9fa5')
-
-OuterFrame.place(relx=0.5, rely=0.0,
-                 relwidth=1, relheight=1,
-                 anchor='n')
-
-InnerFrame = Frame(root,
-                   bg='#5778bb')
-
-InnerFrame.place(relx=0.5, rely=0.09,
-                 relwidth=0.90, relheight=0.75,
-                 anchor='n')
-
-ButtonFrame = Frame(root,
-                    bg='#dfe2ea')
-
-ButtonFrame.place(relx=0.5, rely=0.87,
-                  relwidth=1, relheight=0.12,
-                  anchor='n')
-
-Pokemon_Browser = Label(root,
-
-                        bg='#9c9fa5', fg='#dfe2ea',
-
-                        font=('times', 11, 'bold'))
-
-Pokemon_Browser.place(relx=0.17, rely=0,
-                      relwidth=0.66, relheight=0.09)
-
-Pokemon_Browser["text"] = f'Evolution Adder'  # title
-
-home_button = Button(ButtonFrame,
-                     bg='#dfe2ea',
-                     fg='black',
-                     font=('times', 11, 'bold'), borderwidth=4,
+home_button = Button(root,
+                     bg='#9C9FA5',
+                     fg='#5778BB',
+                     font=('times', 8, 'bold'), borderwidth=4,
                      command=lambda: home())  # runs when Home button is clicked
 
-home_button.place(relx=0.11, rely=0.3,
-                  relheight=0.4, relwidth=0.30)
+home_button.place(relx=0.06, rely=0.900,
+                  relheight=0.06, relwidth=0.3)
 
 home_button["text"] = f'Home'
 
+backButton = Button(root, text='Back', font=('times', 8, 'bold'), borderwidth='4',
+                     bg='#9C9FA5',
+                     fg='#5778BB',
+                      command=lambda:back())
 
+backButton.place(relx=0.64, rely=0.900,
+                   relheight=0.06, relwidth=0.3)
 
-
-back_button = Button(ButtonFrame,
-                     bg='#dfe2ea',
-                     fg='black',
-                     font=('times', 11, 'bold'), borderwidth=4,
-                     command=lambda: back_menu())  # runs when Home button is clicked
-
-back_button.place(relx=0.55, rely=0.3,
-                  relheight=0.4, relwidth=0.30)
-
-back_button["text"] = f'Back'
-
-
-
-poke_name1 = Entry(InnerFrame,
+poke_name1 = Entry(root,
 
                   bg='#dfe2ea', fg='black',
 
@@ -152,7 +85,7 @@ poke_name1.place(relx=0.1, rely=0.105,
 
 poke_name1.insert(0, f'Name of pokemon')
 
-poke_name2 = Entry(InnerFrame,
+poke_name2 = Entry(root,
 
                   bg='#dfe2ea', fg='black',
 
@@ -163,20 +96,16 @@ poke_name2.place(relx=0.1, rely=0.205,
 
 poke_name2.insert(0, f'Name of Evolution')
 
-name_search_button = Button(InnerFrame,
+addButton = Button(root,
                             bg='#dfe2ea',
                             fg='black',
                             font=('times', 11, 'bold'), borderwidth=4,
-                            command=lambda: name_search(
-                                poke_name.get()
-                            )  # runs when Search button is clicked
+                            command=lambda: add())
 
-                            )
-
-name_search_button.place(relx=0.55, rely=0.205,
+addButton.place(relx=0.55, rely=0.205,
                          relwidth=0.35, relheight=0.07)
 
-name_search_button["text"] = f'Add'
+addButton["text"] = f'Add'
 
 
 
@@ -186,8 +115,14 @@ def home():
     root.destroy()
     os.system('python menu.py')
 
-def back_menu():
+def back():
     root.destroy()
     os.system('python addnewpokemon.py')
 
+def add():
+    print("WIP")
+    inputValue1=poke_name1.get()
+    inputValue2=poke_name2.get()
+    print(inputValue1)
+    print(inputValue2)
 root.mainloop()
