@@ -1,4 +1,3 @@
-import tkinter
 from tkinter import *
 from tkinter.ttk import *
 from PIL import Image, ImageTk
@@ -11,7 +10,7 @@ put somewhere that python doesn't like non english words
 def info_page(list):
     poot=Toplevel()
     poot.title("Ball Info")
-    poot.geometry("450x300")
+    poot.geometry("550x450")
     iconFile = PhotoImage(file='formating/ball.png')
     poot.iconphoto(False, iconFile)
 
@@ -28,6 +27,17 @@ def info_page(list):
     Label(poot, text='Catch Rate Modifier:').place(x=1,y=170)
     Catch_rate_modifier=Label(poot, text=list[3])
     Catch_rate_modifier.place(x=1,y=190)
+    if len(list[4]) != 0:
+        Label(poot, text='Additional Effect:').place(x=1,y=255)
+        Additional_effect = Label(poot, text=list[4])
+        Additional_effect.place(x=1,y=275)
+        Label(poot, text='Description').place(x=1, y=310)
+        Description = Label(poot, text=list[5])
+        Description.place(x=1, y=330)
+    else:
+        Label(poot, text='Description').place(x=1,y=255)
+        Description = Label(poot, text=list[5])
+        Description.place(x=1, y=275)
 
 
 

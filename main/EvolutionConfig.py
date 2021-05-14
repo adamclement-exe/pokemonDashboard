@@ -60,7 +60,7 @@ root.title("Evolution Adder")
 home_button = Button(root,
                      bg='#9C9FA5',
                      fg='#5778BB',
-                     font=('times', 8, 'bold'), borderwidth=4,
+                     font=('times', 12, 'bold'), borderwidth=4,
                      command=lambda: home())  # runs when Home button is clicked
 
 home_button.place(relx=0.06, rely=0.900,
@@ -68,7 +68,7 @@ home_button.place(relx=0.06, rely=0.900,
 
 home_button["text"] = f'Home'
 
-backButton = Button(root, text='Back', font=('times', 8, 'bold'), borderwidth='4',
+backButton = Button(root, text='Back', font=('times', 12, 'bold'), borderwidth='4',
                      bg='#9C9FA5',
                      fg='#5778BB',
                       command=lambda:back())

@@ -17,7 +17,6 @@ root.geometry(f'{HEIGHT}x{WIDTH}')
 
 root.minsize(WIDTH, HEIGHT)
 root.maxsize(WIDTH, HEIGHT)
-
 iconFile = PhotoImage(file='formating/ball.png')  # Icon image
 root.iconphoto(False, iconFile)
 
@@ -35,8 +34,8 @@ pokeBrowser = Button(root, text='BROWSE POKEMON', font=('times', 15, 'bold'), bo
                         width='36',
                         command=lambda: PokeBrowser())
 
-pokeBrowser.place(relx=0.025, rely=0.390,
-                     relheight=0.09, relwidth=0.95)
+pokeBrowser.place(relx=0.04, rely=0.05,
+                     relheight=0.075, relwidth=0.92)
 
 #view all
 viewAll = Button(root, text='VIEW ALL POKEMON', font=('times', 15, 'bold'), borderwidth='4',
@@ -45,54 +44,58 @@ viewAll = Button(root, text='VIEW ALL POKEMON', font=('times', 15, 'bold'), bord
                         width='36',
                         command=lambda: ViewAll())
 
-viewAll.place(relx=0.025, rely=0.490,
-                     relheight=0.09, relwidth=0.95)
+viewAll.place(relx=0.04, rely=0.15,
+                     relheight=0.075, relwidth=0.92)
+
+#Pokeballs
+Pokeballs = Button(root, text='POKEBALLS', font=('times', 15, 'bold'), borderwidth='4',
+                        bg='#9C9FA5',
+                        fg='#5778BB',
+                        width='36',
+                        command=lambda: pokeBalls())
+
+Pokeballs.place(relx=0.04, rely=0.700,
+                     relheight=0.075, relwidth=0.92)
 
 #add new pokemon
 addPokemon = Button(root, text='ADD NEW POKEMON', font=('times', 15, 'bold'), borderwidth='4',
                         bg='#9C9FA5',
                         fg='#5778BB',
-                        width='36',
+                        width='18',
                         command=lambda: addPokemon())
 
-addPokemon.place(relx=0.025, rely=0.590,
-                     relheight=0.09, relwidth=0.95)
+addPokemon.place(relx=0.04, rely=0.800,
+                     relheight=0.075, relwidth=0.92)
 
 #settings
-settings = Button(root, text='SETTINGS', font=('times', 15, 'bold'), borderwidth='4',
+settings = Button(root, text='SETTINGS', font=('times', 12, 'bold'), borderwidth='4',
                         bg='#9C9FA5',
                         fg='#5778BB',
-                        width='36',
+                        width='15',
                         command=lambda: settingsMenu())
 
-settings.place(relx=0.025, rely=0.690,
-                     relheight=0.09, relwidth=0.95)
+settings.place(relx=0.35, rely=0.900,
+                     relheight=0.06, relwidth=0.3)
 
 #back
-backButton = Button(root, text='HOME', font=('times', 15, 'bold'), borderwidth='4',
+backButton = Button(root, text='HOME', font=('times', 12, 'bold'), borderwidth='4',
                     bg='#9C9FA5',
                     fg='#5778BB',
-                    width='36',
+                    width='15',
                     command=lambda: back())
 
-backButton.place(relx=0.025, rely=0.790,
-                  relheight=0.090, relwidth=0.95)
+backButton.place(relx=0.04, rely=0.900,
+                  relheight=0.06, relwidth=0.3)
 
 #help
-helpButton = Button(root, text='HELP', font=('times', 15, 'bold'), borderwidth='4',
+helpButton = Button(root, text='HELP', font=('times', 12, 'bold'), borderwidth='4',
                     bg='#9C9FA5',
                     fg='#5778BB',
-                    width='36',
+                    width='15',
                     command=lambda: helpMenu())
 
-helpButton.place(relx=0.025, rely=0.890,
-                 relheight=0.090, relwidth=0.95)
-
-
-titleImage = PhotoImage(file='formating/logo.png')
-titleImage = titleImage.zoom(2)
-titleImage = titleImage.subsample(5)
-canvas.create_image(250, 94, image=titleImage)
+helpButton.place(relx=0.66, rely=0.900,
+                   relheight=0.06, relwidth=0.3)
 
 
 def PokeBrowser():
@@ -109,6 +112,10 @@ def ViewAll():
     #root.destroy()
     #os.system('python ##.py')
     pass
+
+def pokeBalls():
+    root.destroy()
+    os.system('python pokeballs.py')
 
 def back():
     pygame.mixer.music.stop()
