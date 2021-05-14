@@ -9,6 +9,9 @@ root.title('Pokemon Index Finder')
 HEIGHT = 642  # 642
 WIDTH = 405  # 405
 
+iconFile = PhotoImage(file='formating/ball.png') # Icon image
+root.iconphoto(False, iconFile)
+
 root.minsize(WIDTH, HEIGHT)
 root.maxsize(WIDTH, HEIGHT)
 
