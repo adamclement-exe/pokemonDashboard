@@ -7,7 +7,9 @@ try:
 except ImportError:
     from tkinter import *
 from tkinter import messagebox
+import pygame
 import os
+from musicSettings import Music
 
 root = Tk()
 root.title('Pokemon Index Finder')
@@ -67,8 +69,9 @@ canvas.create_image(250, 94, image=titleImage)
 
 
 def on_button_push():
+    pygame.mixer.music.stop()
     root.destroy()
-    os.system('python filter.py')
+    os.system('python LaunchMenu.py')
 
 
 def dev():
@@ -85,9 +88,13 @@ def dev():
     )
 
 def settings_menu():
+    pygame.mixer.music.stop()
     root.destroy()
     os.system('python settings.py')
 
 # HEX Colours: #9C9FA5 - Grey | #5778BB - Blue | #DFE2EA - white
+
+Music().musicPlay()
+Music().musicControls(root)
 
 root.mainloop()

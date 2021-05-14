@@ -6,6 +6,7 @@ try:
 except ImportError:
     from tkinter import *
 import os
+import pygame
 
 root = Tk()
 root.title('Settings')
@@ -26,51 +27,59 @@ Canvas = Canvas(root, width=WIDTH, height=HEIGHT, highlightbackground='#9C9FA5',
 Canvas.pack(fill='both', expand='True')
 Canvas.create_image(0, 0, image=backgroundImage,
                     anchor='nw') # Created an canvas so that text and buttons are able to show the background
+#home
+home_button = Button(root,
+                     bg='#9C9FA5',
+                     fg='#5778BB',
+                     font=('times', 12, 'bold'), borderwidth=4,
+                     command=lambda: mainmenu())  # runs when Home button is clicked
 
-menuButton = Button(root, text='MENU', font=('times', 15, 'bold'), borderwidth='4',
-                    bg='#9C9FA5',
-                    fg='#5778BB',
-                    width='36',
-                    command=lambda: mainmenu()) # Runs mainmenu and goes back to the menu
+home_button.place(relx=0.1, rely=0.900,
+                  relheight=0.075, relwidth=0.35)
 
-menuButton.place(relx=0.025, rely=0.790,
-                  relheight=0.090, relwidth=0.95)
+home_button["text"] = f'Home'
 
-helpButton = Button(root, text='HELP', font=('times', 15, 'bold'), borderwidth='4',
-                    bg='#9C9FA5',
-                    fg='#5778BB',
-                    width='36',
-                    command=lambda: helpsection()) # Runs helpsection and opens a txt folder
+#help
+help_button = Button(root, text='Help', font=('times', 12, 'bold'), borderwidth='4',
+                     bg='#9C9FA5',
+                     fg='#5778BB',
+                      command=lambda:helpsection())
 
-helpButton.place(relx=0.025, rely=0.890,
-                 relheight=0.090, relwidth=0.95)
+help_button.place(relx=0.55, rely=0.900,
+                   relheight=0.075, relwidth=0.35)
 
-createAPokemon = Button(root, text='Create a pokemon', font=('times', 15, 'bold'), borderwidth='4',
+#button 1
+button = Button(root, text='BUTTON', font=('times', 15, 'bold'), borderwidth='4',
                         bg='#9C9FA5',
                         fg='#5778BB',
                         width='36',
-                        command=lambda: createsection()) # Runs create section which goes to the creation window
+                        command=lambda:button())
 
-createAPokemon.place(relx=0.025, rely=0.690,
-                     relheight=0.09, relwidth=0.95)
+button.place(relx=0.1, rely=0.800,
+                     relheight=0.075, relwidth=0.8 )
+
 
 titleImage = PhotoImage(file='formating/settingsLogo.png')
 titleImage = titleImage.zoom(2)
 titleImage = titleImage.subsample(3)
 Canvas.create_image(250, 94, image=titleImage)
 
-
 def mainmenu():
+    pygame.mixer.music.stop()
     root.destroy()
     os.system('python menu.py')
 
 def helpsection():
+    pygame.mixer.music.stop()
     root.destroy()
     os.system('python Help_Menu.py')
 
-def createsection():
-    root.destroy()
-    os.system('python addnewpokemon.py')
+def button():
+    pass
+    #pygame.mixer.music.stop()
+    #root.destroy()
+    #os.system('python FILE.py')
+
 
 # HEX Colours: #9C9FA5 - Grey | #5778BB - Blue | #DFE2EA - white
 root.mainloop()

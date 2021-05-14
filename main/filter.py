@@ -378,4 +378,12 @@ def reset():
     searches.close()
 
 
+def clearTextSearch(e):
+    if poke_name.get() == 'Name Search':
+        poke_name.delete(0, END)
+
+
+poke_name.bind('<Button-1>', clearTextSearch)
+
+
 root.mainloop()

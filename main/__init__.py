@@ -17,16 +17,24 @@ class run:
     def __init__(self):
         Devs = ("Madmegsox1, FSNCryo, HiddenMask, Basker12, PointlessQuack, DraconicDroid, Squidnugi")
 
-        points = [[-1, -1, -1], [-1, -1, 1], [-1, 1, 1], [-1, 1, -1], [1, -1, -1], [1, -1, 1], [1, 1, 1], [1, 1, -1]]
-        triangles = [[0, 1, 2], [0, 2, 3], [2, 3, 7], [2, 7, 6], [1, 2, 5], [2, 5, 6], [0, 1, 4], [1, 4, 5], [4, 5, 6],
-                     [4, 6, 7], [3, 7, 4], [4, 3, 0]]
+        # points = [[-2, -1, -1], [-1, -1, 1], [-1, 1, 1], [-1, 1, -1], [1, -1, -1], [1, -1, 1], [1, 1, 1], [1, 1, -1], [2, 1, 2]]
+        # triangles = [[0, 1, 2], [0, 2, 3], [2, 3, 7], [2, 7, 6], [1, 2, 5], [2, 5, 6], [0, 1, 4], [1, 4, 5], [4, 5, 6],
+        #             [4, 6, 7], [3, 7, 4], [4, 3, 0]]
+
+        a = util.csv_loader("Pokemon.csv")
+        print(a.get_pokemon_by_char("mag"))
+
+
+        points = [[-5, -1, -1], [-1, -1, 1], [-1, 1, 1], [-1, 1, -1], [1, -1, -1], [1, -1, 1], [1, 1, 1], [1, 1, -1], [2, 1, 2]]
+        triangles =  [[0, 1, 2], [0, 2, 3], [2, 3, 7], [2, 7, 6], [1, 2, 5], [2, 5, 6], [0, 1, 4], [1, 4, 5], [4, 5, 6],
+                    [4, 6, 7], [3, 7, 4], [4, 3, 0]]
 
         test = graphics.Engine.Engine3D(points, triangles, title='Cube')
 
         def animation():
             test.clear()
-            test.rotate('y', 0.1)
-            test.rotate('x', 0.1)
+            test.rotate('y', 0.01)
+            test.rotate('x', 0.01)
             test.render()
             test.screen.after(1, animation)
 
@@ -90,3 +98,6 @@ class run:
             names.write(",")
         names.close()
         os.system('python dashboard.py')
+
+
+run()

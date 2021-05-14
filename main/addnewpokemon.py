@@ -11,25 +11,14 @@ from tkinter import messagebox
 from csv import writer
 import pygame
 import pandas as pd
-import random
-
-pygame.mixer.init()
-
-playlist = list(["music/Lavender_Town.mp3", "music/Team_Skull.mp3", "music/Elite_Four.mp3",
-                "music/Bede_Battle.mp3", "music/Champion_Battle.mp3", "music/Driftveil_City.mp3",
-                 "music/Pokemon_Theme_Lyrics.mp3"])
-
-randomSong = random.choice(playlist)
-pygame.mixer.music.load(randomSong) # Loads a random song from the playlist
-pygame.mixer.music.queue(randomSong)
-pygame.mixer.music.play(loops=999)
-
+from musicSettings import Music
 
 root = Tk()
 root.title('Add a new Pokemon')
 
 iconFile = PhotoImage(file='formating/ball.png')
 root.iconphoto(False, iconFile) # Icon Image
+
 HEIGHT = 642
 WIDTH = 405
 root.geometry(f'{HEIGHT}x{WIDTH}')
@@ -162,10 +151,6 @@ createButton = Button(root, text='CREATE POKEMON', font=('times', 12, 'bold'), b
 createButton.place(relx=0.25, rely=0.750,
                    relheight=0.09, relwidth=0.5)
 
-Canvas.create_text(200, 625, text='Ctrl+S=Stops music/Ctrl+P=Pauses the music/Ctrl+U=Unpauses the music/Ctrl+Right=Skip music',
-                   font=('times', 7, 'bold'),
-                   fill='#5778BB')
-
 homeButton = Button(root, text='HOME', font=('times', 12, 'bold'), borderwidth='4',
                     bg='#9C9FA5',
                     fg='#5788BB',
@@ -183,22 +168,6 @@ evolutionButton = Button(root, text='Config Evo', font=('times', 12, 'bold'), bo
 
 evolutionButton.place(relx=0.64, rely=0.900,
                    relheight=0.06, relwidth=0.3)
-
-def stopMusic(event): # This definition stops the music completely
-    pygame.mixer.music.stop()
-
-def pauseMusic(event): # This definition pauses the music
-    pygame.mixer.music.pause()
-
-def unpauseMusic(event): # This definition unpauses the music
-    pygame.mixer.music.unpause()
-
-def skipMusic(event):
-    randomSong = random.choice(playlist)
-
-    pygame.mixer.music.stop()
-    pygame.mixer.music.load(randomSong)
-    pygame.mixer.music.play(loops=999)
 
 def clearText(e): # This definition clears the entry box text, instead having to do it manually
     if newPokeName.get() == 'Your new Pokemons name':
@@ -233,10 +202,12 @@ def clearTextHP(e):
         newHP.delete(0, END)
 
 def evolution():
+    pygame.mixer.music.stop()
     root.destroy()
     os.system('Python EvolutionConfig.py')
 
 def home():
+    pygame.mixer.music.stop()
     root.destroy()
     os.system('Python menu.py')
 
@@ -333,11 +304,8 @@ newSpecialAttack.bind('<Button-1>', clearTextSAT)
 newSpecialDefence.bind('<Button-1>', clearTextSDEF)
 newHP.bind('<Button-1>', clearTextHP)
 
-# Music shortcuts
-root.bind('<Control_L><s>', stopMusic)
-root.bind('<Control_L><p>', pauseMusic)
-root.bind('<Control_L><u>', unpauseMusic)
-root.bind('<Control_L><Right>', skipMusic)
+Music().musicPlay() # Calls the class in musicSettings and runs it
+Music().musicControls(root)
 
 # HEX Colours: #9C9FA5 - Grey | #5778BB - Blue | #DFE2EA - white
 root.mainloop()
