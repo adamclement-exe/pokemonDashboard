@@ -17,7 +17,6 @@ root.geometry(f'{HEIGHT}x{WIDTH}')
 
 root.minsize(WIDTH, HEIGHT)
 root.maxsize(WIDTH, HEIGHT)
-
 iconFile = PhotoImage(file='formating/ball.png')  # Icon image
 root.iconphoto(False, iconFile)
 
@@ -35,7 +34,7 @@ pokeBrowser = Button(root, text='BROWSE POKEMON', font=('times', 15, 'bold'), bo
                         width='36',
                         command=lambda: PokeBrowser())
 
-pokeBrowser.place(relx=0.025, rely=0.390,
+pokeBrowser.place(relx=0.025, rely=0.290,
                      relheight=0.09, relwidth=0.95)
 
 #view all
@@ -45,7 +44,17 @@ viewAll = Button(root, text='VIEW ALL POKEMON', font=('times', 15, 'bold'), bord
                         width='36',
                         command=lambda: ViewAll())
 
-viewAll.place(relx=0.025, rely=0.490,
+viewAll.place(relx=0.025, rely=0.390,
+                     relheight=0.09, relwidth=0.95)
+
+#Pokeballs
+addPokemon = Button(root, text='POKEBALLS', font=('times', 15, 'bold'), borderwidth='4',
+                        bg='#9C9FA5',
+                        fg='#5778BB',
+                        width='36',
+                        command=lambda: pokeBalls())
+
+addPokemon.place(relx=0.025, rely=0.490,
                      relheight=0.09, relwidth=0.95)
 
 #add new pokemon
@@ -107,6 +116,10 @@ def ViewAll():
     #root.destroy()
     #os.system('python ##.py')
     pass
+
+def pokeBalls():
+    root.destroy()
+    os.system('python pokeballs.py')
 
 def back():
     root.destroy()
