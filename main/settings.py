@@ -51,17 +51,6 @@ help_button = Button(root, text='Help', font=('times', 12, 'bold'), borderwidth=
 help_button.place(relx=0.55, rely=0.900,
                    relheight=0.075, relwidth=0.35)
 
-#button 1
-button = Button(root, text='BUTTON', font=('times', 15, 'bold'), borderwidth='4',
-                        bg='#9C9FA5',
-                        fg='#5778BB',
-                        width='36',
-                        command=lambda:button())
-
-button.place(relx=0.1, rely=0.800,
-                     relheight=0.075, relwidth=0.8 )
-
-
 titleImage = PhotoImage(file='formating/settingsLogo.png')
 titleImage = titleImage.zoom(2)
 titleImage = titleImage.subsample(3)
@@ -76,13 +65,6 @@ def helpsection():
     pygame.mixer.music.stop()
     root.destroy()
     os.system('python Help_Menu.py')
-
-def button():
-    pass
-    #pygame.mixer.music.stop()
-    #root.destroy()
-    #os.system('python FILE.py')
-
 
 # HEX Colours: #9C9FA5 - Grey | #5778BB - Blue | #DFE2EA - white
 

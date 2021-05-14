@@ -36,7 +36,7 @@ startButton = Button(root, text='START', font=('times', 15, 'bold'), borderwidth
                      fg='#5778BB',
                      bg='#9C9FA5',
                      width='36',
-                     command=lambda: dashboardB())  # Destroys current window and runs python filter.py
+                     command=lambda: launchM())  # Destroys current window and runs python filter.py
 
 startButton.place(relx=0.025, rely=0.790,
                   relheight=0.090, relwidth=0.95)
@@ -65,8 +65,9 @@ titleImage = titleImage.subsample(5)
 canvas.create_image(250, 94, image=titleImage)
 
 
-def dashboardB():
+def launchM():
     pygame.mixer.music.stop()
+    root.destroy()
     os.system('python LaunchMenu.py')
 
 
