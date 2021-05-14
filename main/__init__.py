@@ -45,8 +45,7 @@ class run:
         s = open("pokemon data.txt", "r")
         pokename_var = s.readline().replace(',', '')
         s.close()
-        pokename_var = util.csv_loader("Pokemon.csv").get_pokemon_by_name(pokename_var)
-
+        pokename_var = util.csv_loader("Pokemon.csv").get_pokemon_by_char(pokename_var)
 
         searches = open("searches.txt", "w")
         line_count = 0
@@ -57,9 +56,15 @@ class run:
 
         searches.write(f"Name Search")
         stats = open("pokemon data.txt", "w")
-        pokename_var = list(pokename_var.values())
+        r_val = {}
+        count = 0
+        for i in pokename_var:
+            i = list(i.values())
+            r_val[i[1]] = i
 
-        stats.write(str(pokename_var)[1:-1])
+            count += 1
+
+        stats.write(str(r_val))
         stats.close()
         searches.close()
         os.system('python dashboard.py')
