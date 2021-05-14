@@ -7,6 +7,7 @@ except ImportError:
     from tkinter import *
 import os
 import pygame
+from musicSettings import Music
 
 root = Tk()
 root.title('Settings')
@@ -17,6 +18,8 @@ root.geometry(f'{WIDTH}x{HEIGHT}')
 
 root.minsize(WIDTH, HEIGHT)
 root.maxsize(WIDTH, HEIGHT)
+
+
 
 iconFile = PhotoImage(file='formating/ball.png') # Icon image
 root.iconphoto(False, iconFile)
@@ -82,4 +85,7 @@ def button():
 
 
 # HEX Colours: #9C9FA5 - Grey | #5778BB - Blue | #DFE2EA - white
+
+Music().musicPlay()
+Music().musicControls(root)
 root.mainloop()

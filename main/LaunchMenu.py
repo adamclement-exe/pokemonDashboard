@@ -99,10 +99,12 @@ helpButton.place(relx=0.66, rely=0.900,
 
 
 def PokeBrowser():
+    pygame.mixer.music.stop()
     root.destroy()
     os.system('python filter.py')
 
 def settingsMenu():
+    pygame.mixer.music.stop()
     root.destroy()
     os.system('python settings.py')
 
@@ -116,17 +118,19 @@ def pokeBalls():
     os.system('python pokeballs.py')
 
 def back():
+    pygame.mixer.music.stop()
     root.destroy()
     os.system('python menu.py')
 
 def helpMenu():
+    pygame.mixer.music.stop()
     root.destroy()
     os.system('python Help_Menu.py')
 
 def addPokemon():
+    pygame.mixer.music.stop()
     root.destroy()
     os.system('python addnewpokemon.py')
-
 
 Music().musicPlay()
 Music().musicControls(root)
