@@ -8,7 +8,7 @@
 import util
 import graphics.Engine
 import os
-
+import csv
 
 # This is the base of the project
 
@@ -34,10 +34,26 @@ class run:
         test.screen.window.mainloop()
 
     def name_search(self):
-        s = open("searches.txt", "r")
-        pokename_var = s.readline().replace('\n', '')
+        s = open("pokemon data.txt", "r")
+        pokename_var = s.readline().replace(',', '')
+        s.close()
         pokename_var = util.csv_loader("Pokemon.csv").get_pokemon_by_name(pokename_var)
-        print(pokename_var)
+
+
+        searches = open("searches.txt", "w")
+        line_count = 0
+
+        csvfile = open("Pokemon.csv", 'r')
+        pokemon = csv.reader(csvfile)
+        #  Grass, Poison, 1, False, Attack, True,
+
+        searches.write(f"Name Search")
+        stats = open("pokemon data.txt", "w")
+        pokename_var = list(pokename_var.values())
+
+        stats.write(str(pokename_var)[1:-1])
+        stats.close()
+
         os.system('python dashboard.py')
 
     def refract_search(self):

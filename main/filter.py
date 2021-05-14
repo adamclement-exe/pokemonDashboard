@@ -263,11 +263,11 @@ def home():
 
 
 def name_search(poke_name, self=None):
-    searches = open("searches.txt", "w")
     if poke_name == 'Name Search':
         return
     else:
-        searches.write(f"{str(poke_name)}\n")
+        searches = open("pokemon data.txt", "w")
+        searches.write(f"{str(poke_name)},")
         searches.close()
         root.destroy()
         run.name_search(self)
@@ -277,8 +277,6 @@ def search(type1_var, type2_var,
            gen_var, Legendary_var,
            stats_var, AorD_var,
            self=None):
-    refract_search = "Clicked"
-    name_search = ""
     check = [type1_var, type2_var,
              gen_var, Legendary_var,
              stats_var, AorD_var]

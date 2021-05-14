@@ -108,15 +108,12 @@ type1Name = Label(root,
                   bg="#2E4053",
                   fg="#DFE2EA",
                   font=("times", 11, "bold"))
-
 type1Name.place(relx=0.08, rely=0.56,
                 relwidth=0.2, relheight=0.05)
-
 type2Name = Label(root,
                   bg="#2E4053",
                   fg="#DFE2EA",
                   font=("times", 11, "bold"))
-
 type2Name.place(relx=0.72, rely=0.56,
                 relwidth=0.2, relheight=0.05)
 """
@@ -247,8 +244,16 @@ type2Pic.place(relx=0.915, rely=0.11,
 
 
 def run():
-    load()
-    set_values()
+    s = open("searches.txt", "r")
+    sort = s.readline()
+    s.close()
+    if s == 'Name Search':
+        print('filter')
+        load()
+        set_values()
+    else:
+        print('name')
+        name_set_values()
 
 
 def load():
@@ -388,6 +393,92 @@ def set_values():
     type2Pic.place(relx=0.83, rely=0.11,
                    relheight=0.10, relwidth=0.07, anchor="center")
 
+
+
+def name_set_values():
+    global r_val, pokemonPicFile, type1File, type2File
+    data = open("pokemon data.txt", "r")
+    name = data.readline()
+    name = name.replace("'", "")
+    name = name.split(', ')
+    print(name[2])
+    idName["text"] = f"ID: {name[0]}"
+    pokeName["text"] = f"{name[1]}"
+    totalName["text"] = f"Total: {name[4]}"
+    HPName["text"] = f"HP: {name[5]}"
+    attackName["text"] = f"Atk: {name[6]}"
+    defenceName["text"] = f"Def: {name[7]}"
+    spAttackName["text"] = f"Sp.Atk: {name[8]}"
+    spDefenceName["text"] = f"Sp.Def: {name[9]}"
+    speedName["text"] = f"Speed: {name[10]}"
+    generationName["text"] = f"Gen: {name[11]}"
+    legendary = name[12]
+
+    if legendary == 'False':  # Creates boolean to avoid errors
+        legendary = False
+    elif legendary == 'True':
+        legendary = True
+
+    #  sets picture
+    legendFrame.forget()  # changes the background depending on legendary or not
+
+    if legendary == False:
+        legbg = "#9C9FA5"
+        legendFrame.config(bg=legbg, highlightbackground="black", highlightthickness=0)
+
+    elif legendary == True:
+        legbg = "#D4AF37"
+        legendFrame.config(bg=legbg, highlightbackground="black", highlightthickness=0)
+
+    legendFrame.place(relx=0.5, rely=0.18,
+                      relheight=0.37, relwidth=0.88,  # replaces after config
+                      anchor="n")
+
+    try:
+
+        pokemonPicFile.config(file=f'Pokemon Pictures/{name[1].lower()}.png')
+        pokemonPicFile = pokemonPicFile.zoom(7)  # Resizes images
+        pokemonPicFile = pokemonPicFile.subsample(3)
+
+        pokemonPic = Label(legendFrame,
+                           image=pokemonPicFile, bg="#5778BB")
+
+        pokemonPic.place(relx=0.5, rely=0.5,
+                         relheight=0.9, relwidth=0.92, anchor="center")
+
+
+    except:
+        # pokemonPicFile = pokemonPicFile.zoom(2)  # Resizes images
+        # pokemonPicFile = pokemonPicFile.subsample(1)
+        pokemonPicFile.config(file='Pokemon Pictures/ditto.png')
+        pokemonPicFile = pokemonPicFile.zoom(7)  # Resizes images
+        pokemonPicFile = pokemonPicFile.subsample(3)
+
+        pokemonPic = Label(legendFrame,
+                           image=pokemonPicFile, bg="#5778BB")
+
+        pokemonPic.place(relx=0.5, rely=0.5,
+                         relheight=0.9, relwidth=0.92, anchor="center")
+
+    type1File.config(file=f'pokemonTypes/Icon_{name[2]}.png')
+    type1File = type1File.zoom(1)
+    type1File = type1File.subsample(3)
+
+    type1Pic = Label(legendFrame,
+                     image=type1File, bg="#5778BB")  # bg="#5778BB"
+
+    type1Pic.place(relx=0.915, rely=0.11,
+                   relheight=0.10, relwidth=0.07, anchor="center")
+
+    type2File.config(file=f'pokemonTypes/Icon_{name[3]}.png')
+    type2File = type2File.zoom(1)
+    type2File = type2File.subsample(3)
+
+    type2Pic = Label(legendFrame,
+                     image=type2File, bg="#5778BB")  # bg="#5778BB"
+
+    type2Pic.place(relx=0.83, rely=0.11,
+                   relheight=0.10, relwidth=0.07, anchor="center")
 
 def home_button_push():
     root.destroy()
