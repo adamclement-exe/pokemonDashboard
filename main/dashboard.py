@@ -372,8 +372,8 @@ def set_values():
     except:
         # pokemonPicFile = pokemonPicFile.zoom(2)  # Resizes images
         # pokemonPicFile = pokemonPicFile.subsample(1)
-        pokemonPicFile.config(file='Pokemon Pictures/ditto.png')
-        pokemonPicFile = pokemonPicFile.zoom(7)  # Resizes images
+        pokemonPicFile.config(file='Pokemon Pictures/missing-image.png')
+        pokemonPicFile = pokemonPicFile.zoom(2)  # Resizes images
         pokemonPicFile = pokemonPicFile.subsample(3)
 
         pokemonPic = Label(legendFrame,
