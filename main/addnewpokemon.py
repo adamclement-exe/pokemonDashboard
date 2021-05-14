@@ -146,7 +146,7 @@ createButton = Button(root, text='CREATE POKEMON', font=('times', 12, 'bold'), b
                      bg='#9C9FA5',
                      fg='#5778BB',
                      width='15',
-                      command=lambda:createdPokemon())
+                      command=lambda: createdPokemon())
 
 createButton.place(relx=0.25, rely=0.750,
                    relheight=0.09, relwidth=0.5)

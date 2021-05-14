@@ -96,10 +96,12 @@ canvas.create_image(250, 94, image=titleImage)
 
 
 def PokeBrowser():
+    pygame.mixer.music.stop()
     root.destroy()
     os.system('python filter.py')
 
 def settingsMenu():
+    pygame.mixer.music.stop()
     root.destroy()
     os.system('python settings.py')
 
@@ -109,17 +111,19 @@ def ViewAll():
     pass
 
 def back():
+    pygame.mixer.music.stop()
     root.destroy()
     os.system('python menu.py')
 
 def helpMenu():
+    pygame.mixer.music.stop()
     root.destroy()
     os.system('python Help_Menu.py')
 
 def addPokemon():
+    pygame.mixer.music.stop()
     root.destroy()
     os.system('python addnewpokemon.py')
-
 
 Music().musicPlay()
 Music().musicControls(root)
