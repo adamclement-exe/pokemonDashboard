@@ -69,6 +69,7 @@ canvas.create_image(250, 94, image=titleImage)
 
 
 def on_button_push():
+    pygame.mixer.music.stop()
     root.destroy()
     os.system('python LaunchMenu.py')
 
@@ -87,6 +88,7 @@ def dev():
     )
 
 def settings_menu():
+    pygame.mixer.music.stop()
     root.destroy()
     os.system('python settings.py')
 
