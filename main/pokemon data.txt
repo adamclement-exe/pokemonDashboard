@@ -1,1 +1,1 @@
-658, 'Greninja', 'Water', 'Dark', 530, 72, 95, 67, 103, 71, 122, 6, False
+Bulbasaur,Ivysaur,Venusaur,VenusaurMega Venusaur,Oddish,Gloom,Vileplume,Bellsprout,Weepinbell,Victreebel,

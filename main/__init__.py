@@ -61,7 +61,7 @@ class run:
 
         stats.write(str(pokename_var)[1:-1])
         stats.close()
-
+        searches.close()
         os.system('python dashboard.py')
 
     def refract_search(self):
@@ -98,6 +98,3 @@ class run:
             names.write(",")
         names.close()
         os.system('python dashboard.py')
-
-
-run()
