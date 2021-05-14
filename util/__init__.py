@@ -78,6 +78,16 @@ class csv_loader:
         else:
             return 0
 
+    def get_pokemon_by_char(self, name):
+        r_val = []
+        for names in self.data:
+            if name.lower() in names.lower():
+                r_val.append(self.data[names])
+        if len(r_val) == 0:
+            return 0
+        else:
+            return r_val
+
     def get_pokemon_by_category(self, category, name):
         r_val = []
         for i in self.data:
