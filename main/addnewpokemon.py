@@ -202,10 +202,12 @@ def clearTextHP(e):
         newHP.delete(0, END)
 
 def evolution():
+    pygame.mixer.music.stop()
     root.destroy()
     os.system('Python EvolutionConfig.py')
 
 def home():
+    pygame.mixer.music.stop()
     root.destroy()
     os.system('Python menu.py')
 
