@@ -401,7 +401,6 @@ def name_set_values():
     name = data.readline()
     name = name.replace("'", "")
     name = name.split(', ')
-    print(name[2])
     idName["text"] = f"ID: {name[0]}"
     pokeName["text"] = f"{name[1]}"
     totalName["text"] = f"Total: {name[4]}"
