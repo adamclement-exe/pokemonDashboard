@@ -13,6 +13,7 @@ except ImportError:
     import PIL.ImageTk
 import os
 import csv
+from musicSettings import Music
 import util
 # Importing Image class from PIL module
 from PIL import ImageTk, Image
@@ -409,7 +410,8 @@ def back_button_push():
 
 
 # HEX Colours: #9C9FA5 - Grey | #5778BB - Blue | #DFE2EA - white
-
+#Music().playMusic()
+#Music().musicControls(root)
 
 run()
 root.mainloop()
