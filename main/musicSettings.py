@@ -45,8 +45,13 @@ class Music:
         pygame.mixer.music.load(randomSong)
         pygame.mixer.music.play(loops=999)
 
+    def changeVolume25(self, event):
+        #pygame.mixer.music.get_volume()
+        pygame.mixer.music.set_volume(0.25)
+
     def musicControls(self, root):
         root.bind('<Control_L><s>', self.stopMusic)
         root.bind('<Control_L><p>', self.pauseMusic)
         root.bind('<Control_L><u>', self.unpauseMusic)
         root.bind('<Control_L><Right>', self.skipMusic)
+        root.bind('<Control_L><Down>', self.changeVolume25)
