@@ -1,1 +1,1 @@
-Bulbasaur,Ivysaur,Venusaur,VenusaurMega Venusaur,Oddish,Gloom,Vileplume,Bellsprout,Weepinbell,Victreebel,
+151, 'Mew', 'Psychic', 'None', 600, 100, 100, 100, 100, 100, 100, 1, False

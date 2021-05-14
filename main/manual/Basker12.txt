@@ -1,1 +1,5 @@
 Basker's Manual
+
+When booting up the program for the first time you'll have three buttons to choose from, these include: Start, Devs and Settings.
+Each button does something different, the Devs button shows you all the devs that contributed and created the program, settings button
+takes you to the settings page where you can change some stuff like the font, but we will revisit the settings page later on.
