@@ -361,9 +361,12 @@ def search(type1_var, type2_var,
     run.refract_search(self)
 
 
-def view_all():
-    return
-
+def view_all(self=None):
+    searches = open("searches.txt", "w")
+    searches.write('All,All,All,All,id,True,')
+    searches.close()
+    root.destroy()
+    run.refract_search(self)
 
 def reset():
     AorD_var.set('Sort')

@@ -6,6 +6,7 @@ from tkinter import messagebox
 import pygame
 import os
 from musicSettings import Music
+from main.__init__ import run
 
 root = Tk()
 root.title('Launch Menu')
@@ -108,10 +109,12 @@ def settingsMenu():
     root.destroy()
     os.system('python settings.py')
 
-def ViewAll():
-    #root.destroy()
-    #os.system('python ##.py')
-    pass
+def ViewAll(self=None):
+    searches = open("searches.txt", "w")
+    searches.write('All,All,All,All,id,True,')
+    searches.close()
+    root.destroy()
+    run.refract_search(self)
 
 def pokeBalls():
     root.destroy()
