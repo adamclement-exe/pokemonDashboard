@@ -84,4 +84,4 @@ class run:
         os.system('python dashboard.py')
 
 
-run()
+
