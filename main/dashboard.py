@@ -521,8 +521,8 @@ def back_button_push():
 
 
 # HEX Colours: #9C9FA5 - Grey | #5778BB - Blue | #DFE2EA - white
-#Music().playMusic()
-#Music().musicControls(root)
+Music().musicPlay()
+Music().musicControls(root)
 
 run()
 root.mainloop()

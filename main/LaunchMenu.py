@@ -117,6 +117,7 @@ def ViewAll(self=None):
     run.refract_search(self)
 
 def pokeBalls():
+    pygame.mixer.music.stop()
     root.destroy()
     os.system('python pokeballs.py')
 

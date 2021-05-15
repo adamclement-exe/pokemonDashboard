@@ -3,6 +3,8 @@ from tkinter.ttk import *
 from PIL import Image, ImageTk
 import csv
 import os
+import pygame
+from musicSettings import Music
 """
 put somewhere that python doesn't like non english words
 """
@@ -65,6 +67,7 @@ def images(list):
     return test
 
 def home():
+    pygame.mixer.music.stop()
     root.destroy()
     os.system('python menu.py')
 
@@ -202,4 +205,6 @@ homebutton = Button(root,
                     command=lambda: home())
 homebutton.grid(row=6,column=3)
 
+Music().musicPlay()
+Music().musicControls(root)
 root.mainloop()

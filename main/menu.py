@@ -22,6 +22,25 @@ root.geometry(f'{HEIGHT}x{WIDTH}')
 root.minsize(WIDTH, HEIGHT)
 root.maxsize(WIDTH, HEIGHT)
 
+
+musicMenu = Menu(root)
+root.config(menu=musicMenu)
+
+def musicSettings():
+    messagebox.showinfo(
+        'Music Controls',
+        (
+            'Ctrl+P = Pauses the current song\n'
+            'Ctrl+U = Unpauses the current song\n'
+            'Ctrl+S = Stops the current song completely\n'
+            'Ctrl+Right = Skips current song'
+        )
+    )
+
+finalMenu = Menu(root)
+musicMenu.add_cascade(label='Music', menu=finalMenu)
+finalMenu.add_command(label='Music Settings', command=musicSettings)
+
 iconFile = PhotoImage(file='formating/ball.png')  # Icon image
 root.iconphoto(False, iconFile)
 
@@ -63,7 +82,6 @@ titleImage = PhotoImage(file='formating/logo.png')
 titleImage = titleImage.zoom(2)
 titleImage = titleImage.subsample(5)
 canvas.create_image(250, 94, image=titleImage)
-
 
 def launchM():
     pygame.mixer.music.stop()
