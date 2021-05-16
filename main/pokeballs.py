@@ -41,25 +41,6 @@ def info_page(list):
         Description.place(x=1, y=275)
 
 
-
-
-
-
-    #pokeimage = images(list[1])
-    #poke = Button(root, image=pokeimage)
-
-    # Create a photoimage object of the image in the path
-    #image1 = Image.open(list[1])
-    #test = ImageTk.PhotoImage(image1)
-
-    #label1 = Label(image=test)
-    #label1.image = test
-
-    # Position image
-    #label1.place(x= 1, y = 1)
-
-
-
 def images(list):
     image1 = Image.open(list)
     test = ImageTk.PhotoImage(image1)
@@ -195,12 +176,12 @@ beast = Button(root, image=beastimage,command=lambda: info_page(list[26]))
 beast.grid(row=6,column=4)
 homeimage = images('formating\Home.PNG')
 homebutton = Button(root,
-                    #bg="#DFE2EA",
-                    #fg="#DFE2EA",
+                    bg="#DFE2EA",
+                    fg="#DFE2EA",
                     image=homeimage,
                     #relief="flat",
-                    #font=("times", 11, "bold"),
-                    #borderwidth=0,
+                    font=("times", 11, "bold"),
+                    borderwidth=0,
                     command=lambda: home())
 homebutton.grid(row=6,column=3)
 
