@@ -5,6 +5,7 @@ except ImportError:
 import os
 import csv
 import pandas as pd
+from musicSettings import Music
 
 #missing evolutions detector
 evo = open("PokemonEvolutions.csv","r")

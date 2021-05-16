@@ -7,6 +7,8 @@ except ImportError:
     from tkinter import *
 import time
 import os
+import pygame
+from musicSettings import Music
 
 searches = open("searches.txt", "w")
 searches.write('')
@@ -253,11 +255,13 @@ reset_button["text"] = f'Reset'
 
 
 def help():
+    pygame.mixer.music.stop()
     root.destroy()
     os.system('Python Help_Menu.py')
 
 
 def home():
+    pygame.mixer.music.stop()
     root.destroy()
     os.system('python menu.py')
 
@@ -388,5 +392,6 @@ def clearTextSearch(e):
 
 poke_name.bind('<Button-1>', clearTextSearch)
 
-
+Music().musicPlay()
+Music().musicControls(root)
 root.mainloop()

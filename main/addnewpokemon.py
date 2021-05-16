@@ -157,7 +157,7 @@ homeButton = Button(root, text='HOME', font=('times', 12, 'bold'), borderwidth='
                     width=15,
                     command=lambda: home())
 
-homeButton.place(relx=0.06, rely=0.900,
+homeButton.place(relx=0.04, rely=0.900,
                   relheight=0.06, relwidth=0.3)
 
 evolutionButton = Button(root, text='Config Evo', font=('times', 12, 'bold'), borderwidth='4',
@@ -166,8 +166,17 @@ evolutionButton = Button(root, text='Config Evo', font=('times', 12, 'bold'), bo
                      width=15,
                      command=lambda: evolution())
 
-evolutionButton.place(relx=0.64, rely=0.900,
+evolutionButton.place(relx=0.66, rely=0.900,
                    relheight=0.06, relwidth=0.3)
+
+resetButton = Button(root, text='RESET', font=('times', 12, 'bold'), borderwidth='4',
+                    bg='#9C9FA5',
+                    fg='#5778BB',
+                    width=15,
+                    command=lambda: reset())
+
+resetButton.place(relx=0.35, rely=0.900,
+                  relheight=0.06, relwidth=0.3)
 
 def clearText(e): # This definition clears the entry box text, instead having to do it manually
     if newPokeName.get() == 'Your new Pokemons name':
@@ -210,6 +219,20 @@ def home():
     pygame.mixer.music.stop()
     root.destroy()
     os.system('Python menu.py')
+
+def reset():
+    newPokeName.insert(0, f'Your new pokemons name')
+    var.set('Legendary')
+    var1.set('Type 1')
+    var2.set('Type 2')
+    newHP.insert(0, f'Pokemons HP')
+    newGen.insert(0, f'Pokemons Generation')
+    newAttack.insert(0, f'Pokemons attack stat')
+    newDefence.insert(0, f'Pokemons defence stat')
+    newSpecialAttack.insert(0, f'Pokemons special attack')
+    newSpecialDefence.insert(0, f'Pokemons special defence')
+    newSpeed.insert(0, f'Pokemons Speed')
+
 
 def createdPokemon():
     name = None
