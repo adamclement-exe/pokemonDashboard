@@ -19,8 +19,6 @@ root.geometry(f'{WIDTH}x{HEIGHT}')
 root.minsize(WIDTH, HEIGHT)
 root.maxsize(WIDTH, HEIGHT)
 
-
-
 iconFile = PhotoImage(file='formating/ball.png') # Icon image
 root.iconphoto(False, iconFile)
 

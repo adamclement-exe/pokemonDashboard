@@ -24,15 +24,23 @@ WIDTH = 405
 root.minsize(WIDTH, HEIGHT)
 root.maxsize(WIDTH, HEIGHT)
 
+iconFile = PhotoImage(file="formating/ball.png")  # Icon image
+root.iconphoto(False, iconFile)
+
+#root.wm.attributes('-transparentcolor', '')
+
+bg = PhotoImage(file='formating/filterBackground.png')
 canvas = Canvas(root, height=HEIGHT, width=WIDTH)
-canvas.pack()
+canvas.pack(fill='both', expand=True)
+canvas.create_image(0, 0, image=bg,
+                    anchor='nw')
 
-OuterFrame = Frame(root,
-                   bg='#9c9fa5')
+#OuterFrame = Frame(root,
+                   #bg='#9c9fa5')
 
-OuterFrame.place(relx=0.5, rely=0.0,
-                 relwidth=1, relheight=1,
-                 anchor='n')
+#OuterFrame.place(relx=0.5, rely=0.0,
+                 #relwidth=1, relheight=1,
+                 #anchor='n')
 
 InnerFrame = Frame(root,
                    bg='#5778bb')
@@ -50,7 +58,7 @@ ButtonFrame.place(relx=0.5, rely=0.87,
 
 poke_name = Entry(InnerFrame,
 
-                  bg='#dfe2ea', fg='black',
+                  bg='#9C9FA5', fg='#5778BB',
 
                   font=65, borderwidth=5)
 
@@ -60,8 +68,8 @@ poke_name.place(relx=0.1, rely=0.105,
 poke_name.insert(0, f'Name Search')
 
 name_search_button = Button(InnerFrame,
-                            bg='#dfe2ea',
-                            fg='black',
+                            bg='#9C9FA5',
+                            fg='#5788BB',
                             font=('times', 11, 'bold'), borderwidth=4,
                             command=lambda: name_search(
                                 poke_name.get()
@@ -86,9 +94,9 @@ type1_var.set('Type 1')  # sets Starting Value for Drop Down menu
 
 type1_menu = OptionMenu(InnerFrame, type1_var, *type1_choices)
 
-type1_menu.config(bg='#dfe2ea', fg='black')  # menu Icon colours
+type1_menu.config(bg='#9C9FA5', fg='#5778BB')  # menu Icon colours
 
-type1_menu["menu"].config(bg='#5778bb', fg='#dfe2ea')  # menu drop down colours
+type1_menu["menu"].config(bg='#9C9FA5', fg='#5778BB')  # menu drop down colours
 
 type1_menu.place(relx=0.1, rely=0.405,
                  relwidth=0.35, relheight=0.06)
@@ -105,9 +113,9 @@ type2_var.set('Type 2')  # sets Starting Value for Drop Down menu
 
 type2_menu = OptionMenu(InnerFrame, type2_var, *type2_choices)
 
-type2_menu.config(bg='#dfe2ea', fg='black')  # menu Icon colours
+type2_menu.config(bg='#9C9FA5', fg='#5778BB')  # menu Icon colours
 
-type2_menu["menu"].config(bg='#5778bb', fg='#dfe2ea')  # menu drop down colours
+type2_menu["menu"].config(bg='#9C9FA5', fg='#5778BB')  # menu drop down colours
 
 type2_menu.place(relx=0.55, rely=0.405,
                  relwidth=0.35, relheight=0.06)
@@ -122,9 +130,9 @@ gen_var.set('Generation')  # sets Starting Value for Drop Down menu
 
 gen_menu = OptionMenu(InnerFrame, gen_var, *gen_choices)
 
-gen_menu.config(bg='#dfe2ea', fg='black')  # menu Icon colours
+gen_menu.config(bg='#9C9FA5', fg='#5788BB')  # menu Icon colours
 
-gen_menu["menu"].config(bg='#5778bb', fg='#dfe2ea')  # menu drop down colours
+gen_menu["menu"].config(bg='#9C9FA5', fg='#5778BB')  # menu drop down colours
 
 gen_menu.place(relx=0.1, rely=0.545,
                relwidth=0.35, relheight=0.06)
@@ -138,9 +146,9 @@ Legendary_var.set('Legendary')  # sets Starting Value for Drop Down menu
 
 Legendary_menu = OptionMenu(InnerFrame, Legendary_var, *Legendary_choices)
 
-Legendary_menu.config(bg='#dfe2ea', fg='black')  # menu Icon colours
+Legendary_menu.config(bg='#9C9FA5', fg='#5778BB')  # menu Icon colours
 
-Legendary_menu["menu"].config(bg='#5778bb', fg='#dfe2ea')  # menu drop down colours
+Legendary_menu["menu"].config(bg='#9C9FA5', fg='#5788BB')  # menu drop down colours
 
 Legendary_menu.place(relx=0.55, rely=0.545,
                      relwidth=0.35, relheight=0.06)
@@ -156,9 +164,9 @@ stats_var.set('Sort')  # sets Starting Value for Drop Down menu
 
 stats_menu = OptionMenu(InnerFrame, stats_var, *stats_choices)
 
-stats_menu.config(bg='#dfe2ea', fg='black')  # menu Icon colours
+stats_menu.config(bg='#9C9FA5', fg='#5788BB')  # menu Icon colours
 
-stats_menu["menu"].config(bg='#5778bb', fg='#dfe2ea')  # menu drop down colours
+stats_menu["menu"].config(bg='#9C9FA5', fg='#5788BB')  # menu drop down colours
 
 stats_menu.place(relx=0.1, rely=0.685,
                  relwidth=0.35, relheight=0.06)
@@ -172,9 +180,9 @@ AorD_var.set('Sort Method')  # sets Starting Value for Drop Down menu
 
 AorD_menu = OptionMenu(InnerFrame, AorD_var, *AorD_choices)
 
-AorD_menu.config(bg='#dfe2ea', fg='black')  # menu Icon colours
+AorD_menu.config(bg='#9C9FA5', fg='#5778BB')  # menu Icon colours
 
-AorD_menu["menu"].config(bg='#5778bb', fg='#dfe2ea')  # menu drop down colours
+AorD_menu["menu"].config(bg='#9C9FA5', fg='#5778BB')  # menu drop down colours
 
 AorD_menu.place(relx=0.55, rely=0.685,
                 relwidth=0.35, relheight=0.06)
@@ -191,8 +199,8 @@ Pokemon_Browser.place(relx=0.17, rely=0,
 Pokemon_Browser["text"] = f'Pokemon Browser'  # title
 
 help_button = Button(ButtonFrame,
-                     bg='#dfe2ea',
-                     fg='black',
+                     bg='#9C9FA5',
+                     fg='#5778BB',
                      font=('times', 11, 'bold'), borderwidth=4,
                      command=lambda: help())  # runs when help button is clicked
 
@@ -202,8 +210,8 @@ help_button.place(relx=0.66, rely=0.3,
 help_button["text"] = f'Help'
 
 search_button = Button(InnerFrame,
-                       bg='#dfe2ea',
-                       fg='black',
+                       bg='#9C9FA5',
+                       fg='#5778BB',
                        font=('times', 11, 'bold'), borderwidth=4,
                        command=lambda: search(
                            type1_var.get(),
@@ -222,8 +230,8 @@ search_button.place(relx=0.55, rely=0.825,
 search_button["text"] = f'Search'
 
 view_all_button = Button(ButtonFrame,
-                         bg='#dfe2ea',
-                         fg='black',
+                         bg='#9C9FA5',
+                         fg='#5778BB',
                          font=('times', 11, 'bold'), borderwidth=4,
                          command=lambda: view_all())  # runs when View All button is clicked
 
@@ -233,8 +241,8 @@ view_all_button.place(relx=0.03, rely=0.3,
 view_all_button["text"] = f'View All'
 
 home_button = Button(ButtonFrame,
-                     bg='#dfe2ea',
-                     fg='black',
+                     bg='#9C9FA5',
+                     fg='#5788BB',
                      font=('times', 11, 'bold'), borderwidth=4,
                      command=lambda: home())  # runs when Home button is clicked
 
@@ -243,8 +251,8 @@ home_button.place(relx=0.345, rely=0.3,
 
 home_button["text"] = f'Home'
 reset_button = Button(InnerFrame,
-                      bg='#dfe2ea',
-                      fg='black',
+                      bg='#9C9FA5',
+                      fg='#5788BB',
                       font=('times', 11, 'bold'), borderwidth=4,
                       command=lambda: reset())  # runs when help button is clicked
 
