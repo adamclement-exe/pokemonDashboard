@@ -5,6 +5,7 @@ except ImportError:
 import os
 import csv
 import pandas as pd
+import pygame
 from musicSettings import Music
 
 #missing evolutions detector
@@ -43,8 +44,9 @@ root.title('Pokemon Index Finder')
 
 iconFile = PhotoImage(file='formating/ball.png')
 root.iconphoto(False, iconFile) # Icon Image
-HEIGHT = 642
-WIDTH = 405
+
+HEIGHT = 250
+WIDTH = 250
 root.geometry(f'{HEIGHT}x{WIDTH}')
 
 root.minsize(WIDTH, HEIGHT)
@@ -56,6 +58,7 @@ Canvas = Canvas(root, width=WIDTH, height=HEIGHT, highlightbackground='#9C9FA5',
 Canvas.pack(fill='both', expand='True')
 Canvas.create_image(0, 0, image=background,
                     anchor='nw')
+
 root.title("Evolution Adder")
 
 home_button = Button(root,
@@ -64,61 +67,63 @@ home_button = Button(root,
                      font=('times', 12, 'bold'), borderwidth=4,
                      command=lambda: home())  # runs when Home button is clicked
 
-home_button.place(relx=0.06, rely=0.900,
-                  relheight=0.06, relwidth=0.3)
+home_button.place(relx=0.67, rely=0.75,
+                  relheight=0.2, relwidth=0.3)
 
 home_button["text"] = f'Home'
 
 backButton = Button(root, text='Back', font=('times', 12, 'bold'), borderwidth='4',
                      bg='#9C9FA5',
                      fg='#5778BB',
-                      command=lambda:back())
+                      command=lambda: back())
 
-backButton.place(relx=0.64, rely=0.900,
-                   relheight=0.06, relwidth=0.3)
+backButton.place(relx=0.04, rely=0.75,
+                   relheight=0.2, relwidth=0.3)
 
 poke_name1 = Entry(root,
+                  bg='#9C9FA5', fg='#5778BB',
+                  font=10, borderwidth=5)
 
-                  bg='#dfe2ea', fg='black',
-
-                  font=65, borderwidth=5)
-
-poke_name1.place(relx=0.1, rely=0.105,
-                relwidth=0.40, relheight=0.07)
+poke_name1.place(relx=0.06, rely=0.085,
+                relwidth=0.90, relheight=0.3)
 
 poke_name1.insert(0, f'Name of pokemon')
 
 poke_name2 = Entry(root,
+                  bg='#9C9FA5', fg='#5778BB',
+                  font=12, borderwidth=5)
 
-                  bg='#dfe2ea', fg='black',
-
-                  font=65, borderwidth=5)
-
-poke_name2.place(relx=0.1, rely=0.205,
-                relwidth=0.40, relheight=0.07)
+poke_name2.place(relx=0.06, rely=0.40,
+                relwidth=0.90, relheight=0.3)
 
 poke_name2.insert(0, f'Name of Evolution')
 
 addButton = Button(root,
-                            bg='#dfe2ea',
-                            fg='black',
+                            bg='#9C9FA5',
+                            fg='#5778BB',
                             font=('times', 11, 'bold'), borderwidth=4,
                             command=lambda: add())
 
-addButton.place(relx=0.55, rely=0.205,
-                         relwidth=0.35, relheight=0.07)
+addButton.place(relx=0.35, rely=0.75,
+                relwidth=0.3, relheight=0.2)
 
 addButton["text"] = f'Add'
 
+def clearPokeName1(e):
+    if poke_name1.get() == 'Name of pokemon':
+        poke_name1.delete(0, END)
 
-
-
+def clearPokeName2(e):
+    if poke_name2.get() == 'Name of Evolution':
+        poke_name2.delete(0, END)
 
 def home():
+    pygame.mixer.music.stop()
     root.destroy()
     os.system('python menu.py')
 
 def back():
+    pygame.mixer.music.stop()
     root.destroy()
     os.system('python addnewpokemon.py')
 
@@ -170,4 +175,9 @@ def add():
                 writer.writerow(row2)
             writer.writerow((inputValue1,inputValue2))
 
+poke_name1.bind('<Button-1>', clearPokeName1)
+poke_name2.bind('<Button-1>', clearPokeName2)
+
+Music().musicPlay()
+Music().musicControls(root)
 root.mainloop()
