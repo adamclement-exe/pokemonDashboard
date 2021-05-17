@@ -277,6 +277,11 @@ def createdPokemon():
     if pokelegendary == pokelegendary:
         legendary = pokelegendary.title()
 
+    if type1 == "Type 1":
+        type1 = "None"
+    if type2 == "Type 2":
+        type2 = "None"
+
     hp = int(newHP.get())
 
     speed = int(newSpeed.get())
@@ -303,7 +308,7 @@ def createdPokemon():
                                                       "*.*")))
 
     shutil.copy(filename,
-                f"C://Users//camer//OneDrive - Exeter College//python//github//pokemonDashboard//main//Pokemon Pictures//{pokename}.png")
+                f"Pokemon Pictures//{pokename}.png")
     with open('Pokemon.csv', 'a', newline='\n') as pk:  # Opens Pokemon.csv and the writes into the csv file a new pokemon
         Pokemon = writer(pk)
         Pokemon.writerow(newPokemon)

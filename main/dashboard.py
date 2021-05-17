@@ -212,6 +212,7 @@ next_button.place(relx=0.7, rely=0.5,
                   relheight=0.9, relwidth=0.3, anchor="w")
 
 pokemonPicFile = PhotoImage(file=f"Pokemon Pictures/abra.png")
+ss = PhotoImage(file=f"Pokemon Pictures/abra.png")
 
 # pokemonPicFile = PhotoImage(file=f"formating/imagePlace.png")
 
@@ -219,7 +220,7 @@ pokemonPicFile = pokemonPicFile.zoom(4)  # Resizes images
 pokemonPicFile = pokemonPicFile.subsample(1)
 
 pokemonPic = Label(legendFrame,
-                   image=pokemonPicFile, bg="#5778BB")
+                   image=ss, bg="#5778BB")
 
 pokemonPic.place(relx=0.5, rely=0.5,
                  relheight=0.9, relwidth=0.92, anchor="center")
@@ -362,9 +363,11 @@ def set_values():
     try:
         bg.GenBackground(f"Pokemon Pictures/{r_val[name][1].lower()}.png", "formating/pokeBackShadow.png")
         ss = PhotoImage(file='bg.png')
-        backLabelImage = Label(legendFrame, image=ss)
-        backLabelImage.pack()
-        pokemonPicFile.config(file=f'Pokemon Pictures/{r_val[name][1].lower()}.png')
+        #backLabelImage = Label(legendFrame, image=ss)
+        #backLabelImage.place(relx=0.5, rely=0.5,
+        #                 relheight=0.9, relwidth=0.92, anchor="center")
+        #backLabelImage.pack()
+        pokemonPicFile.config(file=f'bg.png')
         pokemonPicFile = pokemonPicFile.zoom(7)  # Resizes images
         pokemonPicFile = pokemonPicFile.subsample(3)
 
@@ -412,7 +415,7 @@ def set_values():
 
 
 def name_set_values():
-    global r_val, pokemonPicFile, type1File, type2File
+    global r_val, pokemonPicFile, type1File, type2File, ss
 
     back_button.place(relx=0.0, rely=0.5,
                       relheight=0.9, relwidth=0.3, anchor="w")
