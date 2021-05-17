@@ -303,15 +303,6 @@ def load():
 
 def set_values():
     global count, r_val, pokemonPicFile, type1File, type2File
-    back_button.place(relx=0.0, rely=0.5,
-                      relheight=0.9, relwidth=0.3, anchor="w")
-    next_button.place(relx=0.7, rely=0.5,
-                      relheight=0.9, relwidth=0.3, anchor="w")
-    if count == len(r_val) - 1:
-        next_button.place_forget()
-
-    if count == 0:
-        back_button.place_forget()
     # | Id [0] | name [1] | type1 [2] | type2 [3] | Total [4] | hp [5] | Attack [6]
     # | Defense [7] | Sp. Atk [8] | Sp. Def [9] | Speed [10] | Generation [11] | Legendary [12]
     s = open("searches.txt", "r")
@@ -323,6 +314,18 @@ def set_values():
         r_val = yaml.load(r_val)
 
     s.close()
+
+    back_button.place(relx=0.0, rely=0.5,
+                      relheight=0.9, relwidth=0.3, anchor="w")
+    next_button.place(relx=0.7, rely=0.5,
+                      relheight=0.9, relwidth=0.3, anchor="w")
+
+    if count == len(r_val) - 1:
+        next_button.place_forget()
+
+    if count == 0:
+        back_button.place_forget()
+
     name = list(r_val)
     name = name[count]
 
