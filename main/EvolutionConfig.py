@@ -175,7 +175,7 @@ def add():
                 writer.writerow(row2)
             writer.writerow((inputValue1,inputValue2))
 
-poke_name1.bind('<Button-1>', clearPokeName1)
+poke_name1.bind('<Button-1>', clearPokeName1) # This clears the text after a user clicks on it
 poke_name2.bind('<Button-1>', clearPokeName2)
 
 Music().musicPlay()
