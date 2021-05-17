@@ -15,6 +15,7 @@ import os
 import csv
 import yaml
 from musicSettings import Music
+import pygame
 import util
 # Importing Image class from PIL module
 from PIL import ImageTk, Image
@@ -502,6 +503,7 @@ def name_set_values():
                    relheight=0.10, relwidth=0.07, anchor="center")
 
 def home_button_push():
+    pygame.mixer.music.stop()
     root.destroy()
     os.system('python menu.py')
 
