@@ -44,7 +44,7 @@ newPokeName.place(relx=0.02, rely=0.105,
 
 newPokeName.insert(0, f'Your new Pokemons name')
 
-pokemonTypes = {'Type 1': 1, 'Water': 2, 'Fire': 3, 'Poison': 4, # Pokemon types dictionary
+pokemonTypes = {'None': 1, 'Water': 2, 'Fire': 3, 'Poison': 4, # Pokemon types dictionary
                  'Grass': 5, 'Ground': 6, 'Normal': 7, 'Bug': 8,
                  'Electric': 9, 'Fairy': 10, 'Fighting': 11, 'Psychic': 12,
                  'Rock': 13, 'Ghost': 14, 'Ice': 15, 'Dragon': 16,
