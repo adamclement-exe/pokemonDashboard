@@ -159,8 +159,8 @@ homeButton = Button(root, text='HOME', font=('times', 12, 'bold'), borderwidth='
                     width=15,
                     command=lambda: home())
 
-homeButton.place(relx=0.04, rely=0.900,
-                  relheight=0.06, relwidth=0.3)
+homeButton.place(relx=0.35, rely=0.900,
+                 relheight=0.06, relwidth=0.3)
 
 evolutionButton = Button(root, text='Config Evo', font=('times', 12, 'bold'), borderwidth='4',
                      bg='#9C9FA5',
@@ -169,7 +169,7 @@ evolutionButton = Button(root, text='Config Evo', font=('times', 12, 'bold'), bo
                      command=lambda: evolution())
 
 evolutionButton.place(relx=0.66, rely=0.900,
-                   relheight=0.06, relwidth=0.3)
+                      relheight=0.06, relwidth=0.3)
 
 resetButton = Button(root, text='RESET', font=('times', 12, 'bold'), borderwidth='4',
                     bg='#9C9FA5',
@@ -177,7 +177,7 @@ resetButton = Button(root, text='RESET', font=('times', 12, 'bold'), borderwidth
                     width=15,
                     command=lambda: reset())
 
-resetButton.place(relx=0.35, rely=0.900,
+resetButton.place(relx=0.04, rely=0.900,
                   relheight=0.06, relwidth=0.3)
 
 def clearText(e): # This definition clears the entry box text, instead having to do it manually
