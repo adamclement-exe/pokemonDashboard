@@ -1,5 +1,30 @@
 Basker's Manual
 
-When booting up the program for the first time you'll have three buttons to choose from, these include: Start, Devs and Settings.
-Each button does something different, the Devs button shows you all the devs that contributed and created the program, settings button
-takes you to the settings page where you can change some stuff like the font, but we will revisit the settings page later on.
+                                                                     |
+//-----------------------------MENU-----------------------------\\
+When starting the program for the first time you'll be greeted with
+great music playing and three buttons to choose from and a menu bar
+which has the music settings. Let's explore these three buttons and
+the menu bar and what they do.
+
+- Start: The start button allows you to continue on with the program
+and makes you go to the launch menu, but we will cover the launch me-
+nu after the menu section.
+
+- Devs: The devs button shows you all the people which contributed
+and all the developers who made it possible to make the program.
+
+- Settings: The settings button takes you to the settings window
+where you're able to see all the settings, but we will also visit
+the settings page later.
+
+- Music Menu Bar: At the top left of the window there is a tab
+called Music, when you click on it and a menu bar will also
+pop up with another two options, the first option is,
+'----' this allows you to move the menu bar dynamically and
+under it there is 'Music Settings', when this is clicked it
+will show a messagebox which shows all of the commands for
+the music controls. The music controls are as followed:
+Ctrl+P = pauses the music, Ctrl+U = unpauses the music,
+Ctrl+S = Stops the current completely and lastly
+Ctrl+Right = Skips a song randomly.
