@@ -4,35 +4,33 @@ evo = open(path+"\PokemonEvolutions.csv","r")
 evocsv = list(csv.reader(evo, delimiter=","))
 poke = open(path+"\Pokemon.csv","r")
 pokecsv = list(csv.reader(poke, delimiter=","))
-
 evo.close()
 poke.close()
 
-#clears csv file
+#clones csv
+temppokecsv = pokecsv
+with open("temp.csv","w", newline="") as f:
+    writer = csv.writer(f, delimiter=',')
+    for i in temppokecsv:
+        writer.writerow(i)
 
+pokecsv.remove(pokecsv[0])
+
+#clears csv file
 with open(path+"\Pokemon.csv","w")as f:
     f.write("")
+    f.write("#,Name,Type 1,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp. Def,Speed,Generation,Legendary\n")
 
-temppokecsv = pokecsv
-with open("temp.csv","w") as f:
-    for i in temppokecsv:
-        for x in i:
-            f.write(x)
-            f.write(",")
-        f.write("\n")
+#sorting
+for row1 in evocsv:
+    for i in row1:
+        for row in pokecsv:
+            if row[1] == i:
 
-for row in pokecsv:
-    for row in pokecsv:
-        for row1 in evocsv:
-            for i in row1:
-                if row[1] == i:
-                    temp1 = row[1]
-                    temp2 = i
-                    print(temp1, temp2)
-                    pokecsv.pop(row.index(temp1))
+#writing back in evolution order
+                with open(path+"\Pokemon.csv","a", newline="") as f:
+                    writer = csv.writer(f, delimiter=',')
+                    writer.writerow(row)
 
-                    with open(path+"\Pokemon.csv","a") as poke:
-                        for i in pokecsv[row.index(temp1)]:
-                            poke.write(i)
-                            poke.write(",")
-                        poke.write("\n")
+
+print("Complete")
