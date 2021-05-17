@@ -8,13 +8,14 @@ from musicSettings import Music
 put somewhere that python doesn't like non english words
 """
 
+#pokeball info page
 def info_page(list):
     poot=Toplevel()
     poot.title("Ball Info")
     poot.geometry("550x600")
     iconFile = PhotoImage(file='formating/ball.png')
     poot.iconphoto(False, iconFile)
-
+    #name
     Label(poot,bg="#5778bb",
                     fg="#dfe2ea",
                     font=("times", 11, "bold"),
@@ -24,6 +25,7 @@ def info_page(list):
                     font=("times", 11, "bold"),
                     borderwidth=0, text=list[0])
     name.place(x=1,y=20)
+    #image
     image = images(list[1])
     label = Label(poot,bg="#5778bb",
                     fg="#5778bb",
@@ -31,6 +33,7 @@ def info_page(list):
                     borderwidth=0, image=image)
     label.image = image
     label.place(x=1,y=40)
+    #gen
     Label(poot,bg="#5778bb",
                     fg="#dfe2ea",
                     font=("times", 11, "bold"),
@@ -40,6 +43,7 @@ def info_page(list):
                     font=("times", 11, "bold"),
                     borderwidth=0, text=list[2])
     gen.place(x=1,y=150)
+    #catch rate
     Label(poot,bg="#5778bb",
                     fg="#dfe2ea",
                     font=("times", 11, "bold"),
@@ -50,6 +54,7 @@ def info_page(list):
                     borderwidth=0, text=list[3])
     Catch_rate_modifier.place(x=1,y=190)
     if len(list[4]) != 0:
+        #Additional Effect
         Label(poot,bg="#5778bb",
                     fg="#dfe2ea",
                     font=("times", 11, "bold"),
@@ -59,6 +64,7 @@ def info_page(list):
                     font=("times", 10, "bold"),
                     borderwidth=0, text=list[4])
         Additional_effect.place(x=1,y=275)
+        #Description
         Label(poot,bg="#5778bb",
                     fg="#dfe2ea",
                     font=("times", 11, "bold"),
@@ -69,6 +75,7 @@ def info_page(list):
                     borderwidth=0, text=list[5])
         Description.place(x=1, y=330)
     else:
+        #Description
         Label(poot,bg="#5778bb",
                     fg="#dfe2ea",
                     font=("times", 11, "bold"),
@@ -79,24 +86,24 @@ def info_page(list):
                     borderwidth=0, text=list[5])
         Description.place(x=1, y=275)
 
-
+#make image useful
 def images(list):
     image1 = Image.open(list)
     test = ImageTk.PhotoImage(image1)
     return test
-
+#to menu
 def home():
-#    pygame.mixer.music.stop()
+    pygame.mixer.music.stop()
     root.destroy()
     os.system('python menu.py')
 
-
+#get images
 def image_grab(file):
     image=[]
     for row in file:
         image.append(row[1])
     return image
-
+#read csv
 list = []
 with open("pokeball info.csv", "r") as csvfile:
     reader = csv.reader(csvfile)
@@ -104,7 +111,7 @@ with open("pokeball info.csv", "r") as csvfile:
         if 'ball_name' not in row:
             list.append(row)
 
-
+#set up of window
 root=Tk()
 root.title("Ball Select")
 root.minsize(300, 300)
@@ -112,13 +119,13 @@ root.maxsize(1000, 1000)
 iconFile = PhotoImage(file='formating/ball.png')
 root.iconphoto(False, iconFile)
 
-
+#row 0
 Label(root, text='''Click on a Ball
 for info''', font=(
 'Verdana', 15)).grid(row=0,column=3)
 
-image_list = image_grab(list)
 
+image_list = image_grab(list)
 
 #row 1
 pokeimage=images(image_list[0])
@@ -304,6 +311,7 @@ homebutton = Button(root,
                     command=lambda: home())
 homebutton.grid(row=6,column=3)
 
-#Music().musicPlay()
-#Music().musicControls(root)
+#start loop and music
+Music().musicPlay()
+Music().musicControls(root)
 root.mainloop()
