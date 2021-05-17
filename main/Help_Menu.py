@@ -44,7 +44,7 @@ poke_name.place(relx=0.25, rely=0.105,
 
 poke_name.insert(0, f'Name Search')
 
-listbox = Listbox(root)
+listbox = Text(root, wrap=NONE)
 
 listbox.pack(side=LEFT, fill=BOTH)
 

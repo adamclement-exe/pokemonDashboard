@@ -1,1 +1,9 @@
 Hiddenmaask's Manual
+
+There are 3 main buttons on dashboard.
+
+Previous - This button is available to press after the second card being displayed. This allows you to view the previous
+           card without losing any data or overlapping text. This means you can compare cards together, for example,
+           without the hassle of backing out and searching up the pokemon again and having to remember any values.
+
+Home - This button is available on mostly all of the windows on the program
