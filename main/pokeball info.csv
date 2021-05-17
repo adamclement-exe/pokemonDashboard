@@ -1,12 +1,15 @@
 ball_name,picture_name,gen,Catch_rate_modifier,Additional_effect,description
 Poke Ball,pokeballs/pokeball.png,1,1x,"Must be in the player's bag with an empty space in the party to
-obtain a Shedinja when Nincada evolves from Generation IV onwards.","The Poke Ball is a type of Poke Ball introduced in Generation I. It is the most basic form of Poke Ball,
+obtain a Shedinja when Nincada evolves from Generation IV onwards.","The Poke Ball is a type of Poke Ball introduced in Generation I.
+It is the most basic form of Poke Ball,
 an item used to catch a wild Pokemon.
 
-The eponymous Poke Ball is the most ubiquitous kind of Poke Ball across the entire Pokemon franchise.
+The eponymous Poke Ball is the most ubiquitous kind of Poke Ball
+across the entire Pokemon franchise.
 It is frequently used to represent the Pokemon series as a whole, such as in the Pokmon series'
 icon in the Super Smash Bros. series."
-Great Ball,pokeballs/greatball.png,1,1.5x,,"The Great Ball is a type of Poke Ball introduced in Generation I. It is an improved variant of the regular
+Great Ball,pokeballs/greatball.png,1,1.5x,,"The Great Ball is a type of Poke Ball introduced in Generation I.
+It is an improved variant of the regular
 Poke Ball that can be used to catch wild Pokemon."
 Ultra Ball,pokeballs/ultraball.png,1,2x,,"The Ultra Ball is a type of Poke Ball introduced in Generation I. It is an improved variant of the
 Great Ball that can be used to catch wild Pokemon."
@@ -58,7 +61,8 @@ It can be used to catch wild Pokemon during a Bug-Catching Contest at National P
 
 This Poke Ball's name was changed due to the introduction of a different Poke Ball
 called a Park Ball in Generation IV."
-Net Ball,pokeballs/netball.png,3,3.5x if used on a Water- or Bug-type Pokemon otherwise 1x,,"The Net Ball is a type of Poke Ball introduced in Generation III. It can be used to catch a wild Pokemon,
+Net Ball,pokeballs/netball.png,3,3.5x if used on a Water- or Bug-type Pokemon otherwise 1x,,"The Net Ball is a type of Poke Ball introduced in Generation III.
+It can be used to catch a wild Pokemon,
 being more likely to succeed against a Water- and Bug-type Pokemon.
 
 Net Balls were first developed in Mossdeep City."

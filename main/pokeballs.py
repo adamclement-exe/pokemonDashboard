@@ -11,71 +11,71 @@ put somewhere that python doesn't like non english words
 def info_page(list):
     poot=Toplevel()
     poot.title("Ball Info")
-    poot.geometry("550x450")
+    poot.geometry("550x600")
     iconFile = PhotoImage(file='formating/ball.png')
     poot.iconphoto(False, iconFile)
 
-    Label(poot,bg="#DFE2EA",
-                    fg="#DFE2EA",
+    Label(poot,bg="#5778bb",
+                    fg="#dfe2ea",
                     font=("times", 11, "bold"),
                     borderwidth=0, text='Name:').place(x=1,y=1)
-    name = Label(poot,bg="#DFE2EA",
-                    fg="#DFE2EA",
+    name = Label(poot,bg="#5778bb",
+                    fg="#dfe2ea",
                     font=("times", 11, "bold"),
                     borderwidth=0, text=list[0])
     name.place(x=1,y=20)
     image = images(list[1])
-    label = Label(poot,bg="#DFE2EA",
-                    fg="#DFE2EA",
+    label = Label(poot,bg="#5778bb",
+                    fg="#5778bb",
                     font=("times", 11, "bold"),
                     borderwidth=0, image=image)
     label.image = image
     label.place(x=1,y=40)
-    Label(poot,bg="#DFE2EA",
-                    fg="#DFE2EA",
+    Label(poot,bg="#5778bb",
+                    fg="#dfe2ea",
                     font=("times", 11, "bold"),
                     borderwidth=0, text='Gen:').place(x=1,y=130)
-    gen = Label(poot,bg="#DFE2EA",
-                    fg="#DFE2EA",
+    gen = Label(poot,bg="#5778bb",
+                    fg="#dfe2ea",
                     font=("times", 11, "bold"),
                     borderwidth=0, text=list[2])
     gen.place(x=1,y=150)
-    Label(poot,bg="#DFE2EA",
-                    fg="#DFE2EA",
+    Label(poot,bg="#5778bb",
+                    fg="#dfe2ea",
                     font=("times", 11, "bold"),
                     borderwidth=0, text='Catch Rate Modifier:').place(x=1,y=170)
-    Catch_rate_modifier=Label(poot,bg="#DFE2EA",
-                    fg="#DFE2EA",
-                    font=("times", 11, "bold"),
+    Catch_rate_modifier=Label(poot,bg="#5778bb",
+                    fg="#dfe2ea",
+                    font=("times", 10, "bold"),
                     borderwidth=0, text=list[3])
     Catch_rate_modifier.place(x=1,y=190)
     if len(list[4]) != 0:
-        Label(poot,bg="#DFE2EA",
-                    fg="#DFE2EA",
+        Label(poot,bg="#5778bb",
+                    fg="#dfe2ea",
                     font=("times", 11, "bold"),
                     borderwidth=0, text='Additional Effect:').place(x=1,y=255)
-        Additional_effect = Label(poot,bg="#DFE2EA",
-                    fg="#DFE2EA",
-                    font=("times", 11, "bold"),
+        Additional_effect = Label(poot,bg="#5778bb",
+                    fg="#dfe2ea",
+                    font=("times", 10, "bold"),
                     borderwidth=0, text=list[4])
         Additional_effect.place(x=1,y=275)
-        Label(poot,bg="#DFE2EA",
-                    fg="#DFE2EA",
+        Label(poot,bg="#5778bb",
+                    fg="#dfe2ea",
                     font=("times", 11, "bold"),
-                    borderwidth=0, text='Description').place(x=1, y=310)
-        Description = Label(poot,bg="#DFE2EA",
-                    fg="#DFE2EA",
-                    font=("times", 11, "bold"),
+                    borderwidth=0, text='Description:').place(x=1, y=310)
+        Description = Label(poot,bg="#5778bb",
+                    fg="#dfe2ea",
+                    font=("times", 10, "bold"),
                     borderwidth=0, text=list[5])
         Description.place(x=1, y=330)
     else:
-        Label(poot,bg="#DFE2EA",
-                    fg="#DFE2EA",
+        Label(poot,bg="#5778bb",
+                    fg="#dfe2ea",
                     font=("times", 11, "bold"),
-                    borderwidth=0, text='Description').place(x=1,y=255)
-        Description = Label(poot,bg="#DFE2EA",
-                    fg="#DFE2EA",
-                    font=("times", 11, "bold"),
+                    borderwidth=0, text='Description:').place(x=1,y=255)
+        Description = Label(poot,bg="#5778bb",
+                    fg="#dfe2ea",
+                    font=("times", 10, "bold"),
                     borderwidth=0, text=list[5])
         Description.place(x=1, y=275)
 
@@ -86,7 +86,7 @@ def images(list):
     return test
 
 def home():
-    pygame.mixer.music.stop()
+#    pygame.mixer.music.stop()
     root.destroy()
     os.system('python menu.py')
 
@@ -304,6 +304,6 @@ homebutton = Button(root,
                     command=lambda: home())
 homebutton.grid(row=6,column=3)
 
-Music().musicPlay()
-Music().musicControls(root)
+#Music().musicPlay()
+#Music().musicControls(root)
 root.mainloop()
