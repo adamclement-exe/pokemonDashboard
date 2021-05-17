@@ -14,6 +14,7 @@ except ImportError:
 import os
 import csv
 import yaml
+from util import backgroundGenerator as bg
 from musicSettings import Music
 import pygame
 import util
@@ -359,6 +360,10 @@ def set_values():
                       anchor="n")
 
     try:
+        bg.GenBackground(f"Pokemon Pictures/{r_val[name][1].lower()}.png", "formating/pokeBackShadow.png")
+        ss = PhotoImage(file='bg.png')
+        backLabelImage = Label(legendFrame, image=ss)
+        backLabelImage.pack()
         pokemonPicFile.config(file=f'Pokemon Pictures/{r_val[name][1].lower()}.png')
         pokemonPicFile = pokemonPicFile.zoom(7)  # Resizes images
         pokemonPicFile = pokemonPicFile.subsample(3)
@@ -370,9 +375,10 @@ def set_values():
                          relheight=0.9, relwidth=0.92, anchor="center")
 
 
-    except:
+    except Exception as e:
         # pokemonPicFile = pokemonPicFile.zoom(2)  # Resizes images
         # pokemonPicFile = pokemonPicFile.subsample(1)
+        print(e)
         pokemonPicFile.config(file='Pokemon Pictures/missing-image.png')
         pokemonPicFile = pokemonPicFile.zoom(2)  # Resizes images
         pokemonPicFile = pokemonPicFile.subsample(3)
