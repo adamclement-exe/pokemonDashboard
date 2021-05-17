@@ -1,10 +1,12 @@
 """
 :author Basker12
 """
+import shutil
 try:
     from tkinter import *
 except ImportError:
     from tkinter import *
+from tkinter import filedialog
 import os
 import csv
 from tkinter import messagebox
@@ -293,6 +295,15 @@ def createdPokemon():
 
     newPokemon = [id, name, type1, type2, total, hp, attack, defence, specialAttack, specialDefence, speed, gen, legendary]
 
+    filename = filedialog.askopenfilename(initialdir="/",
+                                          title="Select a File",
+                                          filetypes=(("Text files",
+                                                      "*.png*"),
+                                                     ("all files",
+                                                      "*.*")))
+
+    shutil.copy(filename,
+                f"C://Users//camer//OneDrive - Exeter College//python//github//pokemonDashboard//main//Pokemon Pictures//{pokename}.png")
     with open('Pokemon.csv', 'a', newline='\n') as pk:  # Opens Pokemon.csv and the writes into the csv file a new pokemon
         Pokemon = writer(pk)
         Pokemon.writerow(newPokemon)
