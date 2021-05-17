@@ -1,5 +1,5 @@
 import csv
-path = "M:\pk\pokemonDashboard\main"
+path = "PATH"
 evo = open(path+"\PokemonEvolutions.csv","r")
 evocsv = list(csv.reader(evo, delimiter=","))
 poke = open(path+"\Pokemon.csv","r")
@@ -32,5 +32,16 @@ for row1 in evocsv:
                     writer = csv.writer(f, delimiter=',')
                     writer.writerow(row)
 
+#change numbers
+with open(path + "\Pokemon.csv", "w", newline="") as f:
+    f.write("#,Name,Type 1,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp. Def,Speed,Generation,Legendary\n")
+    for i in range(len(pokecsv)):
+        f.write(str(i + 1))
+        f.write(",")
+        for x in range(11):
+            f.write(pokecsv[i][x+1])
+            f.write(",")
+        f.write(pokecsv[i][12])
+        f.write("\n")
 
 print("Complete")
