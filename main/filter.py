@@ -24,6 +24,9 @@ WIDTH = 405
 root.minsize(WIDTH, HEIGHT)
 root.maxsize(WIDTH, HEIGHT)
 
+iconFile = PhotoImage(file="formating/ball.png")  # Icon image
+root.iconphoto(False, iconFile)
+
 canvas = Canvas(root, height=HEIGHT, width=WIDTH)
 canvas.pack()
 

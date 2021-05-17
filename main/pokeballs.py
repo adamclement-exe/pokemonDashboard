@@ -8,6 +8,13 @@ from musicSettings import Music
 put somewhere that python doesn't like non english words
 """
 
+root = Tk()
+root.title("Ball Select")
+root.minsize(475, 475)
+root.maxsize(1000, 1000)
+iconFile = PhotoImage(file='formating/ball.png')
+root.iconphoto(False, iconFile)
+
 def info_page(list):
     poot=Toplevel()
     poot.title("Ball Info")
@@ -64,15 +71,6 @@ with open("pokeball info.csv", "r") as csvfile:
     for row in reader:
         if 'ball_name' not in row:
             list.append(row)
-
-
-root=Tk()
-root.title("Ball Select")
-root.minsize(475, 475)
-root.maxsize(1000, 1000)
-iconFile = PhotoImage(file='formating/ball.png')
-root.iconphoto(False, iconFile)
-
 
 Label(root, text='''Click on a Ball
      for info''', font=(
