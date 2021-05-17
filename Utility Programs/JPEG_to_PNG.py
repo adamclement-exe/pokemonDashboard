@@ -1,7 +1,6 @@
-from PIL import Image  # Python Image Library - Image Processing
+from PIL import Image
 import glob
 
-for file in glob.glob("*.png"):
+for file in glob.glob("*.jpg"):
  im = Image.open(file)
- rgb_im = im.convert('RGB')
- rgb_im.save(file.replace("png", "jpg"), quality=95)
+ im.save(file.replace("jpg", "png"), quality=95)
