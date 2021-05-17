@@ -14,6 +14,12 @@ Next     - When displaying more that one Pokemon the Next button will be selecta
 	   all Pokemon or any Pokemon which fit the filter requirements. This can be followed up by pressing the
 	   previous button to go one by one through all the different Pokemon.
 
-Multiple stats are displayed on the Pokemon card,
+Multiple stats are displayed on the Pokemon card, these mean as follows:
+
+Gen: []  - This is the first generation the Pokemon displayed appeared in, a generation of Pokemon is usually when
+           around about 100 Pokemon are released in a batch at the same time, appearing in a new Pokemon videogame
+	   and the Pokemon cards. 
+	   
+Atk: []  - 
 
 	   
