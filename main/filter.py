@@ -27,47 +27,31 @@ root.maxsize(WIDTH, HEIGHT)
 iconFile = PhotoImage(file="formating/ball.png")  # Icon image
 root.iconphoto(False, iconFile)
 
-#root.wm.attributes('-transparentcolor', '')
+backgroundImage = PhotoImage(file='formating/filterBackground.png')
+titleImage = PhotoImage(file='formating/pokeBrowserLogo.png')
 
-bg = PhotoImage(file='formating/filterBackground.png')
 canvas = Canvas(root, height=HEIGHT, width=WIDTH)
 canvas.pack(fill='both', expand=True)
-canvas.create_image(0, 0, image=bg,
+canvas.create_image(0, 0, image=backgroundImage,
                     anchor='nw')
 
-#OuterFrame = Frame(root,
-                   #bg='#9c9fa5')
 
-#OuterFrame.place(relx=0.5, rely=0.0,
-                 #relwidth=1, relheight=1,
-                 #anchor='n')
+titleImage = titleImage.zoom(2)
+titleImage = titleImage.subsample(3)
+canvas.create_image(200, 90, image=titleImage)
 
-InnerFrame = Frame(root,
-                   bg='#5778bb')
-
-InnerFrame.place(relx=0.5, rely=0.09,
-                 relwidth=0.90, relheight=0.75,
-                 anchor='n')
-
-ButtonFrame = Frame(root,
-                    bg='#dfe2ea')
-
-ButtonFrame.place(relx=0.5, rely=0.87,
-                  relwidth=1, relheight=0.12,
-                  anchor='n')
-
-poke_name = Entry(InnerFrame,
+poke_name = Entry(root,
 
                   bg='#9C9FA5', fg='#5778BB',
 
                   font=65, borderwidth=5)
 
-poke_name.place(relx=0.1, rely=0.105,
+poke_name.place(relx=0.1, rely=0.200,
                 relwidth=0.40, relheight=0.07)
 
 poke_name.insert(0, f'Name Search')
 
-name_search_button = Button(InnerFrame,
+name_search_button = Button(root,
                             bg='#9C9FA5',
                             fg='#5788BB',
                             font=('times', 11, 'bold'), borderwidth=4,
@@ -77,7 +61,7 @@ name_search_button = Button(InnerFrame,
 
                             )
 
-name_search_button.place(relx=0.55, rely=0.105,
+name_search_button.place(relx=0.55, rely=0.200,
                          relwidth=0.35, relheight=0.07)
 
 name_search_button["text"] = f'Search'
@@ -92,7 +76,7 @@ type1_choices = {'Type 1': 1, 'Water': 2, 'Fire': 3, 'Poison': 4,  # Numbers Giv
 
 type1_var.set('Type 1')  # sets Starting Value for Drop Down menu
 
-type1_menu = OptionMenu(InnerFrame, type1_var, *type1_choices)
+type1_menu = OptionMenu(root, type1_var, *type1_choices)
 
 type1_menu.config(bg='#9C9FA5', fg='#5778BB')  # menu Icon colours
 
@@ -111,7 +95,7 @@ type2_choices = {'Type 2': 1, 'None': 2, 'Water': 3, 'Fire': 4,  # Numbers Give 
 
 type2_var.set('Type 2')  # sets Starting Value for Drop Down menu
 
-type2_menu = OptionMenu(InnerFrame, type2_var, *type2_choices)
+type2_menu = OptionMenu(root, type2_var, *type2_choices)
 
 type2_menu.config(bg='#9C9FA5', fg='#5778BB')  # menu Icon colours
 
@@ -128,7 +112,7 @@ gen_choices = {'Generation': 1,
 
 gen_var.set('Generation')  # sets Starting Value for Drop Down menu
 
-gen_menu = OptionMenu(InnerFrame, gen_var, *gen_choices)
+gen_menu = OptionMenu(root, gen_var, *gen_choices)
 
 gen_menu.config(bg='#9C9FA5', fg='#5788BB')  # menu Icon colours
 
@@ -144,7 +128,7 @@ Legendary_choices = {'Legendary': 1,
 
 Legendary_var.set('Legendary')  # sets Starting Value for Drop Down menu
 
-Legendary_menu = OptionMenu(InnerFrame, Legendary_var, *Legendary_choices)
+Legendary_menu = OptionMenu(root, Legendary_var, *Legendary_choices)
 
 Legendary_menu.config(bg='#9C9FA5', fg='#5778BB')  # menu Icon colours
 
@@ -162,7 +146,7 @@ stats_choices = {'Sort': 1, 'Alphabetical': 2,
 
 stats_var.set('Sort')  # sets Starting Value for Drop Down menu
 
-stats_menu = OptionMenu(InnerFrame, stats_var, *stats_choices)
+stats_menu = OptionMenu(root, stats_var, *stats_choices)
 
 stats_menu.config(bg='#9C9FA5', fg='#5788BB')  # menu Icon colours
 
@@ -178,7 +162,7 @@ AorD_choices = {'Sort Method': 1,  # Items in Drop Down menu
 
 AorD_var.set('Sort Method')  # sets Starting Value for Drop Down menu
 
-AorD_menu = OptionMenu(InnerFrame, AorD_var, *AorD_choices)
+AorD_menu = OptionMenu(root, AorD_var, *AorD_choices)
 
 AorD_menu.config(bg='#9C9FA5', fg='#5778BB')  # menu Icon colours
 
@@ -187,29 +171,18 @@ AorD_menu["menu"].config(bg='#9C9FA5', fg='#5778BB')  # menu drop down colours
 AorD_menu.place(relx=0.55, rely=0.685,
                 relwidth=0.35, relheight=0.06)
 
-Pokemon_Browser = Label(root,
-
-                        bg='#9c9fa5', fg='#dfe2ea',
-
-                        font=('times', 11, 'bold'))
-
-Pokemon_Browser.place(relx=0.17, rely=0,
-                      relwidth=0.66, relheight=0.09)
-
-Pokemon_Browser["text"] = f'Pokemon Browser'  # title
-
-help_button = Button(ButtonFrame,
+help_button = Button(root,
                      bg='#9C9FA5',
                      fg='#5778BB',
                      font=('times', 11, 'bold'), borderwidth=4,
                      command=lambda: help())  # runs when help button is clicked
 
-help_button.place(relx=0.66, rely=0.3,
-                  relheight=0.4, relwidth=0.30)
+help_button.place(relx=0.66, rely=0.934,
+                  relheight=0.06, relwidth=0.3)
 
 help_button["text"] = f'Help'
 
-search_button = Button(InnerFrame,
+search_button = Button(root,
                        bg='#9C9FA5',
                        fg='#5778BB',
                        font=('times', 11, 'bold'), borderwidth=4,
@@ -229,28 +202,28 @@ search_button.place(relx=0.55, rely=0.825,
 
 search_button["text"] = f'Search'
 
-view_all_button = Button(ButtonFrame,
+view_all_button = Button(root,
                          bg='#9C9FA5',
                          fg='#5778BB',
                          font=('times', 11, 'bold'), borderwidth=4,
                          command=lambda: view_all())  # runs when View All button is clicked
 
-view_all_button.place(relx=0.03, rely=0.3,
-                      relheight=0.4, relwidth=0.30)
+view_all_button.place(relx=0.03, rely=0.934,
+                      relheight=0.06, relwidth=0.3)
 
 view_all_button["text"] = f'View All'
 
-home_button = Button(ButtonFrame,
+home_button = Button(root,
                      bg='#9C9FA5',
                      fg='#5788BB',
                      font=('times', 11, 'bold'), borderwidth=4,
                      command=lambda: home())  # runs when Home button is clicked
 
-home_button.place(relx=0.345, rely=0.3,
-                  relheight=0.4, relwidth=0.30)
+home_button.place(relx=0.345, rely=0.934,
+                  relheight=0.06, relwidth=0.3)
 
 home_button["text"] = f'Home'
-reset_button = Button(InnerFrame,
+reset_button = Button(root,
                       bg='#9C9FA5',
                       fg='#5788BB',
                       font=('times', 11, 'bold'), borderwidth=4,
