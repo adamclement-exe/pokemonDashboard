@@ -366,6 +366,7 @@ def search(type1_var, type2_var,
 
 
 def view_all(self=None):
+    pygame.mixer.music.stop()
     searches = open("searches.txt", "w")
     searches.write('All,All,All,All,id,True,')
     searches.close()
