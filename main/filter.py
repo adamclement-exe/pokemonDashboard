@@ -273,6 +273,7 @@ def name_search(poke_name, self=None):
         searches = open("pokemon data.txt", "w")
         searches.write(f"{str(poke_name)},")
         searches.close()
+        pygame.mixer.music.stop()
         root.destroy()
         run.name_search(self)
 
@@ -360,6 +361,7 @@ def search(type1_var, type2_var,
                 searches.write((","))
                 continue
     searches.close()
+    pygame.mixer.music.stop()
     root.destroy()
 
     run.refract_search(self)

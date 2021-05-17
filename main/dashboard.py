@@ -13,6 +13,7 @@ except ImportError:
     import PIL.ImageTk
 import os
 import csv
+import yaml
 from musicSettings import Music
 import pygame
 import util
@@ -253,7 +254,7 @@ def run():
         load()
         set_values()
     else:
-        name_set_values()
+        set_values()
 
 
 def load():
@@ -311,6 +312,15 @@ def set_values():
         back_button.place_forget()
     # | Id [0] | name [1] | type1 [2] | type2 [3] | Total [4] | hp [5] | Attack [6]
     # | Defense [7] | Sp. Atk [8] | Sp. Def [9] | Speed [10] | Generation [11] | Legendary [12]
+    s = open("searches.txt", "r")
+
+    if s.readline() == 'Name Search':
+        data = open("pokemon data.txt", "r")
+        r_val = data.readline()
+        data.close()
+        r_val = yaml.load(r_val)
+
+    s.close()
     name = list(r_val)
     name = name[count]
 
@@ -412,8 +422,8 @@ def name_set_values():
 
     data = open("pokemon data.txt", "r")
     name = data.readline()
-    name = name.replace("'", "")
-    name = name.split(', ')
+    name = list(name)
+    print(name)
     idName["text"] = f"ID: {name[0]}"
     pokeName["text"] = f"{name[1]}"
     totalName["text"] = f"Total: {name[4]}"
