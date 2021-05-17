@@ -44,7 +44,7 @@ poke_name.place(relx=0.25, rely=0.105,
 
 poke_name.insert(0, f'Name Search')
 
-listbox = Listbox(root)
+listbox = Text(root, wrap=NONE)
 
 listbox.pack(side=LEFT, fill=BOTH)
 
@@ -144,7 +144,7 @@ scrollbar.config(command=listbox.yview)
 dev_manual_var = StringVar(root)
 
 dev_manual_choices = {'Madmegsox1', 'FSNCryo', 'Basker12', 'Hiddenmaask', 'PointlessQuack', 'DraconicDroid',
-                      'Squidnugi'}  # Items in Drop Down menu
+                      'Squidnugi','Owen'}  # Items in Drop Down menu
 
 dev_manual_var.set('Dev Manual Select')  # sets Starting Value for Drop Down menu
 file = open(f"manual/Dev Manual Select.txt", "r")

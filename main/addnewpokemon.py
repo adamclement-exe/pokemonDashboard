@@ -1,10 +1,12 @@
 """
 :author Basker12
 """
+import shutil
 try:
     from tkinter import *
 except ImportError:
     from tkinter import *
+from tkinter import filedialog
 import os
 import csv
 from tkinter import messagebox
@@ -42,7 +44,7 @@ newPokeName.place(relx=0.02, rely=0.105,
 
 newPokeName.insert(0, f'Your new Pokemons name')
 
-pokemonTypes = {'Type 1': 1, 'Water': 2, 'Fire': 3, 'Poison': 4, # Pokemon types dictionary
+pokemonTypes = {'None': 1, 'Water': 2, 'Fire': 3, 'Poison': 4, # Pokemon types dictionary
                  'Grass': 5, 'Ground': 6, 'Normal': 7, 'Bug': 8,
                  'Electric': 9, 'Fairy': 10, 'Fighting': 11, 'Psychic': 12,
                  'Rock': 13, 'Ghost': 14, 'Ice': 15, 'Dragon': 16,
@@ -157,8 +159,8 @@ homeButton = Button(root, text='HOME', font=('times', 12, 'bold'), borderwidth='
                     width=15,
                     command=lambda: home())
 
-homeButton.place(relx=0.04, rely=0.900,
-                  relheight=0.06, relwidth=0.3)
+homeButton.place(relx=0.35, rely=0.900,
+                 relheight=0.06, relwidth=0.3)
 
 evolutionButton = Button(root, text='Config Evo', font=('times', 12, 'bold'), borderwidth='4',
                      bg='#9C9FA5',
@@ -167,7 +169,7 @@ evolutionButton = Button(root, text='Config Evo', font=('times', 12, 'bold'), bo
                      command=lambda: evolution())
 
 evolutionButton.place(relx=0.66, rely=0.900,
-                   relheight=0.06, relwidth=0.3)
+                      relheight=0.06, relwidth=0.3)
 
 resetButton = Button(root, text='RESET', font=('times', 12, 'bold'), borderwidth='4',
                     bg='#9C9FA5',
@@ -175,7 +177,7 @@ resetButton = Button(root, text='RESET', font=('times', 12, 'bold'), borderwidth
                     width=15,
                     command=lambda: reset())
 
-resetButton.place(relx=0.35, rely=0.900,
+resetButton.place(relx=0.04, rely=0.900,
                   relheight=0.06, relwidth=0.3)
 
 def clearText(e): # This definition clears the entry box text, instead having to do it manually
@@ -293,6 +295,15 @@ def createdPokemon():
 
     newPokemon = [id, name, type1, type2, total, hp, attack, defence, specialAttack, specialDefence, speed, gen, legendary]
 
+    filename = filedialog.askopenfilename(initialdir="/",
+                                          title="Select a File",
+                                          filetypes=(("Text files",
+                                                      "*.png*"),
+                                                     ("all files",
+                                                      "*.*")))
+
+    shutil.copy(filename,
+                f"C://Users//camer//OneDrive - Exeter College//python//github//pokemonDashboard//main//Pokemon Pictures//{pokename}.png")
     with open('Pokemon.csv', 'a', newline='\n') as pk:  # Opens Pokemon.csv and the writes into the csv file a new pokemon
         Pokemon = writer(pk)
         Pokemon.writerow(newPokemon)

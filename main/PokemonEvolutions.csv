@@ -83,7 +83,6 @@ Sentret,Furret
 Hoothoot,Noctowl
 Ledyba,Ledian
 Spinarak,Ariados
-Crobat
 Chinchou,Lanturn
 Togepi,Togetic,Togekiss
 Natu,Xatu
@@ -232,7 +231,7 @@ Carnivine
 Finneon,Lumineon
 Snover,Abomasnow,AbomasnowMega Abomasnow
 Froslass,Snorunt,Glalie,GlalieMega Glalie
-Rotom	RotomHeat Rotom,RotomWash Rotom,RotomFrost Rotom,RotomFan Rotom,RotomMow Rotom
+Rotom,RotomHeat Rotom,RotomWash Rotom,RotomFrost Rotom,RotomFan Rotom,RotomMow Rotom
 Uxie
 Mesprit
 Azelf
@@ -365,5 +364,4 @@ Yveltal
 Zygarde50% Forme
 Diancie,DiancieMega Diancie
 HoopaHoopa Confined,HoopaHoopa Unbound
-Rotom,RotomHeat Rotom
-Jaime,Jaime
+Jaime
