@@ -16,7 +16,7 @@ class run:
 
     def __init__(self):
         Devs = ("Madmegsox1, FSNCryo, HiddenMask, Basker12, PointlessQuack, DraconicDroid, Squidnugi")
-        bg.GenBackground("Pokemon Pictures/eevee.png", "formating/pokeBackShadow.png")
+        bg.GenBackground("Pokemon Pictures/abra.png", "formating/pokeBackShadow.png")
 
 
     def name_search(self):
