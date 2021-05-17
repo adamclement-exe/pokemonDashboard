@@ -18,18 +18,21 @@ It can be used to catch a wild Pokemon without fail.It was invented by the Silph
 Safari Ball,pokeballs/safariball.png,1,1.5x,"Prior to Generation VIII, it could not be obtained in normal gameplay,
 and was only usable within Safari Zones.","The Safari Ball is a type of Poke Ball introduced in Generation I.
 It can be used to catch wild Pokemon during a Safari Game."
-Fast Ball,pokeballs/fastball.png,2,4x if used on a Pokemon with a base Speed of at least 100 otherwise 1x,,"The Fast Ball is a type of Poke Ball introduced in Generation II. It can be used to catch a wild Pokemon,
+Fast Ball,pokeballs/fastball.png,2,4x if used on a Pokemon with a base Speed of at least 100 otherwise 1x,,"The Fast Ball is a type of Poke Ball introduced in Generation II.
+It can be used to catch a wild Pokemon,
 being more likely to succeed against Pokemon that are fast or quick to flee.
 
 It is one of Kurt's signature Apricorn Poke Balls, and is made from White Apricorns."
 Level Ball,pokeballs/levelball.png,2,"1x if the player's Pokemon is the same level as or a lower level than the wild Pokemon
 2x if the player's Pokemon is at a higher level than the wild Pokemon but less than double it
 4x if the player's Pokemon is more than double but less than four times the level of the wild Pokemon
-8x if the player's Pokemon is of a level four times or more than that of the wild Pokemon",,"The Level Ball is a type of Poke Ball introduced in Generation II. It can be used to catch a wild Pokemon,
+8x if the player's Pokemon is of a level four times or more than that of the wild Pokemon",,"The Level Ball is a type of Poke Ball introduced in Generation II.
+It can be used to catch a wild Pokemon,
 being more likely to succeed the higher the Trainer's Pokemon's level is than the wild Pokemon's.
 
 It is one of Kurt's signature Apricorn Poke Balls, and is made from Red Apricorns."
-Lure Ball,pokeballs/lureball.png,2,5x if used on a Pokemon encountered while fishing otherwise 1x,,"The Lure Ball is a type of Poke Ball introduced in Generation II. It can be used to catch a wild Pokemon,
+Lure Ball,pokeballs/lureball.png,2,5x if used on a Pokemon encountered while fishing otherwise 1x,,"The Lure Ball is a type of Poke Ball introduced in Generation II.
+It can be used to catch a wild Pokemon,
 being more likely to succeed in fishing encounters.
 
 It is one of Kurt's signature Apricorn Poke Balls, and is made from Blue Apricorns."
@@ -41,7 +44,8 @@ catch a wild Pokemon, being more likely to succeed the heavier the Pokemon is.
 
 It is one of Kurt's signature Apricorn Poke Balls, and is made from Black Apricorns."
 Love Ball,pokeballs/loveball.png,2,"8x if used on a Pokemon of the same species but opposite gender of the player's Pokemon
-otherwise 1x",,"The Love Ball is a type of Poke Ball introduced in Generation II. It can be used to catch a wild Pokemon,
+otherwise 1x",,"The Love Ball is a type of Poke Ball introduced in Generation II.
+It can be used to catch a wild Pokemon,
 being more likely to succeed against a Pokemon of the opposite gender to the Trainer's Pokemon.
 
 It is one of Kurt's signature Apricorn Poke Balls, and is made from Pink Apricorns."
@@ -56,7 +60,8 @@ that evolve by using Moon Stone and their evolutionary relatives.
 
 It is one of Kurt's signature Apricorn Poke Balls, and is made from Yellow Apricorns."
 Sport Ball,pokeballs/sportball.png,2,1.5x,"Prior to Generation VIII, it could not be obtained in normal gameplay,
-and was only usable during the Bug-Catching Contest.","The Sport Ball, called the Park Ball in Generation II, is a type of Poke Ball introduced in Generation II.
+and was only usable during the Bug-Catching Contest.","The Sport Ball, called the Park Ball in Generation II,
+is a type of Poke Ball introduced in Generation II.
 It can be used to catch wild Pokemon during a Bug-Catching Contest at National Park.
 
 This Poke Ball's name was changed due to the introduction of a different Poke Ball
@@ -66,7 +71,8 @@ It can be used to catch a wild Pokemon,
 being more likely to succeed against a Water- and Bug-type Pokemon.
 
 Net Balls were first developed in Mossdeep City."
-Nest Ball,pokeballs/nestball.png,3,((41 - Pokemon's level) / 10)x if Pokemon's level is between 1 and 29 otherwise 1x,,"The Nest Ball is a type of Poke Ball introduced in Generation III. It can be used to catch a wild Pokemon,
+Nest Ball,pokeballs/nestball.png,3,((41 - Pokemon's level) / 10)x if Pokemon's level is between 1 and 29 otherwise 1x,,"The Nest Ball is a type of Poke Ball introduced in Generation III.
+It can be used to catch a wild Pokemon,
 being more likely to succeed against lower level Pokemon."
 Repeat Ball,pokeballs/repeatball.png,3,3.5x if used on a Pokemon that is registered in the player's Pokedex as caught otherwise 1x,,"The Repeat Ball is a type of Poke Ball introduced in Generation III.
 It can be used to catch a wild Pokemon, being more likely to succeed if the Pokemon
@@ -75,16 +81,20 @@ Timer Ball,pokeballs/timerball.png,3,"(1 + number of turns passed in battle * 12
 a wild Pokemon, being more likely to succeed the longer it has been since the start of the battle.
 It was developed by the Devon Corporation."
 Luxury Ball,pokeballs/luxuryball.png,3,1x,Doubles the rate in which the contained Pokemon receives friendship,"The Luxury Ball is a type of Poke Ball introduced in Generation III.
-It can be used to catch a wild Pokemon. Pokemon caught in a Luxury Ball gain friendship more quickly."
+It can be used to catch a wild Pokemon.
+Pokemon caught in a Luxury Ball gain friendship more quickly."
 Premier Ball,pokeballs/premierball.png,3,1x,,"The Premier Ball is a type of Poke Ball introduced in Generation III.
 It can be used to catch a wild Pokemon. It was developed by the Devon Corporation."
-Dive Ball,pokeballs/diveball.png,3,3.5x if used on a water-dwelling Pokemon otherwise 1x,,"The Dive Ball is a type of Poke Ball introduced in Generation III. It can be used to catch a wild Pokemon,
+Dive Ball,pokeballs/diveball.png,3,3.5x if used on a water-dwelling Pokemon otherwise 1x,,"The Dive Ball is a type of Poke Ball introduced in Generation III.
+It can be used to catch a wild Pokemon,
 being more likely to succeed in water encounters, originally specifically underwater encounters.
 
 Dive Balls were first developed in Mossdeep City."
-Dusk Ball,pokeballs/duskball.png,4,3x if used in a cave or at night otherwise 1x,,"The Dusk Ball is a type of Poke Ball introduced in Generation IV. It can be used to catch a wild Pokemon,
+Dusk Ball,pokeballs/duskball.png,4,3x if used in a cave or at night otherwise 1x,,"The Dusk Ball is a type of Poke Ball introduced in Generation IV.
+It can be used to catch a wild Pokemon,
 being more likely to succeed if used at night or in a cave."
-Heal Ball,pokeballs/healball.png,4,1x,"Fully restores a caught Pokemon's HP, PP, and status.","The Heal Ball is a type of Poke Ball introduced in Generation IV. It can be used to catch a wild Pokemon.
+Heal Ball,pokeballs/healball.png,4,1x,"Fully restores a caught Pokemon's HP, PP, and status.","The Heal Ball is a type of Poke Ball introduced in Generation IV.
+It can be used to catch a wild Pokemon.
 A Pokemon caught in a Heal Ball is fully healed."
 Quick Ball,pokeballs/quickball.png,4,5x if used on the first turn of a battle otherwise 1x,,"The Quick Ball is a type of Poke Ball introduced in Generation IV.
 It can be used to catch a wild Pokemon,
