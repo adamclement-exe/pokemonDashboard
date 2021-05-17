@@ -144,7 +144,7 @@ scrollbar.config(command=listbox.yview)
 dev_manual_var = StringVar(root)
 
 dev_manual_choices = {'Madmegsox1', 'FSNCryo', 'Basker12', 'Hiddenmaask', 'PointlessQuack', 'DraconicDroid',
-                      'Squidnugi'}  # Items in Drop Down menu
+                      'Squidnugi','Owen'}  # Items in Drop Down menu
 
 dev_manual_var.set('Dev Manual Select')  # sets Starting Value for Drop Down menu
 file = open(f"manual/Dev Manual Select.txt", "r")
