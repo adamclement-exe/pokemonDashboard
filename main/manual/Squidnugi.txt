@@ -1,1 +1,16 @@
 Squidnugi's Manual
+
+#context will be given just a reminder for me
+Layout(
+Name:
+<ball_name>
+<ball_image>
+Gen:
+<gen>
+Catch Rate Modifier:
+<Catch_Rate_Modifier>
+Additional Effect:
+<Additional_Effect>
+Description:
+<Description>
+)
