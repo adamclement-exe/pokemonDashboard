@@ -191,7 +191,7 @@ home_button = Button(bottomBar,
                      bg="#DFE2EA",
                      fg="#DFE2EA",
                      image=homeButtonFile,
-                     font=("times", 11, "bold"), borderwidth=0,
+                     font=("times", 11, "bold"), borderwidth=4,
 
                      command=lambda: home_button_push())  # on_button_push() Runs When a BUTTON is Pushed
 

@@ -49,6 +49,14 @@ help_button = Button(root, text='Help', font=('times', 12, 'bold'), borderwidth=
 help_button.place(relx=0.55, rely=0.900,
                   relheight=0.075, relwidth=0.35)
 
+button1 = Button(root, command=lambda: fonts())
+button1.pack()
+
+
+def fonts():
+    root.destroy()
+    os.system()
+'''
 OPTIONS = [
     'Times',
     'Comic sans MS',
@@ -70,7 +78,7 @@ font_drop = OptionMenu(root, variable, *OPTIONS, command=callback)  # drop down 
 font_drop.config(bg='#9C9FA5', fg='#5778BB', font=('times', 12, 'bold'))
 font_drop.place(relx=0.33, rely=0.750,
                 relheight=0.075, relwidth=0.35)  # places drop down menu
-
+'''
 titleImage = PhotoImage(file='formating/settingsLogo.png')
 titleImage = titleImage.zoom(2)
 titleImage = titleImage.subsample(3)
