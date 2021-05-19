@@ -23,7 +23,7 @@ root.iconphoto(False, iconFile) # Icon Image
 
 HEIGHT = 642
 WIDTH = 405
-root.geometry(f'{HEIGHT}x{WIDTH}')
+root.geometry(f"{HEIGHT}x{WIDTH}")
 
 root.minsize(WIDTH, HEIGHT)
 root.maxsize(WIDTH, HEIGHT)
@@ -42,7 +42,7 @@ newPokeName = Entry(root, font=('times', 8, 'bold'), borderwidth='4',
 newPokeName.place(relx=0.02, rely=0.105,
                   relheight=0.09, relwidth=0.38)
 
-newPokeName.insert(0, f'Your new Pokemons name')
+newPokeName.insert(0, f"Your new Pokemon's name")
 
 pokemonTypes = {'None': 1, 'Water': 2, 'Fire': 3, 'Poison': 4, # Pokemon types dictionary
                  'Grass': 5, 'Ground': 6, 'Normal': 7, 'Bug': 8,
@@ -77,7 +77,7 @@ newGen = Entry(root, font=('times', 8, 'bold'), borderwidth='4',
 newGen.place(relx=0.60, rely=0.210,
              relheight=0.09, relwidth=0.38)
 
-newGen.insert(0, f'Pokemons Generation')
+newGen.insert(0, f"Pokemon's Generation")
 
 var = StringVar(root)
 var.set('Legendary')
@@ -94,7 +94,7 @@ newAttack = Entry(root, font=('times', 8, 'bold'), borderwidth='4',
                   bg='#9C9FA5',
                   fg='#5778BB')
 
-newAttack.insert(0, f'Pokemons attack stat')
+newAttack.insert(0, f"Pokemon's attack stat")
 
 newAttack.place(relx=0.02, rely=0.315,
                 relheight=0.09, relwidth=0.38)
@@ -103,7 +103,7 @@ newHP = Entry(root, font=('times', 8, 'bold'), borderwidth='4',
               bg='#9C9FA5',
               fg='#5778BB')
 
-newHP.insert(0, f'Pokemons HP')
+newHP.insert(0, f"Pokemon's HP")
 
 newHP.place(relx=0.60, rely=0.315,
             relheight=0.09, relwidth=0.38)
@@ -112,7 +112,7 @@ newDefence = Entry(root, font=('times', 8, 'bold'), borderwidth='4',
                    bg='#9C9FA5',
                    fg='#5778BB')
 
-newDefence.insert(0, f'Pokemons defence stat')
+newDefence.insert(0, f"Pokemon's defence stat")
 
 newDefence.place(relx=0.02, rely=0.420,
                  relheight=0.09, relwidth=0.38)
@@ -121,7 +121,7 @@ newSpecialAttack = Entry(root, font=('times', 8, 'bold'), borderwidth='4',
                        bg='#9C9FA5',
                        fg='#5778BB')
 
-newSpecialAttack.insert(0, f'Pokemons special attack')
+newSpecialAttack.insert(0, f"Pokemon's special attack")
 
 newSpecialAttack.place(relx=0.60, rely=0.420,
                      relheight=0.09, relwidth=0.38)
@@ -130,7 +130,7 @@ newSpecialDefence = Entry(root, font=('times', 8, 'bold'), borderwidth='4',
                        bg='#9C9FA5',
                        fg='#5778BB')
 
-newSpecialDefence.insert(0, f'Pokemons special defence')
+newSpecialDefence.insert(0, f"Pokemon's special defence")
 
 newSpecialDefence.place(relx=0.60, rely=0.525,
                      relheight=0.09, relwidth=0.38)
@@ -139,7 +139,7 @@ newSpeed = Entry(root, font=('times', 8, 'bold'), borderwidth='4',
                  bg='#9C9FA5',
                  fg='#5778BB')
 
-newSpeed.insert(0, f'Pokemons Speed')
+newSpeed.insert(0, f"Pokemon's Speed")
 
 newSpeed.place(relx=0.02, rely=0.525,
                relheight=0.09, relwidth=0.38)
@@ -181,35 +181,35 @@ resetButton.place(relx=0.04, rely=0.900,
                   relheight=0.06, relwidth=0.3)
 
 def clearText(e): # This definition clears the entry box text, instead having to do it manually
-    if newPokeName.get() == 'Your new Pokemons name':
+    if newPokeName.get() == "Your new Pokemon's name":
         newPokeName.delete(0, END)
 
 def clearTextG(e):
-    if newGen.get() == 'Pokemons Generation':
+    if newGen.get() == "Pokemon's Generation":
         newGen.delete(0, END)
 
 def clearTextSPEED(e):
-    if newSpeed.get() == 'Pokemons Speed':
+    if newSpeed.get() == "Pokemon's Speed":
         newSpeed.delete(0, END)
 
 def clearTextAT(e):
-    if newAttack.get() == 'Pokemons attack stat':
+    if newAttack.get() == "Pokemon's attack stat":
         newAttack.delete(0, END)
 
 def clearTextDEF(e):
-    if newDefence.get() == 'Pokemons defence stat':
+    if newDefence.get() == "Pokemon's defence stat":
         newDefence.delete(0, END)
 
 def clearTextSAT(e):
-    if newSpecialAttack.get() == 'Pokemons special attack':
+    if newSpecialAttack.get() == "Pokemon's special attack":
         newSpecialAttack.delete(0, END)
 
 def clearTextSDEF(e):
-    if newSpecialDefence.get() == 'Pokemons special defence':
+    if newSpecialDefence.get() == "Pokemon's special defence":
         newSpecialDefence.delete(0, END)
 
 def clearTextHP(e):
-    if newHP.get() == 'Pokemons HP':
+    if newHP.get() == "Pokemon's HP":
         newHP.delete(0, END)
 
 def evolution():
@@ -220,20 +220,28 @@ def evolution():
 def home():
     pygame.mixer.music.stop()
     root.destroy()
-    os.system('Python menu.py')
+    os.system("Python menu.py")
 
 def reset():
-    newPokeName.insert(0, f'Your new pokemons name')
-    var.set('Legendary')
-    var1.set('Type 1')
-    var2.set('Type 2')
-    newHP.insert(0, f'Pokemons HP')
-    newGen.insert(0, f'Pokemons Generation')
-    newAttack.insert(0, f'Pokemons attack stat')
-    newDefence.insert(0, f'Pokemons defence stat')
-    newSpecialAttack.insert(0, f'Pokemons special attack')
-    newSpecialDefence.insert(0, f'Pokemons special defence')
-    newSpeed.insert(0, f'Pokemons Speed')
+    newPokeName.delete(0, END)
+    newPokeName.insert(0, f"Your new Pokemon's name")
+    var.set("Legendary")
+    var1.set("Type 1")
+    var2.set("Type 2")
+    newHP.delete(0, END)
+    newHP.insert(0, f"Pokemon's HP")
+    newGen.delete(0, END)
+    newGen.insert(0, f"Pokemon's Generation")
+    newAttack.delete(0, END)
+    newAttack.insert(0, f"Pokemon's attack stat")
+    newDefence.delete(0, END)
+    newDefence.insert(0, f"Pokemon's defence stat")
+    newSpecialAttack.delete(0, END)
+    newSpecialAttack.insert(0, f"Pokemon's special attack")
+    newSpecialDefence.delete(0, END)
+    newSpecialDefence.insert(0, f"Pokemon's special defence")
+    newSpeed.delete(0, END)
+    newSpeed.insert(0, f"Pokemon's Speed")
 
 
 def createdPokemon():
@@ -320,16 +328,16 @@ def creationFeedback(name, type1, type2, hp, speed, defence, attack, specialDefe
     messagebox.showinfo(                    # Creates an messagebox which shoes all the pokemons stats
         "Your Pokemon was created!",
         (
-            f'Your pokemons name is: {name}\n'
-            f"It's first type is: {type1}\n"
-            f"It's second type is: {type2}\n"
-            f"The pokemons HP is: {hp}\n"
-            f"The pokemons speed is: {speed}\n"
-            f"The pokemons attack is: {attack}\n"
-            f"The pokemons defence is: {defence}\n"
-            f"The pokemons special attack is: {specialAttack}\n"
-            f"The pokemons special defence is: {specialDefence}\n"
-            f"And lastly the pokemons gen is: {gen}"
+            f"Your Pokemon's name is: {name}\n"
+            f"It's First type is: {type1}\n"
+            f"It's Second type is: {type2}\n"
+            f"The Pokemon's HP is: {hp}\n"
+            f"The Pokemon's speed is: {speed}\n"
+            f"The Pokemon's attack is: {attack}\n"
+            f"The Pokemon's defence is: {defence}\n"
+            f"The Pokemon's special attack is: {specialAttack}\n"
+            f"The Pokemon's special defence is: {specialDefence}\n"
+            f"And Lastly the Pokemon's gen is: {gen}"
 
         )
     )

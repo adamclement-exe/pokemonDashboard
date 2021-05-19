@@ -157,6 +157,10 @@ def manual(dev_manual_var):
     lines = file.readlines()
     for line in lines:
         listbox.insert(END, line)
+        if dev_manual_var == "FSNCryo":
+            listbox.config(font=('Courier New', 11, 'bold'))
+        else:
+            listbox.config(font=('times', 11, 'bold'))
 
     #  print(dev_manual_var)
 
