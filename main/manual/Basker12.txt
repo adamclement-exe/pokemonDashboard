@@ -1,29 +1,61 @@
 Basker's Manual
 
-//-----------------------------MENU---------------------------\\
-When starting the program for the first time you'll be greeted with
-great music playing and three buttons to choose from and a menu bar
-which has the music settings. Let's explore these three buttons and
-the menu bar and what they do.
+//----------------------------MENU----------------------------\\
+When starting the program for the first time you'll be greeted with great music playing and three buttons to choose from and a menu bar which has the music settings. Let's explore these three buttons and the menu bar and what they do.
 
-- Start: The start button allows you to continue on with the program
-and makes you go to the launch menu, but we will cover the launch me-
-nu after the menu section.
+- Start: The start button allows you to continue on with the program and makes you go to the launch menu, but we will cover the launch menu after the menu section.
 
-- Devs: The devs button shows you all the people which contributed
-and all the developers who made it possible to make the program.
+- Devs: The devs button shows you all the people which contributed and all the developers who made it possible to make the program.
 
-- Settings: The settings button takes you to the settings window
-where you're able to see all the settings, but we will also visit
-the settings page later.
+- Settings: The settings button takes you to the settings window where you're able to see all the settings, but we will also visit the settings page later.
 
-- Music Menu Bar: At the top left of the window there is a tab
-called Music, when you click on it and a menu bar will also
-pop up with another two options, the first option is,
-'----' this allows you to move the menu bar dynamically and
-under it there is 'Music Settings', when this is clicked it
-will show a messagebox which shows all of the commands for
-the music controls. The music controls are as followed:
-Ctrl+P = pauses the music, Ctrl+U = unpauses the music,
-Ctrl+S = Stops the current completely and lastly
+- Music Menu Bar: At the top left of the window there is a tab called Music, when you click on it and a menu bar will also pop up with another two options, the first option is, '----' this allows you to move the menu bar dynamically and under it there is 'Music Settings', when this is clicked it will show a messagebox which shows all of the commands for the music controls. The music controls are as followed:
+Ctrl+P = pauses the music,
+Ctrl+U = unpauses the music,
+Ctrl+S = Stops the current completely and lastly,
 Ctrl+Right = Skips a song randomly.
+
+//----------------------LAUNCHMENU--------------------\\
+After clicking the start button you'll put into the launch menu here you choose a variety of things to do. But lets start from the bottom and lets work to the top.
+
+- Home, Settings and Help: The home button takes you back to the menu where we just were before we got to the launch menu.
+
+The settings button takes you to the settings page page, but like mentioned before we will revisit the settings page later on.
+
+The help button takes you to the help menu. In the help menu you can find help on how to use the program. But clearly you must of knew what you're doing because you must be reading this now :)
+
+- Add new pokemon: The add new pokemon button allows you too add all the GEN 7 pokemon and to also add any pokemon you wish, we will go into further detail how to make a brand new pokemon later on.
+
+- Pokeballs: When you click on the pokeballs button it will take you to a page where it shows all the pokeballs that are in the anime / games. There 26 pokeballs to choose from, when you pick a pokeball it will open a window and it will you the info about and it's affects on pokemon.
+
+- View all pokemon and Browse pokemon: View all pokemon allows you to view every single pokemon from gen 1 to gen 6 and also any pokemon which you added. Whilst browse pokemon allows you to find specific pokemon by name, type, hp, attack, deference and if there a legendary pokemon or not, speaking of this lets explore this even further.
+
+//-------------------------POKEMONS--------------------------\\
+In this section we will explore browsing the pokemon, viewing all the pokemon, adding a new pokemon and lastly making your pokemon evolve.
+
+- Browse pokemon: After clicking the browse button a new window will open you'll have two options to look for a pokemon, these include: searching by the pokemon name by using the 'Name Search' and pressing the 'Search' button next to it, you dont have to write out the entire pokemons name to find it, if you were to search for greninja you can just type 'gre' and this find any pokemons which has 'gre' in there name. Or you can enter the pokemons type, generation, and if its a legendary. Then you can pick the sorting method, you can sort through many options but here are some examples. Alphabetical, ID and Total. Lastly you can also choose a sort method, this is if you want the pokemons to appear in ascending or descending order.
+
+Now lets see what happens if you press 'Search' button after you find the pokemon, well depending on which way you chose to look through the pokemon you'll have a different experience. If you chose to search by the name you'll have a new window open with the pokemon you search for, for example if you searched for greninja you'll get all of his stats and a picture of him and his types aswell. If you search by only typing half of a pokemons name e.g. 'gre' from greninja it will show three other pokemon, these are Kyogre, KyogrePrimal Kyogre and Greninja. Each of these pokemon had 'gre' inside there name so they are all able to be shown. You can see the next pokemon by clicking the 'Next' arrow or the 'Previous' arrow.
+
+If you searched by setting the type, generation and the legendary of the pokemon then you'll get a new window with all the pokemon which has all the values that you chose. For example if you chose type 1 to be fire, the generation to be 1 and the legendary to be false. Then you'll get every single fire pokemon in gen 1. You can see the next pokemon by clicking the 'Next' arrow or the 'Previous' arrow.
+
+When in the browse section you're able to go back Home, view all the pokemon and go to the help section. When actually browsing a pokemon you're able to go back home.
+
+- View all pokemon: After clicking the view all button a new window will open and the first pokemon you'll see if Bulbasaur, this is because he is the first pokemon by the ID. Each pokemon has there own ID and this represents the way they are shown. You can see the next pokemon by clicking the 'Next' arrow or the 'Previous' arrow, there are over 700 pokemon and each pokemon is unique in there own way.
+
+- Adding a new pokemon: After clicking the add a new pokemon button a new window will open, you'll have do 11 things to create the pokemon. First you have to give your pokemon a name, this can be anything you want except for it being just numbers, then you pick the pokemons two types. You don't have to pick two types you can have only 1. Then you write the pokemons generation, attack stat, HP (Health Points), defence stat, special attack stat, special defence stat and lastly it's speed. All of these values have to be numbers. After all of these fields are filled in you press the 'Create Pokemon' button and your file explorer will open, the reason this happened is because this where you give your pokemon its image. After selecting image a message box will appear and show you all the details of the pokemon. Then you can go to the browse section and search for your pokemon.
+
+If you mess up your values whilst making the pokemon you can reset everything and everything will go back to its original state. You can go back home and make your pokemon evolve.
+
+- After clicking the Config Evo button a new small window will open and you only have to do three things to add the evolution, first the pokemons name and then its evolution name, like before these values can't be only numbers. After you've set those two values press the 'Add' button and your new evolution of the pokemon is added.
+
+//----------------------------HELP----------------------------\\
+In the help menu you find help to any questions you. Each developer has there own manual on how the program works. To select a developer manual click the drop down menu which says 'Dev Manual Select' after this a list of the 8 developer names will appear and you choose which ones you would like to read. If you select Basker12 the box in the middle will update with the text you're reading right now.
+
+From help you're able to go to settings and home.
+
+//-------------------------SETTINGS--------------------------\\
+In the settings page you can turn music off and on. Turning the music will turn it off completely everywhere whilst turning it on it will be as it usually is. You're also able to go back home and go to the help page.
+
+One last thing. Thank you for reading my manual and using our program!
+- T level Group
