@@ -66,7 +66,6 @@ def helpsection():
     root.destroy()
     os.system('python Help_Menu.py')
 
-
 # HEX Colours: #9C9FA5 - Grey | #5778BB - Blue | #DFE2EA - white
 
 Music().musicPlay()

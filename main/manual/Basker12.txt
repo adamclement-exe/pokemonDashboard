@@ -15,7 +15,7 @@ Ctrl+U = unpauses the music,
 Ctrl+S = Stops the current completely and lastly,
 Ctrl+Right = Skips a song randomly.
 
-//----------------------LAUNCHMENU--------------------\\
+//---------------------LAUNCH MENU--------------------\\
 After clicking the start button you'll put into the launch menu here you choose a variety of things to do. But lets start from the bottom and lets work to the top.
 
 - Home, Settings and Help: The home button takes you back to the menu where we just were before we got to the launch menu.
@@ -30,7 +30,7 @@ The help button takes you to the help menu. In the help menu you can find help o
 
 - View all pokemon and Browse pokemon: View all pokemon allows you to view every single pokemon from gen 1 to gen 6 and also any pokemon which you added. Whilst browse pokemon allows you to find specific pokemon by name, type, hp, attack, deference and if there a legendary pokemon or not, speaking of this lets explore this even further.
 
-//-------------------------POKEMONS--------------------------\\
+//-------------------------POKEMONS----------------------\\
 In this section we will explore browsing the pokemon, viewing all the pokemon, adding a new pokemon and lastly making your pokemon evolve.
 
 - Browse pokemon: After clicking the browse button a new window will open you'll have two options to look for a pokemon, these include: searching by the pokemon name by using the 'Name Search' and pressing the 'Search' button next to it, you dont have to write out the entire pokemons name to find it, if you were to search for greninja you can just type 'gre' and this find any pokemons which has 'gre' in there name. Or you can enter the pokemons type, generation, and if its a legendary. Then you can pick the sorting method, you can sort through many options but here are some examples. Alphabetical, ID and Total. Lastly you can also choose a sort method, this is if you want the pokemons to appear in ascending or descending order.
@@ -49,13 +49,13 @@ If you mess up your values whilst making the pokemon you can reset everything an
 
 - After clicking the Config Evo button a new small window will open and you only have to do three things to add the evolution, first the pokemons name and then its evolution name, like before these values can't be only numbers. After you've set those two values press the 'Add' button and your new evolution of the pokemon is added.
 
-//----------------------------HELP----------------------------\\
+//----------------------------HELP-----------------------------\\
 In the help menu you find help to any questions you. Each developer has there own manual on how the program works. To select a developer manual click the drop down menu which says 'Dev Manual Select' after this a list of the 8 developer names will appear and you choose which ones you would like to read. If you select Basker12 the box in the middle will update with the text you're reading right now.
 
 From help you're able to go to settings and home.
 
-//-------------------------SETTINGS--------------------------\\
-In the settings page you can turn music off and on. Turning the music will turn it off completely everywhere whilst turning it on it will be as it usually is. You're also able to go back home and go to the help page.
+//-------------------------SETTINGS-------------------------\\
+In the help menu you're able to go back home and go to help page.
 
 One last thing. Thank you for reading my manual and using our program!
-- T level Group
+- T level Group <3

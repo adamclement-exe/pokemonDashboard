@@ -19,33 +19,12 @@ root.iconphoto(False, iconFile)
 root.minsize(WIDTH, HEIGHT)
 root.maxsize(WIDTH, HEIGHT)
 
-canvas = Canvas(root, height=HEIGHT, width=WIDTH)
-canvas.pack()
+background = PhotoImage(file='formating/helpMenubg2.png')
 
-OuterFrame = Frame(root,
-                   bg='#9c9fa5')
-
-OuterFrame.place(relx=0.5, rely=0.0,
-                 relwidth=1, relheight=1,
-                 anchor='n')
-
-InnerFrame = Frame(root,
-                   bg='#5778bb')
-
-InnerFrame.place(relx=0.5, rely=0.09,
-                 relwidth=0.90, relheight=0.75,
-                 anchor='n')
-
-poke_name = Entry(InnerFrame,
-
-                  bg='#dfe2ea', fg='black',
-
-                  font=70, borderwidth=5)
-
-poke_name.place(relx=0.25, rely=0.105,
-                relwidth=0.5, relheight=0.09)
-
-poke_name.insert(0, f'Name Search')
+canvas = Canvas(root, height=HEIGHT, width=WIDTH, highlightbackground='#9C9FA5')
+canvas.pack(fill='both', expand='True')
+canvas.create_image(0, 0, image=background,
+                    anchor='nw')
 
 listbox = Text(root, wrap=WORD)
 
@@ -67,71 +46,55 @@ listbox.config(yscrollcommand=scrollbar.set)
 # we need to have a vertical view
 scrollbar.config(command=listbox.yview)
 
-OuterFrame = Frame(root,
-                   bg='#9c9fa5')
+#OuterFrame = Frame(root,
+                   #bg='#9c9fa5')
 
-OuterFrame.place(relx=0.5, rely=0.0,
-                 relwidth=1, relheight=1,
-                 anchor='n')
+#OuterFrame.place(relx=0.5, rely=0.0,
+                 #relwidth=1, relheight=1,
+                 #anchor='n')
 
 InnerFrame = Frame(root,
-                   bg='#5778bb')
+                   bg='#F9E1DD')
 
 InnerFrame.place(relx=0.5, rely=0.09,
                  relwidth=0.90, relheight=0.75,
                  anchor='n')
 
-ButtonFrame = Frame(root,
-                    bg='#dfe2ea')
+canvas.create_text(220, 28, text='Menu Help', font=('times', 20, 'bold'))
 
-ButtonFrame.place(relx=0.5, rely=0.87,
-                  relwidth=1, relheight=0.12,
-                  anchor='n')
-
-Pokemon_Browser = Label(root,
-
-                        bg='#9c9fa5', fg='#dfe2ea',
-
-                        font=('times', 11, 'bold'))
-
-Pokemon_Browser.place(relx=0.17, rely=0,
-                      relwidth=0.66, relheight=0.09)
-
-Pokemon_Browser["text"] = f'Help Menu'  # title
-
-home_button = Button(ButtonFrame,
-                     bg='#dfe2ea',
-                     fg='black',
-                     font=('times', 11, 'bold'), borderwidth=4,
+home_button = Button(root,
+                     bg='#9C9FA5',
+                     fg='#5778BB',
+                     font=('times', 12, 'bold'), borderwidth=4,
                      command=lambda: home())  # runs when Home button is clicked
 
-home_button.place(relx=0.11, rely=0.3,
-                  relheight=0.4, relwidth=0.30)
+home_button.place(relx=0.11, rely=0.900,
+                  relheight=0.06, relwidth=0.3)
 
-home_button["text"] = f'Home'
+home_button["text"] = f'HOME'
 
-settings_button = Button(ButtonFrame,
-                     bg='#dfe2ea',
-                     fg='black',
-                     font=('times', 11, 'bold'), borderwidth=4,
+settings_button = Button(root,
+                     bg='#9C9FA5',
+                     fg='#5778BB',
+                     font=('times', 12, 'bold'), borderwidth=4,
                      command=lambda: settings_menu())  # runs when Home button is clicked
 
-settings_button.place(relx=0.55, rely=0.3,
-                  relheight=0.4, relwidth=0.30)
+settings_button.place(relx=0.55, rely=0.900,
+                  relheight=0.06, relwidth=0.3)
 
-settings_button["text"] = f'Settings'
+settings_button["text"] = f'SETTINGS'
 
 
 scrollbar = Scrollbar(InnerFrame,
-                      bg='#5778bb',
+                      bg='white',
                       highlightthickness=0, highlightbackground='#5778bb')
 
 scrollbar.pack(side=RIGHT, fill=BOTH)
 
 listbox = Text(InnerFrame,
                   wrap=WORD,
-                  bg='#5778bb',
-                  fg='white',
+                  bg='#F9E1DD',
+                  fg='black',
                   font=('times', 11, 'bold'), highlightthickness=0, highlightbackground='#5778bb')
 
 listbox.pack(side=LEFT, expand=True, fill=BOTH)
@@ -167,9 +130,9 @@ def manual(dev_manual_var):
 
 dev_manual_menu = OptionMenu(root, dev_manual_var, *dev_manual_choices, command=manual)
 
-dev_manual_menu.config(bg='#9c9fa5', fg='white')  # menu Icon colours
+dev_manual_menu.config(bg='#9C9FA5', fg='#5778BB')  # menu Icon colours
 
-dev_manual_menu["menu"].config(bg='#5778bb', fg='white')  # menu drop down colours
+dev_manual_menu["menu"].config(bg='#9C9FA5', fg='#5778BB')  # menu drop down colours
 
 dev_manual_menu.place(relx=0.025, rely=0.025,
                       relwidth=0.35, relheight=0.04)
@@ -183,7 +146,6 @@ def settings_menu():
     pygame.mixer.music.stop()
     root.destroy()
     os.system('python settings.py')
-
 
 Music().musicPlay()
 Music().musicControls(root)
