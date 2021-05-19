@@ -13,25 +13,42 @@ Home     - This button is available on mostly all of the windows on the program 
            window you see at the very start when you load the program. This just makes it so users don't have to reload
            the code to access certain areas, allowing a continued use of the program.
 
-Next     - When displaying more that one Pokémon the Next button will be selectable. This allows you to scroll through
-	       all Pokémon or any Pokemon which fit the filter requirements. This can be followed up by pressing the
-	       previous button to go one by one through all the different Pokémon.
+Next     - When displaying more that one Pokemon the Next button will be selectable. This allows you to scroll through
+	       all Pokemon or any Pokemon which fit the filter requirements. This can be followed up by pressing the
+	       previous button to go one by one through all the different Pokemon.
 
-Multiple stats are displayed on the Pokémon card, these mean as follows:
+Multiple stats are displayed on the Pokemon card, these mean as follows:
 
-Gen: []  - This is the first generation the Pokémon displayed appeared in, a generation of Pokémon is usually when
-           around about 100 Pokémon are released in a batch at the same time, appearing in a new Pokémon video game
-	       and the Pokémon cards.
+Gen:    [] - This is the first generation the Pokemon displayed appeared in, a generation of Pokemon is usually when
+             around about 100 Pokemon are released in a batch at the same time, appearing in a new Pokemon video game
+	         and the Pokemon cards.
 	   
-Atk: []  - The Attack stat, or informally Physical Attack, partly determines how much damage a Pokémon deals when using
-           a physical move. A physical move is one of the three categories of moves and one of the two that inflict
-           damage.
+Atk:    [] - The Attack stat, or informally Physical Attack, partly determines how much damage a Pokemon deals when using
+             a physical move. A physical move is one of the three categories of moves and one of the two that inflict
+             damage.
 
-Def: []  - Defense determines how much damage a Pokémon will resist when hit by a physical move. The average base
-           Defense for a Pokémon is 70, while the average base Defense for a fully evolved Pokémon is 83.
+Def:    [] - Defense determines how much damage a Pokemon will resist when hit by a physical move. The average base
+             Defense for a Pokemon is 70, while the average base Defense for a fully evolved Pokemon is 83.
 
-HP:  []  - HP, which is short for Hit Points, is a value that determines how much damage a Pokémon can receive. When a
-           Pokémon's HP is completely down to 0, the Pokémon will faint. HP is the most frequently affected stat of them
-           +all, as depleting HP is the key factor in winning a battle.
+HP:     [] - HP, which is short for Hit Points, is a value that determines how much damage a Pokemon can receive. When a
+             Pokemon's HP is completely down to 0, the Pokemon will faint. HP is the most frequently affected stat of
+             them+all, as depleting HP is the key factor in winning a battle.
 
+Sp.Atk: [] - The Special Attack stat, or Sp. Atk and Spcl.Atk for short, partly determines how much damage a Pokemon
+             deals when using a special move.
+
+Sp.Def: [] - The Special Defense stat, or Sp. Def and Spcl.Def for short, partly determines how much damage a Pokemon
+             receives when it is hit with a special move.
+
+Speed:  [] - The Speed stat determines the order of Pokemon that can act in battle. If Pokemon are moving with the same
+             priority, Pokemon with higher Speed at the start of any turn will generally make a move before ones with
+             lower Speed; in the case that two Pokemon have the same Speed, one of them will randomly go first.
+
+Finally, above the stats there is information about the Pokemon.
+
+There is an image of the displayed Pokemon in the center, in the top right of the image there is the image of the type(s)
+of the searched Pokemon, such as a skull which represents Poison for Pokemon like Arbok. Above the Pokemon's Image there
+are 3 boxes, the first text box is the name of the Pokemon, followed by the total of all of the selected Pokemon's stats,
+this is then finished with the ID of the Pokemon. (This is not the Pokedex ID, it's instead the internal ID of the Pokemon
+being displayed.)
 	   
