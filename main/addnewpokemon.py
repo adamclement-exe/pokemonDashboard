@@ -302,7 +302,7 @@ def createdPokemon():
 
     filename = filedialog.askopenfilename(initialdir="/",
                                           title="Select a File",
-                                          filetypes=(("Text files",
+                                          filetypes=((".png files",
                                                       "*.png*"),
                                                      ("all files",
                                                       "*.*")))

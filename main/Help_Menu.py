@@ -130,9 +130,10 @@ scrollbar = Scrollbar(InnerFrame,
 
 scrollbar.pack(side=RIGHT, fill=BOTH)
 
-listbox = Listbox(InnerFrame,
+listbox = Text(InnerFrame,
+                  wrap=WORD,
                   bg='#5778bb',
-                  fg='black',
+                  fg='white',
                   font=('times', 11, 'bold'), highlightthickness=0, highlightbackground='#5778bb')
 
 listbox.pack(side=LEFT, expand=True, fill=BOTH)
@@ -153,7 +154,7 @@ for line in lines:
     listbox.insert(END, line)
 
 def manual(dev_manual_var):
-    listbox.delete(0, END)
+    listbox.delete(1.0, END)
     file = open(f"manual/{dev_manual_var}.txt", "r")
     lines = file.readlines()
     for line in lines:
@@ -164,9 +165,9 @@ def manual(dev_manual_var):
 
 dev_manual_menu = OptionMenu(root, dev_manual_var, *dev_manual_choices, command=manual)
 
-dev_manual_menu.config(bg='#9c9fa5', fg='#5778bb')  # menu Icon colours
+dev_manual_menu.config(bg='#9c9fa5', fg='white')  # menu Icon colours
 
-dev_manual_menu["menu"].config(bg='#5778bb', fg='#dfe2ea')  # menu drop down colours
+dev_manual_menu["menu"].config(bg='#5778bb', fg='white')  # menu drop down colours
 
 dev_manual_menu.place(relx=0.025, rely=0.025,
                       relwidth=0.35, relheight=0.04)
