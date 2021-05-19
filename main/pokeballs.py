@@ -5,8 +5,9 @@ import os
 import pygame
 from musicSettings import Music
 """
-put somewhere that python doesn't like non english words
+:author Squidnugi
 """
+
 
 #pokeball info page
 def info_page(list):
