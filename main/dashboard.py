@@ -24,6 +24,8 @@ from PIL import ImageTk, Image
 global count, r_val
 count = 0
 r_val = {}
+typecolour = '#5778BB'
+
 
 root = Tk()
 
@@ -40,8 +42,8 @@ canvas = Canvas(root, height=HEIGHT, width=WIDTH, bg="#9C9FA5", highlightbackgro
 canvas.pack()
 
 frame = Frame(canvas,
-              bg="#5778BB", highlightbackground="black", highlightthickness=5)
-
+              bg=typecolour, highlightbackground="black", highlightthickness=5)
+#5778BB
 frame.place(relx=0.5, rely=0.10,
             width=385, height=472,
             anchor="n")
@@ -273,12 +275,55 @@ def load():
                 if row[1] == i:
                     r_val[row[1]] = row
             line_count += 1
-
     return r_val
 
+def type_colour(name, load):
+    global r_val
+    if load == True:
+        TYPE = r_val[name][2]
+    else:
+        TYPE = name[2]
+    if TYPE == 'Normal':
+        return '#A8A77A'
+    elif TYPE == 'Fire':
+        return '#EE8130'
+    elif TYPE == 'Water':
+        return '#6390F0'
+    elif TYPE == 'Electric':
+        return '#F7D02C'
+    elif TYPE == 'Grass':
+        return '#7AC74C'
+    elif TYPE == 'Ice':
+        return '#96D9D6'
+    elif TYPE == 'Fighting':
+        return '#C22E28'
+    elif TYPE == 'Poison':
+        return '#A33EA1'
+    elif TYPE == 'Ground':
+        return '#E2BF65'
+    elif TYPE == 'Flying':
+        return '#A98FF3'
+    elif TYPE == 'Psychic':
+        return '#F95587'
+    elif TYPE == 'Bug':
+        return '#A6B91A'
+    elif TYPE == 'Rock':
+        return '#B6A136'
+    elif TYPE == 'Ghost':
+        return '#735797'
+    elif TYPE == 'Dragon':
+        return '#6F35FC'
+    elif TYPE == 'Dark ':
+        return '#705746'
+    elif TYPE == 'Steel':
+        return '#B7B7CE'
+    elif TYPE == 'Fairy':
+        return '#D685AD'
+    else:
+        return '#5778BB'
 
 def set_values():
-    global count, r_val, pokemonPicFile, type1File, type2File
+    global count, r_val, pokemonPicFile, type1File, type2File, typecolour
     # | Id [0] | name [1] | type1 [2] | type2 [3] | Total [4] | hp [5] | Attack [6]
     # | Defense [7] | Sp. Atk [8] | Sp. Def [9] | Speed [10] | Generation [11] | Legendary [12]
     s = open("searches.txt", "r")
@@ -318,6 +363,9 @@ def set_values():
     speedName["text"] = f"Speed: {r_val[name][10]}"
     generationName["text"] = f"Gen: {r_val[name][11]}"
     legendary = r_val[name][12]
+
+    typecolour = type_colour(name, True)
+
 
     if legendary == 'False':  # Creates boolean to avoid errors
         legendary = False
@@ -370,7 +418,6 @@ def set_values():
 
         pokemonPic.place(relx=0.5, rely=0.5,
                          relheight=0.9, relwidth=0.92, anchor="center")
-
     type1File.config(file=f'pokemonTypes/Icon_{r_val[name][2]}.png')
     type1File = type1File.zoom(1)
     type1File = type1File.subsample(3)
@@ -394,7 +441,7 @@ def set_values():
 
 
 def name_set_values():
-    global r_val, pokemonPicFile, type1File, type2File, ss
+    global r_val, pokemonPicFile, type1File, type2File, ss, typecolour
 
     back_button.place(relx=0.0, rely=0.5,
                       relheight=0.9, relwidth=0.3, anchor="w")
@@ -423,6 +470,9 @@ def name_set_values():
     speedName["text"] = f"Speed: {name[10]}"
     generationName["text"] = f"Gen: {name[11]}"
     legendary = name[12]
+
+    typecolour = type_colour(name, False)
+
 
     if legendary == 'False':  # Creates boolean to avoid errors
         legendary = False
@@ -516,4 +566,5 @@ Music().musicControls(root)
 
 run()
 root.mainloop()
+
 # root.wm_attributes("-transparentcolor", 'grey')
