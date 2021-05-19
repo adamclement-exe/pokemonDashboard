@@ -1,7 +1,6 @@
 Basker's Manual
 
-                                                                     |
-//-----------------------------MENU-----------------------------\\
+//-----------------------------MENU---------------------------\\
 When starting the program for the first time you'll be greeted with
 great music playing and three buttons to choose from and a menu bar
 which has the music settings. Let's explore these three buttons and

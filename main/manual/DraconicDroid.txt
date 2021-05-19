@@ -1,1 +1,319 @@
 DraconicDroid's Manual
+
+!!!!!!!!!!!!!!!!!!!!!!DraconicDroid's Manual !!!!!!!!!!!!!!!!!!!!!!
+
+!!!!! Recurring buttons !!!!!
+
+! Home !
+
+The home button allows you to go back to the original main menu
+
+! Settings !
+
+This takes you to the settings menu, this menu allows you to change the font of the Pokemon browser's text
+it also has a home button and a help button
+
+! Help !
+
+The help button takes you to where you currently are
+
+!!!! Menu !!!!
+
+When first opening the Poke Browser you will be greeted
+with a menu providing you with 4 options the options are
+Music, Start, Devs, Settings
+
+!! Music !!
+
+In the top left corner of the screen you will see a music button upon clicking that button two options will appear
+the first option is ---------- upon pressing this button a new music button should popupthis allows you to
+move the music button to your preferred position so it does not get in the way of your pokemon searching.
+
+The second button and the button on your new movable music menu tells you the shortcuts for the music itself
+all of the short cuts are detailed there but i will also put them here for convenience sake the shortcuts are
+as follows:
+
+CTRL + P = Pauses the music
+CTRL + U = Unpauses the music
+CTRL + S = Stops the current song completely (song won't play any more even if you unpause it)
+CTRL + Right = Skips current song
+
+!! Start !!
+
+The Start button as expected takes you to the next menu, the launch menu, which i will go into more detail further down
+the manual
+
+!! Devs !!
+
+The Devs button takes you to a menu with all our names on it! this credits everyone who worked on the project
+
+!!!! Launch Menu !!!!
+
+as i stated previously the Start button takes you to the launch menu.
+Inside the launch menu there are 7 different buttons,
+3 of those are the recurring buttons Home, Settings And Help
+the 4 other buttons are as follows:
+
+!! Browse Pokemon !!
+
+This button takes you to the main attraction of the pokemon browser
+the Pokemon Index Finder The actual pokemon browser itself,
+which i will go into more detail further down the manual
+as it is one of the main menus of the project
+
+!! View All Pokemon !!
+
+The View All Pokemon button allows you to browse every single pokemon in the
+pokemon browser they are all sorted by their individual ID
+
+!! PokeBalls !!
+
+This button takes you to the PokeBalls Browser this shows you every
+pokeball with a description and tells you what generation they are from
+and the catch rate of every pokeball also inside the menu is another home button
+
+!! Add New Pokemon !!
+
+This button takes you to a menu where you can add your very own pokemon!
+which i will go into further detail later in the manual as there are a lot of options in this menu
+
+!!!! Pokemon Index Finder !!!!
+
+The Pokemon Index finder menu is the main attraction of the Poke browser
+as it allows you to search for the specific (or not so specific) Pokemon
+you desire to find, inside this menu there are 2 of the recurring buttons Home And Help.
+and alongside those there are also 1 search bar 6 drop down menus and 4 buttons (not counting recurring)
+
+!! Search Bar and Button !!
+
+First is the search bar and button i will be doing both at the same time as they are directly connected.
+The Search Bar allows you to write the name of the pokemon you are currently searching for and it will find it
+
+!! Type 1 and Type 2 !!
+
+The Type 1 and Type 2 buttons allow you to choose what types you want to search for.
+we have included every single pokemon type that currently appears in the game and shows
+this allows your pokemon searching to be as accurate as possible
+
+!! Generation !!
+
+This allows you to search for the generation of pokemon the pokemon you're search for is in.
+Currently it only goes up to generation 6 of the pokemon games and the show
+
+!! Legendary !!
+
+This asks if you want to display only legendary pokemon or if you want
+no legendary pokemon to appear this makes searching for that one specific pokemon easier
+
+!! Sort !!
+
+This allows you to sort the list of pokemon you are searching for so you can sort it
+alphabetically which will of course go down the alphabet or you can do a specific stat
+such as health, attack, defence, ect
+
+!! Sort Method !!
+
+This allows you to choose what sort you want, which could be ascending so lowest to highest
+or descending which is highest to lowest default is ascending
+
+!! Reset !!
+
+This allows you to reset all the field of the pokemon search you are currently doing.
+This returns all fields of the poke browser to default state.
+
+!! View All !!
+
+This button takes you to the previously mentioned view all pokemon which
+shows you every pokemon in the poke browser as sorted by their id in ascending order
+
+!!!! DashBoard !!!!
+
+The DashBoard is the face of the pokemon browser as it displays the pokemon you've searched for
+it also contains the home recurring button this includes the image of the pokemon the image of
+the pokemon types and so much more which i will now explain
+
+!! Pokemon Name !!
+
+The pokemon name is displayed on the top left corner the mega evolution have the pokemon name Mega
+and the pokemon name again
+
+!! Total !!
+
+This is the total of all the stats of the pokemon you are currently looking at this is a good way to
+find the pokemon with the highest stats
+
+!! ID !!
+
+The ID is the index number the pokedex assigned to each pokemon in the games and show
+
+!! Atk, Def, HP, Sp.Atk, Sp.Def, Speed !!
+
+these are the stats of the pokemon you are currently looking at. those stats being
+Attack, Defence, Hit Points(Health), Special Attack, Special Defence, Speed
+
+!! Previous Button !!
+
+Allows you to cycle to the previous pokemon in the list this is affected by the
+sort order mentioned earlier in the manual
+
+!! Next Button !!
+
+Allow you to cycle to the next pokemon on the list this is affected by the
+sort order mentioned earlier in the manual
+
+!!!! Add New Pokemon !!!!
+
+The add new pokemon menu gives you the ability to add your very own pokemon
+to the poke browser this also allows you to search for it later on using the
+Pokemon Index Finder. This menu has 8 text boxes 3 drop down menus and 3 unique buttons and 1 recurring one
+the recurring button is the Home button
+
+!! Your pokemon name !!
+
+This allows you to enter your very own unique pokemon name for your very own pokemon
+
+!! Type 1 and Type 2 !!
+
+This allows you to give your new pokemon whatever type or types you want it to have
+includes all current pokemon types
+
+!! Pokemon Generation !!
+
+This allows you to assign your pokemon to whatever generation you want (goes up to whatever number you want)
+
+!! Pokemon Attack Stat !!
+
+Gives you the option to give your new pokemon whatever attack stat you want
+
+!! Pokemon HP !!
+
+Allows you to choose the HP of your new pokemon
+
+!! Pokemon Defence Stat !!
+
+Choose your new Pokemon's defence stat which can be as ridiculous as you want
+
+!! Pokemon Special Attack !!
+
+Allows you to choose whatever special attack stat you want for your new pokemon
+
+!! Pokemon Speed !!
+
+Gives you the chance to choose the speed of your new pokemon
+
+!! Pokemon Special Defence !!
+
+Allows you to pick the special defence of your new pokemon
+
+!! Legendary !!
+
+Allows you to choose whether your new pokemon will join
+the ranks of the legendary pokemon which is a simple boolean drop down menu (True or False)
+
+!! Create Pokemon !!
+
+This Button will add your new pokemon into the csv file allowing you to search for it using
+the Pokemon Index Finder(PokeBrowser) so now your pokemon is hopefully permanently in there
+
+!! Reset !!
+
+This allows you to reset the fields you filled in to create your new pokemon allowing you
+to start from scratch and continue making new pokemon
+
+!! Config Evo !!
+
+This new menu allows you to make your new pokemon evolutions of each other allowing you more
+tools to make the pokemon browser you want to have
+
+!!!!!!!! CREDITS !!!!!!!!
+
+!!!! MENU !!!!
+
+Basker12
+FSNCryo
+PointlessQuack
+Madmegsox1
+
+!!!! POKEMON INDEX FINDER(POKEBROWSER) !!!!
+
+FSNCryo
+Basker12
+PointlessQuack
+Hiddenmaask
+
+!!!! Launch Menu !!!!
+
+PointlessQuack
+Basker12
+
+!!!! Help Menu !!!!
+
+PointlessQuack
+FSNCryo
+Hiddenmaask
+
+!!!! Dashboard !!!!
+
+FSNCryo
+Hiddenmaask
+Madmegsox1
+Basker12
+PointlessQuack
+
+!!!! Music !!!!
+
+Basker12
+Hiddenmaask
+
+!!!! Settings !!!!
+
+Basker12
+DraconicDroid
+PointlessQuack
+FSNCryo
+
+!!!! PokeBalls !!!!
+
+Squidnugi
+Basker12
+
+!!!! PokeBalls CSV !!!!
+
+Squidnugi
+
+!!!! Pokemon CSV file !!!!
+
+Basker12
+FSNCryo
+PointlessQuack
+Madmegsox1
+
+!!!! Pokemon Pictures !!!!
+
+PointlessQuack
+DraconicDroid
+FSNCryo
+Squidnugi
+
+!!!! Pokemon Type Pictures !!!!
+
+FSNCryo
+Hiddenmaask
+
+!!!! Util !!!!
+
+Madmegsox1
+
+!!!! This Manual !!!!
+
+Me! DraconicDroid!
+
+!!!!!! This Entire Project !!!!!!
+
+Basker12
+FSNCryo
+PointlessQuack
+Madmegsox1
+Hiddenmaask
+Squidnugi
+DraconicDroid

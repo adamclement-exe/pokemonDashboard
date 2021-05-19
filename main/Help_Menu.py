@@ -2,7 +2,11 @@ try:
     from Tkinter import *
 except ImportError:
     from tkinter import *
+from tkinter import WORD
 import os
+import pygame
+from musicSettings import Music
+
 root = Tk()
 root.title('Pokemon Index Finder')
 
@@ -12,8 +16,8 @@ WIDTH = 405  # 405
 iconFile = PhotoImage(file='formating/ball.png') # Icon image
 root.iconphoto(False, iconFile)
 
-root.minsize(WIDTH, HEIGHT)
-root.maxsize(WIDTH, HEIGHT)
+#root.minsize(WIDTH, HEIGHT)
+#root.maxsize(WIDTH, HEIGHT)
 
 canvas = Canvas(root, height=HEIGHT, width=WIDTH)
 canvas.pack()
@@ -31,7 +35,6 @@ InnerFrame = Frame(root,
 InnerFrame.place(relx=0.5, rely=0.09,
                  relwidth=0.90, relheight=0.75,
                  anchor='n')
-###
 
 poke_name = Entry(InnerFrame,
 
@@ -44,7 +47,7 @@ poke_name.place(relx=0.25, rely=0.105,
 
 poke_name.insert(0, f'Name Search')
 
-listbox = Text(root, wrap=NONE)
+listbox = Text(root, wrap=WORD)
 
 listbox.pack(side=LEFT, fill=BOTH)
 
@@ -63,8 +66,6 @@ listbox.config(yscrollcommand=scrollbar.set)
 # to listbox.yview method its yview because
 # we need to have a vertical view
 scrollbar.config(command=listbox.yview)
-
-###
 
 OuterFrame = Frame(root,
                    bg='#9c9fa5')
@@ -108,9 +109,6 @@ home_button.place(relx=0.11, rely=0.3,
                   relheight=0.4, relwidth=0.30)
 
 home_button["text"] = f'Home'
-
-
-
 
 settings_button = Button(ButtonFrame,
                      bg='#dfe2ea',
@@ -172,16 +170,17 @@ dev_manual_menu["menu"].config(bg='#5778bb', fg='white')  # menu drop down colou
 dev_manual_menu.place(relx=0.025, rely=0.025,
                       relwidth=0.35, relheight=0.04)
 
-
-
-
-
 def home():
+    pygame.mixer.music.stop()
     root.destroy()
     os.system('python menu.py')
 
 def settings_menu():
+    pygame.mixer.music.stop()
     root.destroy()
     os.system('python settings.py')
 
+
+Music().musicPlay()
+Music().musicControls(root)
 root.mainloop()
