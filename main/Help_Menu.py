@@ -2,7 +2,11 @@ try:
     from Tkinter import *
 except ImportError:
     from tkinter import *
+from tkinter import WORD
 import os
+import pygame
+from musicSettings import Music
+
 root = Tk()
 root.title('Pokemon Index Finder')
 
@@ -31,7 +35,6 @@ InnerFrame = Frame(root,
 InnerFrame.place(relx=0.5, rely=0.09,
                  relwidth=0.90, relheight=0.75,
                  anchor='n')
-###
 
 poke_name = Entry(InnerFrame,
 
@@ -44,7 +47,7 @@ poke_name.place(relx=0.25, rely=0.105,
 
 poke_name.insert(0, f'Name Search')
 
-listbox = Text(root, wrap=NONE)
+listbox = Text(root, wrap=WORD)
 
 listbox.pack(side=LEFT, fill=BOTH)
 
@@ -63,8 +66,6 @@ listbox.config(yscrollcommand=scrollbar.set)
 # to listbox.yview method its yview because
 # we need to have a vertical view
 scrollbar.config(command=listbox.yview)
-
-###
 
 OuterFrame = Frame(root,
                    bg='#9c9fa5')
@@ -109,9 +110,6 @@ home_button.place(relx=0.11, rely=0.3,
 
 home_button["text"] = f'Home'
 
-
-
-
 settings_button = Button(ButtonFrame,
                      bg='#dfe2ea',
                      fg='black',
@@ -130,9 +128,10 @@ scrollbar = Scrollbar(InnerFrame,
 
 scrollbar.pack(side=RIGHT, fill=BOTH)
 
-listbox = Listbox(InnerFrame,
+listbox = Text(InnerFrame,
+                  wrap=WORD,
                   bg='#5778bb',
-                  fg='black',
+                  fg='white',
                   font=('times', 11, 'bold'), highlightthickness=0, highlightbackground='#5778bb')
 
 listbox.pack(side=LEFT, expand=True, fill=BOTH)
@@ -153,34 +152,39 @@ for line in lines:
     listbox.insert(END, line)
 
 def manual(dev_manual_var):
-    listbox.delete(0, END)
+    listbox.delete(1.0, END)
     file = open(f"manual/{dev_manual_var}.txt", "r")
     lines = file.readlines()
     for line in lines:
         listbox.insert(END, line)
+        if dev_manual_var == "FSNCryo":
+            listbox.config(font=('Courier New', 11, 'bold'))
+        else:
+            listbox.config(font=('times', 11, 'bold'))
 
     #  print(dev_manual_var)
 
 
 dev_manual_menu = OptionMenu(root, dev_manual_var, *dev_manual_choices, command=manual)
 
-dev_manual_menu.config(bg='#9c9fa5', fg='#5778bb')  # menu Icon colours
+dev_manual_menu.config(bg='#9c9fa5', fg='white')  # menu Icon colours
 
-dev_manual_menu["menu"].config(bg='#5778bb', fg='#dfe2ea')  # menu drop down colours
+dev_manual_menu["menu"].config(bg='#5778bb', fg='white')  # menu drop down colours
 
 dev_manual_menu.place(relx=0.025, rely=0.025,
                       relwidth=0.35, relheight=0.04)
 
-
-
-
-
 def home():
+    pygame.mixer.music.stop()
     root.destroy()
     os.system('python menu.py')
 
 def settings_menu():
+    pygame.mixer.music.stop()
     root.destroy()
     os.system('python settings.py')
 
+
+Music().musicPlay()
+Music().musicControls(root)
 root.mainloop()

@@ -49,28 +49,6 @@ help_button = Button(root, text='Help', font=('times', 12, 'bold'), borderwidth=
 help_button.place(relx=0.55, rely=0.900,
                   relheight=0.075, relwidth=0.35)
 
-OPTIONS = [
-    'Times',
-    'Comic sans MS',
-    'Helvetica',
-    'Garamond'
-]  # list with fonts
-
-variable = StringVar(root)
-variable.set(OPTIONS[0])
-
-
-def callback(selection):
-    font_drop.config(font=(selection, 12, 'bold'))
-    help_button.config(font=(selection, 12, 'bold'))
-    home_button.config(font=(selection, 12, 'bold'))
-
-
-font_drop = OptionMenu(root, variable, *OPTIONS, command=callback)  # drop down menu for fonts
-font_drop.config(bg='#9C9FA5', fg='#5778BB', font=('times', 12, 'bold'))
-font_drop.place(relx=0.33, rely=0.750,
-                relheight=0.075, relwidth=0.35)  # places drop down menu
-
 titleImage = PhotoImage(file='formating/settingsLogo.png')
 titleImage = titleImage.zoom(2)
 titleImage = titleImage.subsample(3)

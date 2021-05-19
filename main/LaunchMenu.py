@@ -110,6 +110,7 @@ def settingsMenu():
     os.system('python settings.py')
 
 def ViewAll(self=None):
+    pygame.mixer.music.stop()
     searches = open("searches.txt", "w")
     searches.write('All,All,All,All,id,True,')
     searches.close()

@@ -1,1 +1,162 @@
-FSNCryo's Manual
+                           FSNCryo's Manual                          
+---------------------------------------------------------------------
+INDEX
+
+- Key-Bindings ( Music ) -          2-7
+
+- Launch Menu -                     12-150
+- - Browse Pokemon  - -             12-97
+- - View All Pokemon - -            100-102
+- - Poke-Balls - -                  105-108
+- - Add New Pokemon - -             111-150
+
+1  |
+2  | - | Key-Bindings ( Music ) | -
+3  |
+4  | L-Control + S -->  stopMusic
+5  | L-Control + P -->  pauseMusic
+6  | L-Control + U -->  unpauseMusic
+7  | L-Control + Right -->  skipMusic
+8  |
+9  |
+10 |
+11 |
+12 | - | Browse Pokemon | -
+13 |
+14 |
+15 | - - | Name Search | - -
+16 |
+17 | Searches ALL Pokemon which Include the Characters in the Search
+18 |
+19 | EG: Input: at
+20 | Output: Caterpie, Rattata, Raticate, ECT
+21 |
+22 | - - | Filter Search | - -
+23 |
+24 |
+25 | Allows you to enter values to refract from a list of ALL Pokemon.
+26 |
+27 | EG:
+28 | Type 1: Normal
+29 | Gen: 2
+30 | Returns Pokemon that ONLY Include the categories entered.
+31 |
+32 | ~ Type 1 and Type 2: ~
+33 |
+34 | Select the Pokemon's Type
+35 |
+36 | EG:
+37 | Type one as: Fire
+38 | Type two as: None
+39 |
+40 | This will mean that the Search will only look for Pokemon that have Type 1 as: Fire and Type 2 as: None
+41 |
+42 | Leaving Type 1 and/or Type 2 Blank, will Include ALL Types
+43 |
+44 | Enter Types Combinations That Don't Exist on ANY Pokemon will Output NULL
+45 |
+46 | ~ Generation: ~
+47 |
+48 | Select the Pokemon's Generation
+49 |
+50 | EG: the Pokemon Heatmor has
+51 | Generation as: 5
+52 |
+53 | ~ Legendary: ~
+54 |
+55 | Select if the Pokemon(s) you are searching for are Legendary or Not.
+56 |
+57 | If True it will find ONLY Legendary Pokemon.
+58 | If False it will find ONLY Non Legendary Pokemon.
+59 | If BLANK it will find BOTH.
+60 |
+61 | EG the pokemon Mewtwo has
+62 | Legendary as: True
+63 |
+64 | ~ Sort: ~
+65 |
+66 | Choose how you want your List of Pokemon Sorted.
+67 |
+68 | EG: Alphabetical
+69 |
+70 | This will Sort the Pokemon Alphabetically
+71 |
+72 | If left BLANK it will sort the Pokemon through ID
+73 |
+74 | ~ Sort Method: ~
+75 |
+76 | EG: Sort: Alphabetical, Sort Method: Descending
+77 |
+78 | This will Sort the Pokemon Alphabetically From Z-A
+79 |
+80 | ~ Reset: ~
+81 |
+82 | Upon Clicking, ALL Values entered into Either Search will be Reset to their Default Values
+83 | EG:
+84 | Before: Type 1: Fire
+85 | After: Type 1: Type 1
+86 |
+87 | ~ View All: ~
+88 |
+89 | Upon Clicking, All Pokemon Will be Displayed.
+90 |
+91 | ~ Home: ~
+92 |
+93 | Upon Clicking, Returns User to Start Menu
+94 |
+95 | ~ Help: ~
+96 |
+97 | Brings You HERE!
+98 |
+99 |
+100| - | View All Pokemon | -
+101|
+102| Upon Clicking, All Pokemon Will be Displayed.
+103|
+104|
+105| - | PokeBalls | -
+106|
+107| Clicking on any PokeBall will display info on that PokeBall.
+108| Clicking Home will bring you back to the Start Menu
+109|
+110|
+111| - | Add New Pokemon | -
+112|
+113| Allows you to add your own Pokemon.
+114|
+115| Enter The Details of the Pokemon you would like to create.
+116|
+117| Click the 'Create Pokemon' Button.
+118|
+119| It will then Prompt you to add a Picture of the Pokemon you are adding.
+120|
+121| Once completed, try Searching for your Pokemon in Name Search.
+122|
+123| ~ Reset: ~
+124|
+125| Upon Clicking, ALL Values entered into Either Search will be Reset to their Default Values
+126| EG:
+127| Before: Type 1: Fire
+128| After: Type 1: Type 1
+129|
+130| ~ Home: ~
+131|
+132| Upon Clicking, Returns User to Start Menu
+133|
+134| ~ - Config Evo: - ~
+135|
+136| Opens Window which will Allow you to connect Two PRE EXISTING Pokemon together through an evolution.
+137|
+138| EG:
+139| Pokemon 1: Xerneas
+140| Pokemon 2| Malamar
+141|
+142| Clicking 'Add' Will for example, Make Malamar an Evolution of Xerneas.
+143|
+144| ~ Back: ~
+145|
+146| Upon Clicking, will Bring you Back to the Add New Pokemon Page.
+147|
+148| ~ Home: ~
+149|
+150| Upon Clicking, Returns User to Start Menu
