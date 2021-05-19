@@ -63,15 +63,10 @@ legendFrame.place(relx=0.5, rely=0.18,
 # if legendary == 0:
 #    legendFrame.config(bg="#9C9FA5", highlightbackground="black", highlightthickness=0)
 
-browserTitle = Label(root,
-                     fg="#000000",
-                     bg="#9C9FA5",
-                     font=("times", 30, "bold"))
-
-browserTitle.place(relx=0.08, rely=0.01,
-                   width=350, height=50)
-
-browserTitle["text"] = "Pokémon Browser"
+logo = PhotoImage(file='formating/pokeBrowserLogo.png')
+logo = logo.zoom(2)
+logo = logo.subsample(3)
+canvas.create_image(200, 35, image=logo)
 
 pokeName = Label(root,
                  bg="#2E4053",
@@ -105,22 +100,6 @@ HPName = Label(root,
 HPName.place(relx=0.72, rely=0.65,
              relwidth=0.2, relheight=0.05)
 
-# type1Pic.place(relx=0.5, rely=0.5,
-# relheight=0.9, relwidth=0.92, anchor="center")
-"""
-type1Name = Label(root,
-                  bg="#2E4053",
-                  fg="#DFE2EA",
-                  font=("times", 11, "bold"))
-type1Name.place(relx=0.08, rely=0.56,
-                relwidth=0.2, relheight=0.05)
-type2Name = Label(root,
-                  bg="#2E4053",
-                  fg="#DFE2EA",
-                  font=("times", 11, "bold"))
-type2Name.place(relx=0.72, rely=0.56,
-                relwidth=0.2, relheight=0.05)
-"""
 generationName = Label(root,
                        bg="#2E4053",
                        fg="#DFE2EA",
@@ -168,9 +147,6 @@ speedName = Label(root,
 
 speedName.place(relx=0.72, rely=0.75,
                 relwidth=0.2, relheight=0.05)
-
-# type1IconFile = PhotoImage(file="formating/PokemonTypes.PNG")  # Icon1 image    CHANGE THIS TO INDIVIDUAL TYPES
-# type2IconFile = PhotoImage(file="formating/PokemonTypes.PNG")  # Icon2 image
 
 backButtonFile = PhotoImage(file="formating/Previous.PNG")  # Back Button image
 
