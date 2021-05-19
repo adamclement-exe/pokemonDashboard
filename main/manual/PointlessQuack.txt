@@ -1,1 +1,76 @@
 PointlessQuack's Manual
+
+
+##Home Page##
+
+This is the first page you see when the program loads.
+It has 3 options:
+
+Start - this takes you to the launch menu.
+
+Devs - this opens a pop-up that displays the names of the developers
+
+Settings - this takes you to the settings page.
+
+Home - The home button on each of the different pages will take you to the Home page that is first seen when the program loads.
+
+
+##Music Controls##
+The music controls pop-up provides you with the different ways in which you can control the music.
+Pressing Ctrl+P pauses the current song.
+Pressing Ctrl+U unpauses the current song.
+Pressing Ctrl+S stops the current song.
+Pressing 0Ctrl+Right arrow key skips the current song.
+
+
+##Launch Menu##
+
+This menu allows you to launch the other parts of the program.
+It has 7 options:
+
+These options are: Browse Pokemon, View all Pokemon, Pokeballs, Add new Pokemon, Home, Settings and Help
+
+##Browse Pokemon##
+this opens the pokemon browser and allows for the easy searching and filtering of Pokemon.
+
+You have multiple options that can be used to search:
+
+Name search - enter the name
+
+Type 1 - select a type 1 to filter by
+
+Type 2 - select a type 2 to filter by
+
+Generation - select a generation to filter by
+
+Legendary - filter by whether the pokemon is legendary or not
+
+Sort - choose an attribute to sort by
+
+Sort Method - choose whether to sort in ascending or descending order
+
+Once finished, click the search button to view your pokemon. The top search button is used to search the name and the bottom search button is used to apply any filters.
+
+If you want to apply different filters, you can click reset to clear the current selections and set it back to default.
+
+View all pokemon - see below
+
+
+##View All Pokemon##
+This loads the full Pokedex which contains all the pokemon.
+The Pokedex is what shows you your Pokemon. It shows a picture of the Pokemon, the type of Pokemon, the Pokemon's name and any statistics related to the Pokemon
+
+
+##Pokeballs##
+This opens a page that describes all the different types of Pokeballs.
+Simply click on the Pokeball you want to know about and it'll provide you with information about it!
+
+
+##Add new Pokemon##
+This allows you to add a new pokemon, adding it's name, characteristics and statistics.
+It will then open a pop-up which allows you to assign a picture to the new Pokemon.
+
+The reset button will clear all inputs and the config evo button will allow you to tell us it's evolutions.
+Simply enter the Pokemon's name and then it's evolution and click add.
+
+The back button will take you back to the add pokemon page.
