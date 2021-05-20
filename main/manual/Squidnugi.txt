@@ -1,7 +1,15 @@
 Squidnugi's Manual
 
-#context will be given just a reminder for me
-Layout(
+Just a warning but python does not like non english words so somtimes pokemon names comes out weird
+
+PokeBallDex:
+
+The system is simple click on a ball and a window will pop up with it's info.
+The info you get is it's name, picture, the generation it comes from, the Catch Rate Modifier, the Additional Effect if it has it and, it's Description.
+Press the home button to go back to the home page and all windows will close
+To close the windows without going home press the close button at the top right but that will close the entire program and that goes for all pages but the ball info page
+
+This is the layout that will come up
 Name:
 <ball_name>
 <ball_image>
@@ -13,4 +21,5 @@ Additional Effect:
 <Additional_Effect>
 Description:
 <Description>
-)
+
+Once opened the info window will stay open.
