@@ -36,16 +36,22 @@ class run:
         stats = open("pokemon data.txt", "w")
         r_val = {}
         count = 0
-        for i in pokename_var:
-            i = list(i.values())
-            r_val[i[1]] = i
+        if pokename_var != 0:
+            for i in pokename_var:
+                i = list(i.values())
+                r_val[i[1]] = i
 
-            count += 1
+                count += 1
 
-        stats.write(str(r_val))
-        stats.close()
-        searches.close()
-        os.system('python dashboard.py')
+            stats.write(str(r_val))
+            stats.close()
+            searches.close()
+
+            return len(r_val)
+        else:
+            return 0
+
+
 
     def refract_search(self):
         s = open("searches.txt", "r")
@@ -76,10 +82,14 @@ class run:
         a = util.search()
         a = a.getList(stats_var, AorD_var, [type1_var, type2_var, gen_var, Legendary_var])  # filtered search
         names = open("pokemon data.txt", "w")
-        for i in a:
-            names.write(i)
-            names.write(",")
-        names.close()
-        os.system('python dashboard.py')
+
+        if a != 0:
+            for i in a:
+                names.write(i)
+                names.write(",")
+            names.close()
+            return len(a)
+        else:
+            return 0
 
 run()

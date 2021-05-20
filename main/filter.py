@@ -1,6 +1,8 @@
 """
 :author FSNCryo
 """
+import asyncio
+
 try:
     from Tkinter import *
 except ImportError:
@@ -234,7 +236,15 @@ reset_button.place(relx=0.1, rely=0.825,
 
 reset_button["text"] = f'Reset'
 
+results_box = Text(root,
+                   bg='red',
+                   fg='white',
+                   font=('times', 11, 'bold'), borderwidth=4,)
 
+results_box.place(relx=0.25, rely=0.31,
+                  relheight=0.04, relwidth=0.50)
+
+results_box.place_forget()
 def help():
     pygame.mixer.music.stop()
     root.destroy()
@@ -254,9 +264,24 @@ def name_search(poke_name, self=None):
         searches = open("pokemon data.txt", "w")
         searches.write(f"{str(poke_name)},")
         searches.close()
-        pygame.mixer.music.stop()
-        root.destroy()
-        run.name_search(self)
+
+
+        results = run.name_search(self)
+
+        results_box.place(relx=0.32, rely=0.31,
+                          relheight=0.04, relwidth=0.35)
+        results_box.delete(1.0, END)
+
+        if results != 0:
+            #results_box.configure(bg='green')
+            #results_box.insert(END, ('Results Found: ' + str(results)))
+            pygame.mixer.music.stop()
+            root.destroy()
+            os.system('python dashboard.py')
+        else:
+            results_box.configure(bg='red')
+            results_box.insert(END, ('Results Found: ' + str(results)))
+            return
 
 
 def search(type1_var, type2_var,
@@ -342,10 +367,26 @@ def search(type1_var, type2_var,
                 searches.write((","))
                 continue
     searches.close()
-    pygame.mixer.music.stop()
-    root.destroy()
 
-    run.refract_search(self)
+    #root.destroy()
+
+    results = run.refract_search(self)
+
+    results_box.place(relx=0.32, rely=0.31,
+                      relheight=0.04, relwidth=0.35)
+    results_box.delete(1.0, END)
+
+    if results != 0:
+        #results_box.configure(bg='green')
+        #results_box.insert(END, ('Results Found: '+str(results)))
+        pygame.mixer.music.stop()
+        root.destroy()
+        os.system('python dashboard.py')
+    else:
+        results_box.configure(bg='red')
+        results_box.insert(END, ('Results Found: '+str(results)))
+        return
+
 
 
 def view_all(self=None):
@@ -357,8 +398,9 @@ def view_all(self=None):
     run.refract_search(self)
 
 def reset():
-    AorD_var.set('Sort')
-    stats_var.set('Stats')
+    results_box.place_forget()
+    AorD_var.set('Sort Method')
+    stats_var.set('Sort')
     Legendary_var.set('Legendary')
     gen_var.set('Generation')
     type2_var.set('Type 2')

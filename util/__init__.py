@@ -154,7 +154,7 @@ class search:
         for i in range(len(list)):
             if (list[i] == "All") or (list[i] is None): continue
             if r_val == 0:
-                return None
+                return 0
             r_val = self.instance.refactor_list(r_val, type_list[i], list[i])
 
             #  ( code to make Alphabetical sorts possible )

@@ -171,8 +171,8 @@ home_button = Button(bottomBar,
 
                      command=lambda: home_button_push())  # on_button_push() Runs When a BUTTON is Pushed
 
-home_button.place(relx=0.35, rely=0.5,
-                  relheight=0.9, relwidth=0.3, anchor="w")
+home_button.place(relx=0.376, rely=0.25,
+                  relheight=0.45, relwidth=0.24, anchor="w")
 
 nextButtonFile = PhotoImage(file="formating/Next.PNG")  # next Button image
 
@@ -186,6 +186,17 @@ next_button = Button(bottomBar,
 
 next_button.place(relx=0.7, rely=0.5,
                   relheight=0.9, relwidth=0.3, anchor="w")
+
+return_button = Button(bottomBar,
+                       bg="#DFE2EA",
+                       fg="black",
+                       font=('times', 11, 'bold'), borderwidth=4,
+                       command=lambda: return_button_push())  # runs when Home button is clicked
+
+return_button.place(relx=0.376, rely=0.75,
+                    relheight=0.45, relwidth=0.24, anchor="w")
+
+return_button["text"] = f'Back'
 
 pokemonPicFile = PhotoImage(file=f"Pokemon Pictures/abra.png")
 ss = PhotoImage(file=f"Pokemon Pictures/abra.png")
@@ -236,7 +247,7 @@ def run():
 
 
 def load():
-    #pokemon = "Pokemon.csv"
+    # pokemon = "Pokemon.csv"
     name = open("pokemon data.txt", "r")
     var = name.readline()
     name.close()
@@ -256,7 +267,6 @@ def load():
         AorD_var = False
     elif AorD_var == "True":
         AorD_var = True
-
 
     for i in var:
         line_count = 0
@@ -342,10 +352,10 @@ def set_values():
     try:
         bg.GenBackground(f"Pokemon Pictures/{r_val[name][1].lower()}.png", "formating/pokeBackShadow.png")
         ss = PhotoImage(file='bg.png')
-        #backLabelImage = Label(legendFrame, image=ss)
-        #backLabelImage.place(relx=0.5, rely=0.5,
+        # backLabelImage = Label(legendFrame, image=ss)
+        # backLabelImage.place(relx=0.5, rely=0.5,
         #                 relheight=0.9, relwidth=0.92, anchor="center")
-        #backLabelImage.pack()
+        # backLabelImage.pack()
         pokemonPicFile.config(file=f'bg.png')
         pokemonPicFile = pokemonPicFile.zoom(7)  # Resizes images
         pokemonPicFile = pokemonPicFile.subsample(3)
@@ -360,7 +370,6 @@ def set_values():
     except Exception as e:
         # pokemonPicFile = pokemonPicFile.zoom(2)  # Resizes images
         # pokemonPicFile = pokemonPicFile.subsample(1)
-        print(e)
         pokemonPicFile.config(file='Pokemon Pictures/missing-image.png')
         pokemonPicFile = pokemonPicFile.zoom(2)  # Resizes images
         pokemonPicFile = pokemonPicFile.subsample(3)
@@ -392,7 +401,6 @@ def set_values():
                    relheight=0.10, relwidth=0.07, anchor="center")
 
 
-
 def name_set_values():
     global r_val, pokemonPicFile, type1File, type2File, ss
 
@@ -406,7 +414,6 @@ def name_set_values():
 
     if count == 0:
         back_button.place_forget()
-
 
     data = open("pokemon data.txt", "r")
     name = data.readline()
@@ -490,6 +497,7 @@ def name_set_values():
     type2Pic.place(relx=0.83, rely=0.11,
                    relheight=0.10, relwidth=0.07, anchor="center")
 
+
 def home_button_push():
     pygame.mixer.music.stop()
     root.destroy()
@@ -508,6 +516,12 @@ def back_button_push():
     count -= 1
 
     set_values()
+
+
+def return_button_push():
+    pygame.mixer.music.stop()
+    root.destroy()
+    os.system('python filter.py')
 
 
 # HEX Colours: #9C9FA5 - Grey | #5778BB - Blue | #DFE2EA - white
