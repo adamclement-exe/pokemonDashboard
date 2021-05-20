@@ -366,7 +366,11 @@ def set_values():
 
     typecolour = type_colour(name, True)
 
+    frame.place(relx=0.5, rely=0.10,
+                width=385, height=472,
+                anchor="n")
 
+    frame.config(bg=typecolour)
     if legendary == 'False':  # Creates boolean to avoid errors
         legendary = False
     elif legendary == 'True':
