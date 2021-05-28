@@ -1,1 +1,65 @@
 Madmegsox1's Manual
+
+`;-.          ___,
+  `.`\_...._/`.-"`
+    \        /      ,
+    /()   () \    .' `-._
+   |)  .    ()\  /   _.'
+   \  -'-     ,; '. <
+    ;.__     ,;|   > \
+   / ,    / ,  |.-'.-'
+  (_/    (_/ ,;|.<`
+    \    ,     ;-`
+     >   \    /
+    (_,-'`> .'
+         (_,'
+
+
+
+/* Search API *\
+
+
+The search API is easy to use in the GUI just go to
+the Pokemon browser and then type the
+name and/or filter the pokemon by there stats!
+
+- Enter the Name of the pokemon or some Characters of the name
+  into the seach area
+- Click on the boxes with the stats on to select stats to filter by
+- Click "Reset" to reset the boxes
+- Click "Home" to go back home
+- Click "View All" to go to the view all section
+
+
+
+/* Pokemon stat viewer *\
+
+The Stat viewer show a image of the Pokemon with a
+Custom genrated Background!
+The stats will be displayed under the image
+
+- Click "Next" to go to the next pokemon
+- Click "Back" to go back to the last pokemon
+- Click "Home" to go back home
+
+
+
+/* Pokemon Creator *\
+
+To create a pokemon goto "Add a new Pokemon"
+
+- Fill in the fiealds you would like
+- To add the pokemon image just select the image in the file explorer that pops up arfter you click next
+- To add a new Evolution click "Config Evo" then the name of the pokemon and the evo number
+
+/* Help *\
+
+The help page shows all the devs help manules!
+
+
+/* Song key binds *\
+
+Ctrl+P = pauses the music,
+Ctrl+U = unpauses the music,
+Ctrl+S = Stops the current completely and lastly,
+Ctrl+Right = Skips a song randomly.
